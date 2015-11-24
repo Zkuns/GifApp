@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		F7236E577D0960A4F3FDF070 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7917F83BB9CFF58352FA1162 /* Pods.framework */; };
 		F7E1AE5B1C03EA27001E5FE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE5A1C03EA27001E5FE0 /* AppDelegate.swift */; };
-		F7E1AE5D1C03EA27001E5FE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE5C1C03EA27001E5FE0 /* ViewController.swift */; };
+		F7E1AE5D1C03EA27001E5FE0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE5C1C03EA27001E5FE0 /* ContainerViewController.swift */; };
 		F7E1AE601C03EA27001E5FE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E1AE5E1C03EA27001E5FE0 /* Main.storyboard */; };
 		F7E1AE621C03EA27001E5FE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E1AE611C03EA27001E5FE0 /* Assets.xcassets */; };
 		F7E1AE651C03EA27001E5FE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E1AE631C03EA27001E5FE0 /* LaunchScreen.storyboard */; };
 		F7E1AE701C03EA27001E5FE0 /* GifAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE6F1C03EA27001E5FE0 /* GifAppTests.swift */; };
 		F7E1AE7B1C03EA27001E5FE0 /* GifAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE7A1C03EA27001E5FE0 /* GifAppUITests.swift */; };
+		F7E1AE891C042827001E5FE0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE881C042827001E5FE0 /* MenuItem.swift */; };
+		F7E1AE911C0433AE001E5FE0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE901C0433AE001E5FE0 /* MenuViewController.swift */; };
+		F7E1AE931C043726001E5FE0 /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE921C043726001E5FE0 /* SpeechViewController.swift */; };
+		F7E1AE971C044848001E5FE0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE961C044848001E5FE0 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +44,7 @@
 		E10D38ED082BA3EBB16F3EC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F7E1AE571C03EA27001E5FE0 /* GifApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E1AE5A1C03EA27001E5FE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F7E1AE5C1C03EA27001E5FE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7E1AE5C1C03EA27001E5FE0 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		F7E1AE5F1C03EA27001E5FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7E1AE611C03EA27001E5FE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7E1AE641C03EA27001E5FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +55,10 @@
 		F7E1AE761C03EA27001E5FE0 /* GifAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GifAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E1AE7A1C03EA27001E5FE0 /* GifAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifAppUITests.swift; sourceTree = "<group>"; };
 		F7E1AE7C1C03EA27001E5FE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7E1AE881C042827001E5FE0 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		F7E1AE901C0433AE001E5FE0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F7E1AE921C043726001E5FE0 /* SpeechViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
+		F7E1AE961C044848001E5FE0 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +129,12 @@
 		F7E1AE591C03EA27001E5FE0 /* GifApp */ = {
 			isa = PBXGroup;
 			children = (
+				F7E1AE8A1C04282F001E5FE0 /* Model */,
 				F7E1AE5A1C03EA27001E5FE0 /* AppDelegate.swift */,
-				F7E1AE5C1C03EA27001E5FE0 /* ViewController.swift */,
+				F7E1AE901C0433AE001E5FE0 /* MenuViewController.swift */,
+				F7E1AE5C1C03EA27001E5FE0 /* ContainerViewController.swift */,
+				F7E1AE961C044848001E5FE0 /* Config.swift */,
+				F7E1AE921C043726001E5FE0 /* SpeechViewController.swift */,
 				F7E1AE5E1C03EA27001E5FE0 /* Main.storyboard */,
 				F7E1AE611C03EA27001E5FE0 /* Assets.xcassets */,
 				F7E1AE631C03EA27001E5FE0 /* LaunchScreen.storyboard */,
@@ -147,6 +159,14 @@
 				F7E1AE7C1C03EA27001E5FE0 /* Info.plist */,
 			);
 			path = GifAppUITests;
+			sourceTree = "<group>";
+		};
+		F7E1AE8A1C04282F001E5FE0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7E1AE881C042827001E5FE0 /* MenuItem.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,8 +351,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7E1AE5D1C03EA27001E5FE0 /* ViewController.swift in Sources */,
+				F7E1AE891C042827001E5FE0 /* MenuItem.swift in Sources */,
+				F7E1AE931C043726001E5FE0 /* SpeechViewController.swift in Sources */,
+				F7E1AE5D1C03EA27001E5FE0 /* ContainerViewController.swift in Sources */,
 				F7E1AE5B1C03EA27001E5FE0 /* AppDelegate.swift in Sources */,
+				F7E1AE911C0433AE001E5FE0 /* MenuViewController.swift in Sources */,
+				F7E1AE971C044848001E5FE0 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,10 +497,14 @@
 			baseConfigurationReference = 0E1DE30FF95AD1406E5ADD24 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GifApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zk.GifApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -485,10 +513,13 @@
 			baseConfigurationReference = E10D38ED082BA3EBB16F3EC1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GifApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zk.GifApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 			};
 			name = Release;
 		};
