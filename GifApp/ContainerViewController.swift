@@ -13,45 +13,65 @@ enum State{
   case Close //关闭menu的状态
 }
 
+//用于menu切换动画的两个protocol, 前者containerViewController实现，后者为带切换按钮的controller实现
 protocol ToggleControllerDelegate{
-  func toggleMenu(action: (()->())?, completion: ((Bool)->Void)?)
+  func toggleMenu()
 }
 protocol CommonController{
   var toggleDelegate: ToggleControllerDelegate?{ get set }
   func toggleMenu(sender: UIButton)
+  func addNavigationBar()
 }
+
+//用于点击menu时切换controller的protocol
+protocol ChangeControllerDelegate{
+  func changeController(controllerName: String)
+}
+
+
 class ContainerViewController: UIViewController{
   //当前的开关状态
   var currentState = State.Close
+  //打开使用的遮罩层
   var maskView: UIView?
+  var panGesture: UIPanGestureRecognizer?
+  var tapGesture: UITapGestureRecognizer?
+  
   var containerNavigationController = UINavigationController()
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    //添加menuController
     let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-    let menuController = storyboard.instantiateViewControllerWithIdentifier("menu")
+    let menuController = storyboard.instantiateViewControllerWithIdentifier("menu") as! MenuViewController
     addChildViewController(menuController)
     view.addSubview(menuController.view)
+    menuController.delegate = self
     menuController.didMoveToParentViewController(self)
     
-    let speechController = storyboard.instantiateViewControllerWithIdentifier("speech") as! SpeechViewController
-    speechController.toggleDelegate = self
+    //添加navigationController和它的viewControllers
+    let controller = storyboard.instantiateViewControllerWithIdentifier(MenuItem.menuItems.first!.controllerName)
+    var commenController = controller as! CommonController
+    commenController.toggleDelegate = self
     addChildViewController(containerNavigationController)
     view.addSubview(containerNavigationController.view)
     containerNavigationController.didMoveToParentViewController(self)
-    containerNavigationController.pushViewController(speechController, animated: false)
+    containerNavigationController.pushViewController(controller, animated: false)
     
-    let panGesture = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
-    let tapGesture = UITapGestureRecognizer(target: self, action: "handleTapGesture:")
+    panGesture = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+    tapGesture = UITapGestureRecognizer(target: self, action: "handleTapGesture:")
     maskView = UIView(frame: CGRect(origin: containerNavigationController.view.frame.origin, size: CGSize(width: Config.menu_width, height: containerNavigationController.view.frame.height)))
-    maskView?.addGestureRecognizer(tapGesture)
-    containerNavigationController.view.addGestureRecognizer(panGesture)
+    maskView?.addGestureRecognizer(tapGesture!)
+    controller.view.addGestureRecognizer(panGesture!)
   }
 
 }
 
 extension ContainerViewController: ToggleControllerDelegate{
-  func toggleMenu(var action: (()->())? = nil, completion: ((Bool)->Void)? = nil){
+  
+  func toggleMenu(){
+    var action = {}
     switch currentState{
     case .Open:
       maskView?.removeFromSuperview()
@@ -62,7 +82,7 @@ extension ContainerViewController: ToggleControllerDelegate{
       action = { self.containerNavigationController.view.frame.origin.x = self.view.frame.width - Config.menu_width }
       currentState = .Open
     }
-    UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: action!, completion: completion)
+    UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: action, completion: nil)
   }
   
 }
@@ -85,10 +105,10 @@ extension ContainerViewController: UIGestureRecognizerDelegate{
       } else {
         if currentState == .Open{
           currentState = .Close
-          toggleMenu(nil, completion: nil)
+          toggleMenu()
         } else {
           currentState = .Open
-          toggleMenu(nil, completion: nil)
+          toggleMenu()
         }
       }
     default: break
@@ -110,4 +130,18 @@ extension ContainerViewController: UIGestureRecognizerDelegate{
   }
 }
 
+extension ContainerViewController: ChangeControllerDelegate{
+  func changeController(controllerName: String) {
+    let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+    let controller = storyboard.instantiateViewControllerWithIdentifier(controllerName)
+    let currentControllerName = "\(containerNavigationController.viewControllers.first!.dynamicType)"
+    if currentControllerName != controllerName {
+      containerNavigationController.setViewControllers([controller], animated: true)
+      var commonController = controller as! CommonController
+      commonController.toggleDelegate = self
+      controller.view.addGestureRecognizer(panGesture!)
+    }
+    toggleMenu()
+  }
+}
 

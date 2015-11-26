@@ -9,5 +9,5 @@
 import UIKit
 
 struct Config {
-  static let menu_width: CGFloat = 200
+  static let menu_width: CGFloat = 100
 }

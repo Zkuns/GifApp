@@ -1,23 +1,19 @@
 //
-//  SpeechViewController.swift
+//  AboutViewController.swift
 //  GifApp
 //
-//  Created by 朱坤 on 11/24/15.
+//  Created by 朱坤 on 11/26/15.
 //  Copyright © 2015 Zkuns. All rights reserved.
 //
 
 import UIKit
 
-class SpeechViewController: UIViewController, CommonController{
-
+class AboutViewController: UIViewController, CommonController{
+  
   var toggleDelegate: ToggleControllerDelegate?
   
   override func viewDidLoad() {
-    super.viewDidLoad()
-    let titleLabel = UILabel(frame: CGRectMake(0, 0, 20, (navigationController?.navigationBar.frame.height)!))
-    titleLabel.text = "just test"
     addNavigationBar()
-    navigationItem.titleView = titleLabel
   }
   
   func toggleMenu(sender: UIButton){

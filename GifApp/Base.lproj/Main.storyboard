@@ -26,7 +26,7 @@
         <!--Speech View Controller-->
         <scene sceneID="sW9-Pq-3LN">
             <objects>
-                <viewController storyboardIdentifier="speech" id="H6J-Cl-gpp" customClass="SpeechViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpeechViewController" id="H6J-Cl-gpp" customClass="SpeechViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xCN-4n-bVv"/>
                         <viewControllerLayoutGuide type="bottom" id="Ejp-uf-BSd"/>
@@ -39,12 +39,102 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWU-pq-L53" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="458" y="1153"/>
+            <point key="canvasLocation" x="438" y="1208"/>
+        </scene>
+        <!--Guest View Controller-->
+        <scene sceneID="yev-Un-IhN">
+            <objects>
+                <viewController storyboardIdentifier="GuestViewController" id="ekc-5i-W5L" customClass="GuestViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ShB-CI-82j"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tse-fg-YME"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vna-pA-LbC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lB-p9-CzI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="1888"/>
+        </scene>
+        <!--Geek Talk View Controller-->
+        <scene sceneID="tDN-En-vQv">
+            <objects>
+                <viewController storyboardIdentifier="GeekTalkViewController" id="fwb-JZ-lOM" customClass="GeekTalkViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M08-sm-PSp"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eud-zv-FJT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="206-Ug-UH1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Tc-QT-SSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="2580"/>
+        </scene>
+        <!--Traffic View Controller-->
+        <scene sceneID="cLt-u3-w3P">
+            <objects>
+                <viewController storyboardIdentifier="TrafficViewController" id="8TY-6f-7CM" customClass="TrafficViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nHk-ZQ-I7Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="82H-Nf-jR8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A2x-g8-dLQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="051-AM-xZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="3274"/>
+        </scene>
+        <!--Weibo View Controller-->
+        <scene sceneID="Gqf-j5-sSn">
+            <objects>
+                <viewController storyboardIdentifier="WeiboViewController" id="SIl-kI-bao" customClass="WeiboViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PGe-73-mv7"/>
+                        <viewControllerLayoutGuide type="bottom" id="BwH-oJ-z0W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6RX-hb-qkX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q1M-SY-Aax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="3967"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="pJW-z1-Lba">
+            <objects>
+                <viewController storyboardIdentifier="AboutViewController" id="4Nh-1p-ugq" customClass="AboutViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kke-dm-njg"/>
+                        <viewControllerLayoutGuide type="bottom" id="K8a-Ra-w5R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fmN-xj-N9i">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V8F-vJ-5Ov" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="4669"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="ILD-HC-5cJ">
             <objects>
-                <viewController storyboardIdentifier="menu" id="VIT-cy-J7s" customClass="MenuViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" automaticallyAdjustsScrollViewInsets="NO" id="VIT-cy-J7s" customClass="MenuViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xgF-VC-MHB"/>
                         <viewControllerLayoutGuide type="bottom" id="FEU-9G-lPJ"/>
@@ -53,19 +143,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="menu controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsr-Lw-u1X">
-                                <rect key="frame" x="20" y="20" width="120" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0m7-i0-NNv">
+                                <rect key="frame" x="0.0" y="70" width="600" height="530"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="t6p-Xt-8a8" customClass="menuCell" customModule="GifApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t6p-Xt-8a8" id="Q2i-lt-hpb">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0m7-i0-NNv" firstAttribute="leading" secondItem="07Q-zD-IvY" secondAttribute="leading" id="Mka-c1-UTJ"/>
+                            <constraint firstAttribute="trailing" secondItem="0m7-i0-NNv" secondAttribute="trailing" id="Oiq-CB-XHQ"/>
+                            <constraint firstItem="0m7-i0-NNv" firstAttribute="bottom" secondItem="FEU-9G-lPJ" secondAttribute="top" id="Yw7-hA-wja"/>
+                            <constraint firstItem="0m7-i0-NNv" firstAttribute="top" secondItem="xgF-VC-MHB" secondAttribute="bottom" constant="50" id="tBY-8X-3de"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="menuTable" destination="0m7-i0-NNv" id="H1E-hi-hdg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yet-E5-Jv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1189" y="490"/>
+            <point key="canvasLocation" x="1228" y="490"/>
         </scene>
     </scenes>
 </document>
