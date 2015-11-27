@@ -10,4 +10,5 @@ import UIKit
 
 struct Config {
   static let menu_width: CGFloat = 100
+  static let speechesAPI: String = "http://events.geekpark.net/api/v1/activities/663b2c7b-14c9-48bc-abaa-7810c6073168/speeches"
 }

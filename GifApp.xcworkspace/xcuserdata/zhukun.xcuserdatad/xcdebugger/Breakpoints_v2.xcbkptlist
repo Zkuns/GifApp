@@ -9,13 +9,92 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GifApp/SpeechViewController.swift"
-            timestampString = "470049799.242077"
+            filePath = "GifApp/ContainerViewController.swift"
+            timestampString = "470216684.504825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "ContainerViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GifApp.ContainerViewController.currentMenuItem.materializeForSet : Swift.Optional&lt;GifApp.MenuItem&gt;"
+                  moduleName = "GifApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhukun/swift/GifApp/GifApp/ContainerViewController.swift"
+                  timestampString = "470216684.517496"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GifApp.ContainerViewController.init (GifApp.ContainerViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; GifApp.ContainerViewController"
+                  moduleName = "GifApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhukun/swift/GifApp/GifApp/ContainerViewController.swift"
+                  timestampString = "470216684.517851"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GifApp.ContainerViewController.init (GifApp.ContainerViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;GifApp.ContainerViewController&gt;"
+                  moduleName = "GifApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhukun/swift/GifApp/GifApp/ContainerViewController.swift"
+                  timestampString = "470216684.518117"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GifApp/Speech.swift"
+            timestampString = "470220163.250038"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "getDateHour()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GifApp/SpeechViewController.swift"
+            timestampString = "470292891.219329"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

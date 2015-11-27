@@ -8,28 +8,97 @@
 
 import UIKit
 
-class SpeechViewController: UIViewController, CommonController{
+enum Day{
+  case First, Second, Third
+}
 
-  var toggleDelegate: ToggleControllerDelegate?
+class SpeechViewController: UIViewController {
+
+  @IBOutlet weak var speechTable: UITableView!
+  
+  var currentSpeeches: [Speech]?{
+    didSet{
+      if (self.currentSpeeches != nil){
+        updateUI()
+      }
+    }
+  }
+  
+  var currentState: Day?{
+    set{
+      currentDay = newValue!
+      switch self.currentDay!{
+      case .First: currentSpeeches = self.speeches![0]
+      case .Second: currentSpeeches = self.speeches![1]
+      case .Third: currentSpeeches = self.speeches![2]
+      }
+    }
+    get{
+      return currentDay
+    }
+  }
+  
+  var currentDay: Day?
+  
+  var speeches: [[Speech]]? {
+    didSet{
+      currentState = .First
+    }
+  }
+  
+  @IBAction func toggleDay(sender: UISegmentedControl) {
+    let index = sender.selectedSegmentIndex
+    let selectDay: Day = [.First, .Second, .Third][index]
+    print (selectDay)
+    if (currentState == nil || selectDay != currentState!){
+      currentState = selectDay
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let titleLabel = UILabel(frame: CGRectMake(0, 0, 20, (navigationController?.navigationBar.frame.height)!))
-    titleLabel.text = "just test"
-    addNavigationBar()
-    navigationItem.titleView = titleLabel
+    speechTable.delegate = self
+    speechTable.dataSource = self
+    Speech.getData(self)
   }
   
-  func toggleMenu(sender: UIButton){
-    toggleDelegate?.toggleMenu()
+  func updateUI(){
+    speechTable.reloadData()
   }
   
-  func addNavigationBar(){
-    let image = UIImage(named: "menu")
-    let button = UIButton(frame: CGRectMake(0, 0, (image?.size.width)!, (image?.size.height)!))
-    button.setBackgroundImage(image, forState: .Normal)
-    button.addTarget(self, action: "toggleMenu:", forControlEvents: UIControlEvents.TouchUpInside)
-    self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+}
+
+extension SpeechViewController: UITableViewDataSource{
+  func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let cell = tableView.dequeueReusableCellWithIdentifier("speechHeader") as! SpeechHeader
+    if (currentSpeeches != nil){
+      cell.theme.text! = section == 0 ? "\(currentSpeeches![0].theme ?? "") 上午" : "\(currentSpeeches![1].theme ?? "") 下午"
+    }
+    cell.location.text! = "地点"
+    return cell.contentView
   }
+  
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 2
+  }
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if currentSpeeches?.count > 0{
+      return Speech.split(currentSpeeches!)[section].count
+    } else {
+      return 0
+    }
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+    let cell = tableView.dequeueReusableCellWithIdentifier("speechCell", forIndexPath: indexPath) as! SpeechCell
+    let speech = Speech.split(currentSpeeches!)[indexPath.section][indexPath.row]
+    cell.setData(speech)
+    return cell
+  }
+  
+}
+
+extension SpeechViewController: UITableViewDelegate{
   
 }

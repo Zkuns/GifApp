@@ -25,8 +25,7 @@ class MenuViewController: UIViewController {
 extension MenuViewController: UITableViewDelegate{
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    let controllerName = menuItems[indexPath.row].controllerName
-    delegate?.changeController(controllerName)
+    delegate?.changeController(menuItems[indexPath.row])
   }
 }
 

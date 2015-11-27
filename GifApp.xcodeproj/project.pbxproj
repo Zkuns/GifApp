@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		F7236E577D0960A4F3FDF070 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7917F83BB9CFF58352FA1162 /* Pods.framework */; };
-		F774E1E31C0564BA00ED8C65 /* menuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774E1E21C0564BA00ED8C65 /* menuCell.swift */; };
+		F755B23F1C070F4700A63143 /* SpeechCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B23E1C070F4700A63143 /* SpeechCell.swift */; };
+		F755B2411C07264D00A63143 /* SpeechHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B2401C07264D00A63143 /* SpeechHeader.swift */; };
+		F755B2431C07E52A00A63143 /* GuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B2421C07E52A00A63143 /* GuestCell.swift */; };
+		F774E1E31C0564BA00ED8C65 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774E1E21C0564BA00ED8C65 /* MenuCell.swift */; };
 		F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */; };
 		F7DFD9411C06D30300465F40 /* GeekTalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */; };
 		F7DFD9431C06D31300465F40 /* TrafficViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD9421C06D31300465F40 /* TrafficViewController.swift */; };
 		F7DFD9451C06D32100465F40 /* WeiboViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD9441C06D32100465F40 /* WeiboViewController.swift */; };
 		F7DFD9471C06D32C00465F40 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD9461C06D32C00465F40 /* AboutViewController.swift */; };
+		F7DFD94A1C06F7BF00465F40 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD9491C06F7BF00465F40 /* Speech.swift */; };
+		F7DFD94C1C06F93E00465F40 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD94B1C06F93E00465F40 /* Guest.swift */; };
 		F7E1AE5B1C03EA27001E5FE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE5A1C03EA27001E5FE0 /* AppDelegate.swift */; };
 		F7E1AE5D1C03EA27001E5FE0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE5C1C03EA27001E5FE0 /* ContainerViewController.swift */; };
 		F7E1AE601C03EA27001E5FE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E1AE5E1C03EA27001E5FE0 /* Main.storyboard */; };
@@ -48,12 +53,17 @@
 		0E1DE30FF95AD1406E5ADD24 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7917F83BB9CFF58352FA1162 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E10D38ED082BA3EBB16F3EC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		F774E1E21C0564BA00ED8C65 /* menuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuCell.swift; sourceTree = "<group>"; };
+		F755B23E1C070F4700A63143 /* SpeechCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechCell.swift; sourceTree = "<group>"; };
+		F755B2401C07264D00A63143 /* SpeechHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechHeader.swift; sourceTree = "<group>"; };
+		F755B2421C07E52A00A63143 /* GuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestCell.swift; sourceTree = "<group>"; };
+		F774E1E21C0564BA00ED8C65 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
 		F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeekTalkViewController.swift; sourceTree = "<group>"; };
 		F7DFD9421C06D31300465F40 /* TrafficViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficViewController.swift; sourceTree = "<group>"; };
 		F7DFD9441C06D32100465F40 /* WeiboViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboViewController.swift; sourceTree = "<group>"; };
 		F7DFD9461C06D32C00465F40 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F7DFD9491C06F7BF00465F40 /* Speech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
+		F7DFD94B1C06F93E00465F40 /* Guest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
 		F7E1AE571C03EA27001E5FE0 /* GifApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E1AE5A1C03EA27001E5FE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7E1AE5C1C03EA27001E5FE0 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -134,7 +144,10 @@
 		F7DFD9481C06D34A00465F40 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F774E1E21C0564BA00ED8C65 /* menuCell.swift */,
+				F774E1E21C0564BA00ED8C65 /* MenuCell.swift */,
+				F755B23E1C070F4700A63143 /* SpeechCell.swift */,
+				F755B2401C07264D00A63143 /* SpeechHeader.swift */,
+				F755B2421C07E52A00A63143 /* GuestCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -199,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				F7E1AE881C042827001E5FE0 /* MenuItem.swift */,
+				F7DFD9491C06F7BF00465F40 /* Speech.swift */,
+				F7DFD94B1C06F93E00465F40 /* Guest.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -386,16 +401,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7E1AE891C042827001E5FE0 /* MenuItem.swift in Sources */,
-				F774E1E31C0564BA00ED8C65 /* menuCell.swift in Sources */,
+				F774E1E31C0564BA00ED8C65 /* MenuCell.swift in Sources */,
 				F7DFD9431C06D31300465F40 /* TrafficViewController.swift in Sources */,
 				F7E1AE931C043726001E5FE0 /* SpeechViewController.swift in Sources */,
+				F755B23F1C070F4700A63143 /* SpeechCell.swift in Sources */,
+				F755B2431C07E52A00A63143 /* GuestCell.swift in Sources */,
 				F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */,
 				F7DFD9451C06D32100465F40 /* WeiboViewController.swift in Sources */,
 				F7DFD9471C06D32C00465F40 /* AboutViewController.swift in Sources */,
 				F7DFD9411C06D30300465F40 /* GeekTalkViewController.swift in Sources */,
+				F7DFD94A1C06F7BF00465F40 /* Speech.swift in Sources */,
 				F7E1AE5D1C03EA27001E5FE0 /* ContainerViewController.swift in Sources */,
 				F7E1AE5B1C03EA27001E5FE0 /* AppDelegate.swift in Sources */,
 				F7E1AE911C0433AE001E5FE0 /* MenuViewController.swift in Sources */,
+				F7DFD94C1C06F93E00465F40 /* Guest.swift in Sources */,
+				F755B2411C07264D00A63143 /* SpeechHeader.swift in Sources */,
 				F7E1AE971C044848001E5FE0 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
