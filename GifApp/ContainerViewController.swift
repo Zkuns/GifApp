@@ -71,9 +71,7 @@ class ContainerViewController: UIViewController{
     button.setBackgroundImage(image, forState: .Normal)
     button.addTarget(self, action: "toggle:", forControlEvents: UIControlEvents.TouchUpInside)
     controller.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
-    let titleLabel = UILabel(frame: CGRectMake(0, 0, 20, containerNavigationController.navigationBar.frame.height))
-    titleLabel.text = currentMenuItem!.menuName
-    controller.navigationItem.titleView = titleLabel
+    controller.title = currentMenuItem!.menuName
   }
   
   func toggle(sender: UIButton){
