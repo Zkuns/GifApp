@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+let speechAPI = Config.baseUrl + "/api/v1/activities/663b2c7b-14c9-48bc-abaa-7810c6073168/speeches"
 class Speech{
   let title: String?
   let description: String?
@@ -66,14 +67,18 @@ class Speech{
     return [amSpeeches, pmSpeeches]
   }
   
-  static func getData(controller: SpeechViewController){
-    Alamofire.request(.GET, Config.speechesAPI).response{ request, response, data, error in
+  static func getData(callback: (success: Bool, speeches: [[Speech]]?)->()){
+    Alamofire.request(.GET, speechAPI).response{ request, response, data, error in
       let speechData = JSON(data: data!)["speeches"].array
       let speeches = speechData!.map{ speech-> Speech in
         return getSpeech(speech)
       }
-      controller.speeches = splitByDay(speeches)
-      print(speeches)
+      if error != nil{
+        print(error)
+        callback(success: false, speeches: nil)
+      } else {
+        callback(success: true, speeches: splitByDay(speeches))
+      }
     }
   }
   
@@ -100,15 +105,4 @@ class Speech{
     return result
   }
   
-  static func getCurrentData(speeches: [Speech]?, day: Day) -> [Speech]?{
-    if (speeches != nil) {
-      let result = Speech.splitByDay(speeches!)
-      switch day{
-      case .First: return result[0]
-      case .Second: return result[1]
-      case .Third: return result[2]
-      }
-    }
-    return []
-  }
 }

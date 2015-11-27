@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum Day{
-  case First, Second, Third
-}
-
 class SpeechViewController: UIViewController {
 
   @IBOutlet weak var speechTable: UITableView!
@@ -24,42 +20,32 @@ class SpeechViewController: UIViewController {
     }
   }
   
-  var currentState: Day?{
-    set{
-      currentDay = newValue!
-      switch self.currentDay!{
-      case .First: currentSpeeches = self.speeches![0]
-      case .Second: currentSpeeches = self.speeches![1]
-      case .Third: currentSpeeches = self.speeches![2]
-      }
-    }
-    get{
-      return currentDay
+  var currentIndex: Int?{
+    didSet{
+      currentSpeeches = self.speeches?[currentIndex!]
     }
   }
   
-  var currentDay: Day?
-  
   var speeches: [[Speech]]? {
     didSet{
-      currentState = .First
+      currentIndex = 0
     }
   }
   
   @IBAction func toggleDay(sender: UISegmentedControl) {
     let index = sender.selectedSegmentIndex
-    let selectDay: Day = [.First, .Second, .Third][index]
-    print (selectDay)
-    if (currentState == nil || selectDay != currentState!){
-      currentState = selectDay
-    }
+    currentIndex = index
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     speechTable.delegate = self
     speechTable.dataSource = self
-    Speech.getData(self)
+    Speech.getData(){ success, speeches in
+      if (success){
+        self.speeches = speeches
+      }
+    }
   }
   
   func updateUI(){
@@ -118,4 +104,7 @@ extension SpeechViewController: UITableViewDataSource{
 }
 
 extension SpeechViewController: UITableViewDelegate{
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  }
 }

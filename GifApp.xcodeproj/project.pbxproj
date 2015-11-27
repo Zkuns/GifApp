@@ -136,12 +136,12 @@
 				F7E1AE5C1C03EA27001E5FE0 /* ContainerViewController.swift */,
 				F7E1AE901C0433AE001E5FE0 /* MenuViewController.swift */,
 				F7E1AE921C043726001E5FE0 /* SpeechViewController.swift */,
+				8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */,
 				F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */,
 				F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */,
 				F7DFD9421C06D31300465F40 /* TrafficViewController.swift */,
 				F7DFD9441C06D32100465F40 /* WeiboViewController.swift */,
 				F7DFD9461C06D32C00465F40 /* AboutViewController.swift */,
-				8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */,
 				8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */,
 			);
 			name = Controller;

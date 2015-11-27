@@ -18,29 +18,7 @@ class GuestCell: UITableViewCell {
     name.text = guest.name
     company.text = guest.company
     title.text = guest.title
-    avatorUrl = guest.avator
+    avator.image = nil
   }
   
-  var avatorUrl: String?{
-    didSet{
-      if avatorUrl != nil{
-        loadImage()
-      }
-    }
-  }
-  
-  func loadImage(){
-    if let url = avatorUrl{
-      dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-        let imageData = NSData(contentsOfURL: NSURL(string: url)!)
-        dispatch_async(dispatch_get_main_queue()){
-          if imageData != nil{
-            self.avator.image = UIImage(data: imageData!)!
-          } else {
-            self.avator.image = nil
-          }
-        }
-      }
-    }
-  }
 }
