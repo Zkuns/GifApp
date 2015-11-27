@@ -55,6 +55,19 @@ class ContainerViewController: UIViewController{
     maskView?.addGestureRecognizer(maskGesture)
     
     currentMenuItem = MenuItem.menuItems.first
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    if(appDelegate.firstLaunch){
+      loadLaunchView()
+    }
+    
+  }
+  func loadLaunchView(){
+    let launchView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+    let launchViewController = LaunchScreenController()
+    self.addChildViewController(launchViewController)
+    launchView.addSubview(launchViewController.view)
+    self.view.addSubview(launchView)
   }
   
   //更新containerNavigationController的UI
