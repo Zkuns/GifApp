@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EE6E9291C082EA800623DF5 /* SpeechDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */; };
+		8EE6E92B1C084D6C00623DF5 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */; };
 		F7236E577D0960A4F3FDF070 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7917F83BB9CFF58352FA1162 /* Pods.framework */; };
 		F755B23F1C070F4700A63143 /* SpeechCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B23E1C070F4700A63143 /* SpeechCell.swift */; };
 		F755B2411C07264D00A63143 /* SpeechHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B2401C07264D00A63143 /* SpeechHeader.swift */; };
@@ -52,6 +54,8 @@
 /* Begin PBXFileReference section */
 		0E1DE30FF95AD1406E5ADD24 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7917F83BB9CFF58352FA1162 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechDetailViewController.swift; sourceTree = "<group>"; };
+		8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		E10D38ED082BA3EBB16F3EC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F755B23E1C070F4700A63143 /* SpeechCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechCell.swift; sourceTree = "<group>"; };
 		F755B2401C07264D00A63143 /* SpeechHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechHeader.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				F7DFD9421C06D31300465F40 /* TrafficViewController.swift */,
 				F7DFD9441C06D32100465F40 /* WeiboViewController.swift */,
 				F7DFD9461C06D32C00465F40 /* AboutViewController.swift */,
+				8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */,
+				8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -411,9 +417,11 @@
 				F7DFD9471C06D32C00465F40 /* AboutViewController.swift in Sources */,
 				F7DFD9411C06D30300465F40 /* GeekTalkViewController.swift in Sources */,
 				F7DFD94A1C06F7BF00465F40 /* Speech.swift in Sources */,
+				8EE6E92B1C084D6C00623DF5 /* LaunchScreenController.swift in Sources */,
 				F7E1AE5D1C03EA27001E5FE0 /* ContainerViewController.swift in Sources */,
 				F7E1AE5B1C03EA27001E5FE0 /* AppDelegate.swift in Sources */,
 				F7E1AE911C0433AE001E5FE0 /* MenuViewController.swift in Sources */,
+				8EE6E9291C082EA800623DF5 /* SpeechDetailViewController.swift in Sources */,
 				F7DFD94C1C06F93E00465F40 /* Guest.swift in Sources */,
 				F755B2411C07264D00A63143 /* SpeechHeader.swift in Sources */,
 				F7E1AE971C044848001E5FE0 /* Config.swift in Sources */,

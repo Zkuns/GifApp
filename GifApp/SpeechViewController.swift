@@ -66,6 +66,24 @@ class SpeechViewController: UIViewController {
     speechTable.reloadData()
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    print("prepareForSegue")
+    if let indentifier = segue.identifier{
+      switch indentifier{
+        case "show_detail_from_speech":
+          if let dvc = segue.destinationViewController as? SpeechDetailViewController{
+            if let index = self.speechTable.indexPathForCell(sender as! SpeechCell){
+              let speech = speeches![index.section][index.row]
+              print("\(speech)")
+              dvc.speech = speech
+            }
+        }
+      default:break
+        
+      }
+    }
+  }
+    
 }
 
 extension SpeechViewController: UITableViewDataSource{
@@ -100,5 +118,4 @@ extension SpeechViewController: UITableViewDataSource{
 }
 
 extension SpeechViewController: UITableViewDelegate{
-  
 }
