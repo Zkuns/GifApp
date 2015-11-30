@@ -35,11 +35,13 @@ class GuestViewController: UIViewController{
         if let dvc = segue.destinationViewController as? SpeechDetailViewController{
           if let index = self.guestTable.indexPathForCell(sender as! GuestCell){
             let guest = orderGuests[index.section].1[index.row]
-            dvc.speech = guest.speech
+            dvc.guest = guest
+            if let speech = guest.speech{
+              dvc.speech = speech
+            }
           }
         }
       default:break
-        
       }
     }
   }

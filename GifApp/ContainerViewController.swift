@@ -16,8 +16,18 @@ enum State{
 //用于点击menu时切换controller的protocol
 protocol ChangeControllerDelegate{
   func changeController(menuItem: MenuItem)
+  func changeToUserCenterController(index: Int)
 }
 
+//打开登陆界面的delegate
+protocol OpenLoginPageDelegate{
+  func openLoginPage()
+}
+
+//当登陆或注销后的ui更新delegate
+protocol UpdateUIDelegate{
+  func updateUIWithUser()
+}
 
 class ContainerViewController: UIViewController{
   //当前的开关状态
@@ -27,6 +37,7 @@ class ContainerViewController: UIViewController{
   var panGesture: UIPanGestureRecognizer?
   var tapGesture: UITapGestureRecognizer?
   let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+  var menuViewController: MenuViewController?
   var currentMenuItem: MenuItem?{
     didSet{
       updateNavigationControllerUI()
@@ -39,11 +50,12 @@ class ContainerViewController: UIViewController{
     super.viewDidLoad()
     
     //添加menuController
-    let menuController = storyBoard.instantiateViewControllerWithIdentifier("menu") as! MenuViewController
-    addChildViewController(menuController)
-    view.addSubview(menuController.view)
-    menuController.delegate = self
-    menuController.didMoveToParentViewController(self)
+    menuViewController = storyBoard.instantiateViewControllerWithIdentifier("menu") as? MenuViewController
+    addChildViewController(menuViewController!)
+    view.addSubview(menuViewController!.view)
+    menuViewController!.delegate = self
+    menuViewController!.openLoginPageDelegate = self
+    menuViewController!.didMoveToParentViewController(self)
     
     containerNavigationController.view.layer.shadowOpacity = 0.8
     
@@ -54,11 +66,14 @@ class ContainerViewController: UIViewController{
     maskView?.addGestureRecognizer(tapGesture!)
     maskView?.addGestureRecognizer(maskGesture)
     
+    addChildViewController(containerNavigationController)
+    view.addSubview(containerNavigationController.view)
+    containerNavigationController.didMoveToParentViewController(self)
     currentMenuItem = MenuItem.menuItems.first
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     if(appDelegate.firstLaunch){
-      loadLaunchView()
+//      loadLaunchView()
     }
     
   }
@@ -73,10 +88,7 @@ class ContainerViewController: UIViewController{
   //更新containerNavigationController的UI
   func updateNavigationControllerUI(){
     let controller = storyBoard.instantiateViewControllerWithIdentifier(currentMenuItem!.controllerName)
-    addChildViewController(containerNavigationController)
-    view.addSubview(containerNavigationController.view)
-    containerNavigationController.didMoveToParentViewController(self)
-    containerNavigationController.pushViewController(controller, animated: false)
+    containerNavigationController.viewControllers = [controller]
     controller.view.addGestureRecognizer(panGesture!)
     
     let image = UIImage(named: "menu")
@@ -96,11 +108,17 @@ class ContainerViewController: UIViewController{
     switch currentState{
     case .Open:
       maskView?.removeFromSuperview()
-      action = { self.containerNavigationController.view.frame.origin.x = 0 }
+      action = {
+        self.containerNavigationController.view.transform = CGAffineTransformMakeScale(1, 1)
+        self.containerNavigationController.view.frame.origin.x = 0
+      }
       currentState = .Close
     case .Close:
       containerNavigationController.view.addSubview(maskView!)
-      action = { self.containerNavigationController.view.frame.origin.x = self.view.frame.width - Config.menu_width }
+      action = {
+        self.containerNavigationController.view.frame.origin.x = self.view.frame.width - Config.menu_width
+        self.containerNavigationController.view.transform = CGAffineTransformMakeScale(0.8, 0.8)
+      }
       currentState = .Open
     }
     UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: action, completion: nil)
@@ -108,15 +126,45 @@ class ContainerViewController: UIViewController{
   
 }
 
+extension ContainerViewController: OpenLoginPageDelegate{
+  func openLoginPage(){
+    let loginViewController = storyBoard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
+    loginViewController.updateUIDelegate = self
+    view.addSubview(loginViewController.view)
+    addChildViewController(loginViewController)
+    loginViewController.didMoveToParentViewController(self)
+  }
+}
+
+extension ContainerViewController: UpdateUIDelegate{
+  func updateUIWithUser() {
+//    menuViewController?.removeFromParentViewController()
+//    menuViewController?.view.removeFromSuperview()
+//    menuViewController?
+//    menuViewController = storyBoard.instantiateViewControllerWithIdentifier("menu") as? MenuViewController
+//    addChildViewController(menuViewController!)
+//    view.insertSubview(menuViewController!.view, atIndex: 0)
+//    menuViewController!.delegate = self
+//    menuViewController!.openLoginPageDelegate = self
+//    menuViewController!.didMoveToParentViewController(self)
+    menuViewController?.reloadController()
+    
+    if currentMenuItem?.controllerName == "SpeechViewController"{
+      updateNavigationControllerUI()
+    }
+  }
+}
+
+
 extension ContainerViewController: UIGestureRecognizerDelegate{
   func handlePanGesture(recogizer: UIPanGestureRecognizer){
     let left = recogizer.velocityInView(view).x < 0
     switch recogizer.state{
     case .Changed:
       if (currentState == .Close){
-        animateController(0, size: recogizer.translationInView(view).x)
+        animateController(0, origin_ratio: 1, size: recogizer.translationInView(view).x)
       } else{
-        animateController(view.frame.size.width - CGFloat(Config.menu_width), size: recogizer.translationInView(view).x)
+        animateController(view.frame.size.width - CGFloat(Config.menu_width), origin_ratio: 0.8, size: recogizer.translationInView(view).x)
       }
     case .Ended:
       if (currentState == .Close) && !left{
@@ -136,13 +184,16 @@ extension ContainerViewController: UIGestureRecognizerDelegate{
     }
   }
   
-  private func animateController(origin_x: CGFloat, size: CGFloat){
+  private func animateController(origin_x: CGFloat, origin_ratio: CGFloat, size: CGFloat){
     if ((origin_x + size) < 0){
       containerNavigationController.view.frame.origin.x = 0
     } else if (origin_x + size > view.frame.size.width){
       containerNavigationController.view.frame.origin.x = view.frame.size.width
+      self.containerNavigationController.view.transform = CGAffineTransformMakeScale(1, 1)
     } else {
       containerNavigationController.view.frame.origin.x = origin_x + size
+      let ratio = (size / (containerNavigationController.view.frame.width - Config.menu_width)) * 0.2
+      self.containerNavigationController.view.transform = CGAffineTransformMakeScale(origin_ratio - ratio, origin_ratio - ratio)
     }
   }
   
@@ -157,6 +208,12 @@ extension ContainerViewController: ChangeControllerDelegate{
       currentMenuItem = menuItem
     }
     toggleMenu()
+  }
+  func changeToUserCenterController(index: Int) {
+    changeController(MenuItem(controllerName: "UserViewController", menuName: "用户中心", imageName: "cat"))
+    if let controller = containerNavigationController.viewControllers.first as? UserCenterViewController{
+      controller.index = index
+    }
   }
 }
 

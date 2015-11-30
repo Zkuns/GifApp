@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		8EE6E9291C082EA800623DF5 /* SpeechDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */; };
 		8EE6E92B1C084D6C00623DF5 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */; };
+		F71E863B1C0B271B00ED2595 /* QrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E863A1C0B271B00ED2595 /* QrCell.swift */; };
 		F7236E577D0960A4F3FDF070 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7917F83BB9CFF58352FA1162 /* Pods.framework */; };
+		F7323E021C093445002CDDC4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7323E011C093445002CDDC4 /* User.swift */; };
+		F7323E041C09375B002CDDC4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7323E031C09375B002CDDC4 /* Comment.swift */; };
+		F7323E061C093766002CDDC4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7323E051C093766002CDDC4 /* Post.swift */; };
+		F7323E081C094BA7002CDDC4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7323E071C094BA7002CDDC4 /* LoginViewController.swift */; };
 		F755B23F1C070F4700A63143 /* SpeechCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B23E1C070F4700A63143 /* SpeechCell.swift */; };
 		F755B2411C07264D00A63143 /* SpeechHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B2401C07264D00A63143 /* SpeechHeader.swift */; };
 		F755B2431C07E52A00A63143 /* GuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B2421C07E52A00A63143 /* GuestCell.swift */; };
 		F774E1E31C0564BA00ED8C65 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774E1E21C0564BA00ED8C65 /* MenuCell.swift */; };
+		F78B7F031C0AA35700E794E6 /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B7F021C0AA35700E794E6 /* UserCenterViewController.swift */; };
 		F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */; };
 		F7DFD9411C06D30300465F40 /* GeekTalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */; };
 		F7DFD9431C06D31300465F40 /* TrafficViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD9421C06D31300465F40 /* TrafficViewController.swift */; };
@@ -57,10 +63,16 @@
 		8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechDetailViewController.swift; sourceTree = "<group>"; };
 		8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		E10D38ED082BA3EBB16F3EC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F71E863A1C0B271B00ED2595 /* QrCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QrCell.swift; sourceTree = "<group>"; };
+		F7323E011C093445002CDDC4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F7323E031C09375B002CDDC4 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		F7323E051C093766002CDDC4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		F7323E071C094BA7002CDDC4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F755B23E1C070F4700A63143 /* SpeechCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechCell.swift; sourceTree = "<group>"; };
 		F755B2401C07264D00A63143 /* SpeechHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechHeader.swift; sourceTree = "<group>"; };
 		F755B2421C07E52A00A63143 /* GuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestCell.swift; sourceTree = "<group>"; };
 		F774E1E21C0564BA00ED8C65 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		F78B7F021C0AA35700E794E6 /* UserCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
 		F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
 		F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeekTalkViewController.swift; sourceTree = "<group>"; };
 		F7DFD9421C06D31300465F40 /* TrafficViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +155,8 @@
 				F7DFD9441C06D32100465F40 /* WeiboViewController.swift */,
 				F7DFD9461C06D32C00465F40 /* AboutViewController.swift */,
 				8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */,
+				F7323E071C094BA7002CDDC4 /* LoginViewController.swift */,
+				F78B7F021C0AA35700E794E6 /* UserCenterViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -154,6 +168,7 @@
 				F755B23E1C070F4700A63143 /* SpeechCell.swift */,
 				F755B2401C07264D00A63143 /* SpeechHeader.swift */,
 				F755B2421C07E52A00A63143 /* GuestCell.swift */,
+				F71E863A1C0B271B00ED2595 /* QrCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -220,6 +235,9 @@
 				F7E1AE881C042827001E5FE0 /* MenuItem.swift */,
 				F7DFD9491C06F7BF00465F40 /* Speech.swift */,
 				F7DFD94B1C06F93E00465F40 /* Guest.swift */,
+				F7323E011C093445002CDDC4 /* User.swift */,
+				F7323E031C09375B002CDDC4 /* Comment.swift */,
+				F7323E051C093766002CDDC4 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -407,14 +425,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7E1AE891C042827001E5FE0 /* MenuItem.swift in Sources */,
+				F7323E061C093766002CDDC4 /* Post.swift in Sources */,
 				F774E1E31C0564BA00ED8C65 /* MenuCell.swift in Sources */,
+				F7323E081C094BA7002CDDC4 /* LoginViewController.swift in Sources */,
 				F7DFD9431C06D31300465F40 /* TrafficViewController.swift in Sources */,
 				F7E1AE931C043726001E5FE0 /* SpeechViewController.swift in Sources */,
+				F71E863B1C0B271B00ED2595 /* QrCell.swift in Sources */,
 				F755B23F1C070F4700A63143 /* SpeechCell.swift in Sources */,
 				F755B2431C07E52A00A63143 /* GuestCell.swift in Sources */,
+				F78B7F031C0AA35700E794E6 /* UserCenterViewController.swift in Sources */,
 				F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */,
 				F7DFD9451C06D32100465F40 /* WeiboViewController.swift in Sources */,
+				F7323E021C093445002CDDC4 /* User.swift in Sources */,
 				F7DFD9471C06D32C00465F40 /* AboutViewController.swift in Sources */,
+				F7323E041C09375B002CDDC4 /* Comment.swift in Sources */,
 				F7DFD9411C06D30300465F40 /* GeekTalkViewController.swift in Sources */,
 				F7DFD94A1C06F7BF00465F40 /* Speech.swift in Sources */,
 				8EE6E92B1C084D6C00623DF5 /* LaunchScreenController.swift in Sources */,

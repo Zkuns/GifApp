@@ -9,5 +9,12 @@
 import UIKit
 
 class WeiboViewController: UIViewController{
+  @IBOutlet weak var webView: UIWebView!
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    let reqUrl = NSURL(string: "http://weibo.com/geekpark")
+    let request = NSURLRequest(URL: reqUrl!)
+    webView.loadRequest(request)
+  }
 }

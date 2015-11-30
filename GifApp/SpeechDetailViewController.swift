@@ -11,6 +11,7 @@ import UIKit
 class SpeechDetailViewController: UIViewController{
   
   var speech: Speech?
+  var guest: Guest?
 
   @IBOutlet weak var titleLable: UILabel!
   @IBOutlet weak var themeLable: UILabel!
@@ -30,14 +31,14 @@ class SpeechDetailViewController: UIViewController{
     titleLable.text = speech?.title
     themeLable.text = speech?.theme
     showtimeLable.text = speech?.duration()
-    speakerNameLable.text = speech?.guest?.name
-    companyAndPositionLable.text = speech?.guest?.company
+    speakerNameLable.text = guest?.name
+    companyAndPositionLable.text = guest?.company
     descriptionLable.text = speech?.description
     updateAvatarImage()
   }
   
   func updateAvatarImage(){
-    if let avatarUrl = speech?.guest?.avator {
+    if let avatarUrl = guest?.avator {
       if let url = NSURL(string: avatarUrl){
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
           let imageData = NSData(contentsOfURL: url)
