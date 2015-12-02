@@ -24,11 +24,6 @@ protocol OpenLoginPageDelegate{
   func openLoginPage()
 }
 
-//当登陆或注销后的ui更新delegate
-protocol UpdateUIDelegate{
-  func updateUIWithUser()
-}
-
 class ContainerViewController: UIViewController{
   //当前的开关状态
   var currentState = State.Close
@@ -131,23 +126,11 @@ class ContainerViewController: UIViewController{
 extension ContainerViewController: OpenLoginPageDelegate{
   func openLoginPage(){
     let loginViewController = storyBoard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
-    loginViewController.updateUIDelegate = self
     view.addSubview(loginViewController.view)
     addChildViewController(loginViewController)
     loginViewController.didMoveToParentViewController(self)
   }
 }
-
-extension ContainerViewController: UpdateUIDelegate{
-  func updateUIWithUser() {
-    menuViewController?.reloadController()
-    
-    if currentMenuItem?.controllerName == "SpeechViewController"{
-      updateNavigationControllerUI()
-    }
-  }
-}
-
 
 extension ContainerViewController: UIGestureRecognizerDelegate{
   func handlePanGesture(recogizer: UIPanGestureRecognizer){

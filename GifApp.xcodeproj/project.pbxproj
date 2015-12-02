@@ -39,6 +39,8 @@
 		F7E1AE911C0433AE001E5FE0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE901C0433AE001E5FE0 /* MenuViewController.swift */; };
 		F7E1AE931C043726001E5FE0 /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE921C043726001E5FE0 /* SpeechViewController.swift */; };
 		F7E1AE971C044848001E5FE0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1AE961C044848001E5FE0 /* Config.swift */; };
+		F7F21B731C0EC6860099EB13 /* defaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F21B721C0EC6860099EB13 /* defaultButton.swift */; };
+		F7F21B751C0ECC0F0099EB13 /* loginInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F21B741C0ECC0F0099EB13 /* loginInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		F7E1AE901C0433AE001E5FE0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		F7E1AE921C043726001E5FE0 /* SpeechViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
 		F7E1AE961C044848001E5FE0 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F7F21B721C0EC6860099EB13 /* defaultButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = defaultButton.swift; sourceTree = "<group>"; };
+		F7F21B741C0ECC0F0099EB13 /* loginInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,8 @@
 				F755B2421C07E52A00A63143 /* GuestCell.swift */,
 				F71E863A1C0B271B00ED2595 /* QrCell.swift */,
 				F7B48F961C0D64F900DC8A08 /* toggleDayButton.swift */,
+				F7F21B721C0EC6860099EB13 /* defaultButton.swift */,
+				F7F21B741C0ECC0F0099EB13 /* loginInputView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -446,9 +452,11 @@
 				F755B2431C07E52A00A63143 /* GuestCell.swift in Sources */,
 				F7DD8B161C0E749400F20DC3 /* ImageUtil.swift in Sources */,
 				F78B7F031C0AA35700E794E6 /* UserCenterViewController.swift in Sources */,
+				F7F21B731C0EC6860099EB13 /* defaultButton.swift in Sources */,
 				F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */,
 				F7323E021C093445002CDDC4 /* User.swift in Sources */,
 				F7DFD9471C06D32C00465F40 /* AboutViewController.swift in Sources */,
+				F7F21B751C0ECC0F0099EB13 /* loginInputView.swift in Sources */,
 				F7B48F971C0D64F900DC8A08 /* toggleDayButton.swift in Sources */,
 				F7323E041C09375B002CDDC4 /* Comment.swift in Sources */,
 				F7DFD9411C06D30300465F40 /* GeekTalkViewController.swift in Sources */,

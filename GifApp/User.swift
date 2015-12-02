@@ -24,24 +24,22 @@ class User{
   static var user: User?
   static var access_token: String?{
     set{
-      database.setObject(UserConfig.userTokenKey, forKey: newValue!)
+      database.setObject(newValue!, forKey: UserConfig.userTokenKey)
+      database.synchronize()
+      NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: NotificationName.userChanged, object: nil))
     }
     get{
       return database.stringForKey(UserConfig.userTokenKey)
     }
   }
-  static var currentUser: User?{
-    set{
-      user = newValue
-    }
-    get{
-      if let user = self.user{
-        return user
-      } else if let user = getUserFromLocal(){
-        return user
-      } else {
-        return nil
+  
+  static func getCurrentUser(callback: (User?)->() ){
+    if access_token != nil {
+      getUserInfo(access_token!){ user in
+        callback(user)
       }
+    }else{
+      callback(nil)
     }
   }
   
@@ -54,31 +52,16 @@ class User{
     self.collections = collections
   }
   
-  static func getUserFromLocal()-> User?{
-    if let token = database.stringForKey(UserConfig.userTokenKey){
-      getUserInfo(token){ user in
-        currentUser = user
+  static func login(email: String, passwd: String){
+    Alamofire.request(.POST, userAccessTokenAPI, parameters: ["email": email, "password": passwd, "grant_type": "password", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
+      let data = JSON(data: data!)
+      if data["error"] != nil{
+      } else if data["access_token"].string != nil {
+        access_token = data["access_token"].string!
       }
     }
-    return nil
   }
   
-  static func getUserFromNetWork(email: String, password: String, callback: (User?)->()){
-    Alamofire.request(.POST, userAccessTokenAPI, parameters: ["email": email, "password": password, "grant_type": "password", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
-      print("success")
-      let data = JSON(data: data!)
-      print(data)
-      if data["error"] != nil{
-        print(email)
-        print(password)
-        print("password error")
-      } else {
-        let access_token = data["access_token"].string!
-        print(data["refresh_token"].string!)
-        getUserInfo(access_token, callback: callback)
-      }
-    }
-  }
   
   static func getUserInfo(accessToken: String, callback: (User?)->()){
     Alamofire.request(.GET, userInfoAPI + accessToken).response{ request, response, data, error in

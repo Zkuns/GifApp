@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GifApp/ContainerViewController.swift"
-            timestampString = "470458919.978107"
+            timestampString = "470735112.516715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "ContainerViewController"
             landmarkType = "3">
             <Locations>

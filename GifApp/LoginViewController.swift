@@ -12,11 +12,17 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var email: UITextField!
   @IBOutlet weak var password: UITextField!
   @IBOutlet weak var modal: UIView!
-  var updateUIDelegate: UpdateUIDelegate?
+  @IBOutlet weak var loginButton: UIButton!
+  @IBOutlet weak var wechatLoginButton: UIButton!
+  @IBOutlet weak var closeButton: UIButton!
   
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    modal.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
+    updateUI()
+  }
+  
+  func updateUI(){
   }
   
   func selfDisappear(){
@@ -28,12 +34,7 @@ class LoginViewController: UIViewController {
   @IBAction func login() {
     let email = self.email.text!
     let password = self.password.text!
-    User.getUserFromNetWork(email, password: password){ user in
-      if let user = user{
-        User.currentUser = user
-        self.updateUIDelegate?.updateUIWithUser()
-      }
-    }
+    User.login(email, passwd: password)
     selfDisappear()
   }
   
@@ -41,7 +42,7 @@ class LoginViewController: UIViewController {
     
   }
   
-  @IBAction func closeButton() {
+  @IBAction func close() {
     selfDisappear()
   }
 }

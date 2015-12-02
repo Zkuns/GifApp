@@ -27,9 +27,13 @@ struct UserConfig {
 
 struct OmniauthConfig {
   static let authenticateUrl: String = "http://www.geekpark.net"
-  static let resoureUrl: String = "http://192.168.2.227:3000"
+  static let resoureUrl: String = "http://events.geekpark.net"
   static let client_id = "8947c399a016309c0fa36d84fed9bc332868546eca2ca38a16164e9b9fe2410b"
   static let client_secret = "4309b28598d4f938211129568cc80934c29e7cdc2b0e02faf5b9050761221cf4"
+}
+
+struct NotificationName{
+  static let userChanged: String = "notification_user_changed"
 }
 
 struct ColorConfig{

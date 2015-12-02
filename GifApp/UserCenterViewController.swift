@@ -13,7 +13,7 @@ class UserCenterViewController: UIViewController {
   var qrImages: [String]?
   var posts: [Post]?
   var speeches: [Speech]?
-  var user = User.currentUser
+  var user: User?
   var current_index: Int?{
     didSet{
       centerTable.reloadData()
@@ -26,8 +26,13 @@ class UserCenterViewController: UIViewController {
   @IBOutlet weak var avator: UIImageView!
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     centerTable.delegate = self
     centerTable.dataSource = self
+    User.getCurrentUser(){
+      user in
+      self.user = user
+    }
   }
   
   func qrImageAPI(id: String) -> String{
@@ -46,9 +51,9 @@ extension UserCenterViewController: UITableViewDataSource{
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
     if current_index == 0{
-      return (user?.QRimage?.count)!
+      return (user?.QRimage?.count) ?? 0
     } else {
-      return (user?.collections?.count)!
+      return (user?.collections?.count) ?? 0
     }
   }
   

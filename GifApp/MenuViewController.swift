@@ -18,6 +18,15 @@ class MenuViewController: UIViewController {
   @IBOutlet weak var collectionArea: UIView!
   @IBOutlet weak var postArea: UIView!
   
+  var user: User?{
+    didSet{
+      if user == nil{
+        updateHeaderWithoutUser()
+      } else {
+        updateHeaderWithUser(user!)
+      }
+    }
+  }
   
   var avatorUrl: String?{
     didSet{
@@ -34,6 +43,8 @@ class MenuViewController: UIViewController {
             }
           }
         }
+      } else {
+        self.avator.image = UIImage(named: "default_avator")
       }
     }
   }
@@ -49,25 +60,27 @@ class MenuViewController: UIViewController {
     super.viewDidLoad()
     menuTable.delegate = self
     menuTable.dataSource = self
-    updataUI()
+    updateUI()
+    NSNotificationCenter.defaultCenter().addObserverForName(NotificationName.userChanged, object: nil ,queue: NSOperationQueue.mainQueue()){
+      notification in
+      self.updateCurrentUser()
+    }
+    updateCurrentUser()
   }
   
-  func reloadController(){
-    self.viewDidLoad()
-  }
-  
-  func updataUI(){
-    ImageUtil.convertImageToCircle(avator)
-    menuTable.separatorStyle = UITableViewCellSeparatorStyle.None
-    if let user = User.currentUser{
-      updataHeaderWithUser(user)
-    } else {
-      updateHeaderWithoutUser()
+  func updateCurrentUser(){
+    User.getCurrentUser(){
+      user in
+      self.user = user
     }
   }
   
-  //太恶心了,求指点
-  private func updataHeaderWithUser(user: User){
+  func updateUI(){
+    ImageUtil.convertImageToCircle(avator)
+    menuTable.separatorStyle = UITableViewCellSeparatorStyle.None
+  }
+  
+  private func updateHeaderWithUser(user: User){
     let moveToUserCenterQR = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
     loginArea.addGestureRecognizer(moveToUserCenterQR)
     avatorUrl = user.avator
