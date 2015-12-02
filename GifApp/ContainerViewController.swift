@@ -57,8 +57,6 @@ class ContainerViewController: UIViewController{
     menuViewController!.openLoginPageDelegate = self
     menuViewController!.didMoveToParentViewController(self)
     
-    containerNavigationController.view.layer.shadowOpacity = 0.8
-    
     panGesture = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
     tapGesture = UITapGestureRecognizer(target: self, action: "handleTapGesture:")
     maskView = UIView(frame: CGRect(origin: containerNavigationController.view.frame.origin, size: CGSize(width: Config.menu_width, height: containerNavigationController.view.frame.height)))
@@ -69,11 +67,15 @@ class ContainerViewController: UIViewController{
     addChildViewController(containerNavigationController)
     view.addSubview(containerNavigationController.view)
     containerNavigationController.didMoveToParentViewController(self)
+    containerNavigationController.navigationBar.tintColor = UIColor.whiteColor()
+    containerNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    containerNavigationController.navigationBar.barTintColor = ColorConfig.greenColor
+    containerNavigationController.navigationBar.translucent = false;
     currentMenuItem = MenuItem.menuItems.first
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     if(appDelegate.firstLaunch){
-//      loadLaunchView()
+      loadLaunchView()
     }
     
   }
@@ -117,7 +119,7 @@ class ContainerViewController: UIViewController{
       containerNavigationController.view.addSubview(maskView!)
       action = {
         self.containerNavigationController.view.frame.origin.x = self.view.frame.width - Config.menu_width
-        self.containerNavigationController.view.transform = CGAffineTransformMakeScale(0.8, 0.8)
+        self.containerNavigationController.view.transform = CGAffineTransformMakeScale(Config.menu_ratio, Config.menu_ratio)
       }
       currentState = .Open
     }
@@ -138,15 +140,6 @@ extension ContainerViewController: OpenLoginPageDelegate{
 
 extension ContainerViewController: UpdateUIDelegate{
   func updateUIWithUser() {
-//    menuViewController?.removeFromParentViewController()
-//    menuViewController?.view.removeFromSuperview()
-//    menuViewController?
-//    menuViewController = storyBoard.instantiateViewControllerWithIdentifier("menu") as? MenuViewController
-//    addChildViewController(menuViewController!)
-//    view.insertSubview(menuViewController!.view, atIndex: 0)
-//    menuViewController!.delegate = self
-//    menuViewController!.openLoginPageDelegate = self
-//    menuViewController!.didMoveToParentViewController(self)
     menuViewController?.reloadController()
     
     if currentMenuItem?.controllerName == "SpeechViewController"{
@@ -164,7 +157,7 @@ extension ContainerViewController: UIGestureRecognizerDelegate{
       if (currentState == .Close){
         animateController(0, origin_ratio: 1, size: recogizer.translationInView(view).x)
       } else{
-        animateController(view.frame.size.width - CGFloat(Config.menu_width), origin_ratio: 0.8, size: recogizer.translationInView(view).x)
+        animateController(view.frame.size.width - CGFloat(Config.menu_width), origin_ratio: Config.menu_ratio, size: recogizer.translationInView(view).x)
       }
     case .Ended:
       if (currentState == .Close) && !left{

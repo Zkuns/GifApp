@@ -14,6 +14,11 @@ class UserCenterViewController: UIViewController {
   var posts: [Post]?
   var speeches: [Speech]?
   var user = User.currentUser
+  var current_index: Int?{
+    didSet{
+      centerTable.reloadData()
+    }
+  }
   
   @IBOutlet weak var centerTable: UITableView!
   @IBOutlet weak var segment: UISegmentedControl!
@@ -32,29 +37,43 @@ class UserCenterViewController: UIViewController {
 
 extension UserCenterViewController: UITableViewDataSource{
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
+    if current_index == 0{
+      return 1
+    } else {
+      return 1
+    }
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-    return (user?.QRimage?.count)!
+    if current_index == 0{
+      return (user?.QRimage?.count)!
+    } else {
+      return (user?.collections?.count)!
+    }
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-    let cell = tableView.dequeueReusableCellWithIdentifier("qrCell", forIndexPath: indexPath) as! QrCell
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-      if let images = self.user?.QRimage{
-        let imageData = NSData(contentsOfURL: NSURL(string: self.qrImageAPI(images[indexPath.row]))!)
-        dispatch_async(dispatch_get_main_queue()){
-          let cell = tableView.cellForRowAtIndexPath(indexPath)
-          if let cell = cell as? QrCell{
-            if imageData != nil{
-              cell.qrImage.image = UIImage(data: imageData!)!
-            } else {
-              cell.qrImage.image = nil
+    let cell = UITableViewCell()
+    if current_index == 0{
+      let cell = tableView.dequeueReusableCellWithIdentifier("qrCell", forIndexPath: indexPath) as! QrCell
+      dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
+        if let images = self.user?.QRimage{
+          let imageData = NSData(contentsOfURL: NSURL(string: self.qrImageAPI(images[indexPath.row]))!)
+          dispatch_async(dispatch_get_main_queue()){
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            if let cell = cell as? QrCell{
+              if imageData != nil{
+                cell.qrImage.image = UIImage(data: imageData!)!
+              } else {
+                cell.qrImage.image = nil
+              }
             }
           }
         }
       }
+    } else {
+      let cell = tableView.dequeueReusableCellWithIdentifier("speechCell", forIndexPath: indexPath) as! SpeechCell
+      cell.setData(Speech.find_by_id((user?.collections![indexPath.row])!))
     }
     return cell
   }

@@ -27,10 +27,8 @@ class LoginViewController: UIViewController {
   
   @IBAction func login() {
     let email = self.email.text!
-    let password = self.email.text!
-    let accessToken = User.checkAccount(email, password: password)
-    print("running")
-    User.getUserInfo(accessToken!){ user in
+    let password = self.password.text!
+    User.getUserFromNetWork(email, password: password){ user in
       if let user = user{
         User.currentUser = user
         self.updateUIDelegate?.updateUIWithUser()
@@ -40,6 +38,7 @@ class LoginViewController: UIViewController {
   }
   
   @IBAction func loginWechat() {
+    
   }
   
   @IBAction func closeButton() {

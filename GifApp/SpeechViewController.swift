@@ -12,6 +12,9 @@ class SpeechViewController: UIViewController {
 
   @IBOutlet weak var speechTable: UITableView!
   
+  @IBOutlet weak var toggleButton3: ToggleDayButton!
+  @IBOutlet weak var toggleButton2: ToggleDayButton!
+  @IBOutlet weak var toggleButton1: ToggleDayButton!
   var currentSpeeches: [Speech]?{
     didSet{
       if (self.currentSpeeches != nil){
@@ -32,15 +35,20 @@ class SpeechViewController: UIViewController {
     }
   }
   
-  @IBAction func toggleDay(sender: UISegmentedControl) {
-    let index = sender.selectedSegmentIndex
-    currentIndex = index
+  @IBAction func toggleDay(sender: AnyObject) {
+    if let tag = sender.tag{
+      currentIndex = tag
+    }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    ToggleDayButton.buttons = [toggleButton1, toggleButton2, toggleButton3]
     speechTable.delegate = self
     speechTable.dataSource = self
+    
+    let rightButton = UIBarButtonItem(title: "现场", style: UIBarButtonItemStyle.Done, target: nil, action: "")
+    navigationItem.rightBarButtonItem = rightButton
     Speech.getData(){ success, speeches in
       if (success){
         self.speeches = speeches
@@ -58,7 +66,7 @@ class SpeechViewController: UIViewController {
         case "show_detail_from_speech":
           if let dvc = segue.destinationViewController as? SpeechDetailViewController{
             if let index = self.speechTable.indexPathForCell(sender as! SpeechCell){
-              let speech = speeches![index.section][index.row]
+              let speech = Speech.split(currentSpeeches!)[index.section][index.row]
               dvc.speech = speech
               dvc.guest = speech.guest
             }
@@ -74,9 +82,8 @@ extension SpeechViewController: UITableViewDataSource{
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let cell = tableView.dequeueReusableCellWithIdentifier("speechHeader") as! SpeechHeader
     if (currentSpeeches != nil){
-      cell.theme.text! = section == 0 ? "\(currentSpeeches![0].theme ?? "") 上午" : "\(currentSpeeches![1].theme ?? "") 下午"
+      cell.theme.text! = currentSpeeches![section].theme!
     }
-    cell.location.text! = "地点"
     return cell.contentView
   }
   

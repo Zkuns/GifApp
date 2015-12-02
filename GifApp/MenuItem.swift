@@ -18,7 +18,6 @@ class MenuItem{
     items.append(MenuItem(controllerName: "GuestViewController", menuName: "演讲嘉宾", imageName: "guest" ))
     items.append(MenuItem(controllerName: "GeekTalkViewController", menuName: "GeekTalk", imageName: "geektalk"))
     items.append(MenuItem(controllerName: "TrafficViewController", menuName: "交通指南", imageName:"traffic"))
-    items.append(MenuItem(controllerName: "WeiboViewController", menuName: "微博", imageName: "weibo"))
     items.append(MenuItem(controllerName: "AboutViewController", menuName: "关于GIF", imageName: "about"))
     return items
   }()

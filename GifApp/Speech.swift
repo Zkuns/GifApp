@@ -12,6 +12,7 @@ import SwiftyJSON
 
 let speechAPI = Config.baseUrl + "/api/v1/activities/663b2c7b-14c9-48bc-abaa-7810c6073168/speeches"
 class Speech{
+  let id: String?
   let title: String?
   let description: String?
   let start_at: String?
@@ -19,7 +20,8 @@ class Speech{
   let theme: String?
   var guest: Guest?
   
-  init(title: String?, description: String?, start_at: String?, end_at: String?, theme: String?){
+  init(id: String?, title: String?, description: String?, start_at: String?, end_at: String?, theme: String?){
+    self.id = id
     self.title = title
     self.description = description
     self.start_at = start_at
@@ -27,12 +29,11 @@ class Speech{
     self.theme = theme
   }
   
-  func duration() -> String{
-    let format = NSDateFormatter()
-    format.dateFormat = "HH:mm"
-    let start = format.stringFromDate(NSDate(timeIntervalSince1970: Double(start_at!)!))
-    let end = format.stringFromDate(NSDate(timeIntervalSince1970: Double(end_at!)!))
-    return start + "-" + end
+  func start_at_after_fomat(form: String) -> String{
+    let fomat = NSDateFormatter()
+    fomat.dateFormat = form
+    let start = fomat.stringFromDate(NSDate(timeIntervalSince1970: Double(start_at!)!))
+    return start
   }
   
   func getDateHour() -> Int{
@@ -83,7 +84,7 @@ class Speech{
   }
   
   static func getSpeech(speech: JSON) -> Speech{
-    let sp = Speech(title: speech["title"].string, description: speech["description"].string, start_at: speech["start_at"].string, end_at: speech["end_at"].string, theme: speech["theme"].string)
+    let sp = Speech(id: speech["id"].string, title: speech["title"].string, description: speech["description"].string, start_at: speech["start_at"].string, end_at: speech["end_at"].string, theme: speech["theme"].string)
     if speech["guest"] != nil {
       sp.guest = Guest.getGuest(speech["guest"])
     }
@@ -103,6 +104,10 @@ class Speech{
       return value
     }
     return result
+  }
+  
+  static func find_by_id(speech_id: String) -> Speech{
+    return Speech(id: "", title: "", description: "'", start_at: "", end_at: "", theme: "")
   }
   
 }

@@ -10,11 +10,11 @@ import UIKit
 
 class MenuViewController: UIViewController {
   
+  @IBOutlet weak var loginArea: UIView!
   @IBOutlet weak var avator: UIImageView!
   @IBOutlet weak var username: UILabel!
   @IBOutlet weak var collection: UILabel!
   @IBOutlet weak var post: UILabel!
-  @IBOutlet weak var loginArea: UIView!
   @IBOutlet weak var collectionArea: UIView!
   @IBOutlet weak var postArea: UIView!
   
@@ -29,7 +29,7 @@ class MenuViewController: UIViewController {
               if imageData != nil {
                 self.avator.image = UIImage(data: imageData!)
               } else {
-                self.avator.image = UIImage(named: UserConfig.userLoginDefaultAvator)
+                self.avator.image = UIImage(named: "default_avator")
               }
             }
           }
@@ -42,15 +42,13 @@ class MenuViewController: UIViewController {
   var openLoginPageDelegate: OpenLoginPageDelegate?
   @IBOutlet weak var menuTable: UITableView!
   let menuItems = MenuItem.menuItems
+  var moveToUserCenterCol: UITapGestureRecognizer?
+  var moveToUserCenterPost: UITapGestureRecognizer?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     menuTable.delegate = self
     menuTable.dataSource = self
-    let moveToUserCenterCol = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
-    let moveToUserCenterPost = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
-    postArea.addGestureRecognizer(moveToUserCenterPost)
-    collectionArea.addGestureRecognizer(moveToUserCenterCol)
     updataUI()
   }
   
@@ -59,6 +57,8 @@ class MenuViewController: UIViewController {
   }
   
   func updataUI(){
+    ImageUtil.convertImageToCircle(avator)
+    menuTable.separatorStyle = UITableViewCellSeparatorStyle.None
     if let user = User.currentUser{
       updataHeaderWithUser(user)
     } else {
@@ -71,22 +71,25 @@ class MenuViewController: UIViewController {
     let moveToUserCenterQR = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
     loginArea.addGestureRecognizer(moveToUserCenterQR)
     avatorUrl = user.avator
-    postArea.layer.opacity = 1
-    collectionArea.layer.opacity = 1
     username.text = user.username!
     collection.text = String(user.collections!.count)
     post.text = String(user.posts!.count)
     self.view.setNeedsDisplay()
+    moveToUserCenterCol = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
+    moveToUserCenterPost = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
+    postArea.addGestureRecognizer(moveToUserCenterPost!)
+    collectionArea.addGestureRecognizer(moveToUserCenterCol!)
   }
   
   private func updateHeaderWithoutUser(){
     let openLoginPage = UITapGestureRecognizer(target: self, action: "openLoginPage:")
-    avator.image = UIImage(named: UserConfig.userNotLoginAvator)
+    avator.image = UIImage(named: "default_avator")
     loginArea.addGestureRecognizer(openLoginPage)
-    avator.userInteractionEnabled = true
-    username.text = "请登陆"
-    postArea.layer.opacity = 0
-    collectionArea.layer.opacity = 0
+    username.text = "登陆"
+    if moveToUserCenterCol != nil {
+      postArea.removeGestureRecognizer(moveToUserCenterCol!)
+      collectionArea.removeGestureRecognizer(moveToUserCenterCol!)
+    }
   }
   
 }
@@ -119,9 +122,12 @@ extension MenuViewController: UITableViewDataSource{
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-    let cell = MenuCell()
+    let cell = tableView.dequeueReusableCellWithIdentifier("menuCell", forIndexPath: indexPath) as! MenuCell
     let menuModel = menuItems[indexPath.row]
     cell.setData(menuModel.menuName, imageName: menuModel.imageName)
+    let bgColorView = UIView()
+    bgColorView.backgroundColor = ColorConfig.yellowColor.colorWithAlphaComponent(0.8)
+    cell.selectedBackgroundView = bgColorView
     return cell
   }
 }
