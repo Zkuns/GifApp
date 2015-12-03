@@ -616,7 +616,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="191" id="A6l-T7-5L6" customClass="postCell" customModule="GifApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="191" id="A6l-T7-5L6" customClass="PostCell" customModule="GifApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="191"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A6l-T7-5L6" id="P9w-V8-7QW">
@@ -690,14 +690,14 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <outlet property="Images" destination="lfT-4Q-Udf" id="sUE-CA-cgk"/>
-                                            <outlet property="avator" destination="gO9-sF-lGK" id="WfO-Tr-81V"/>
-                                            <outlet property="body" destination="0aC-jJ-OaX" id="SMx-HR-yee"/>
-                                            <outlet property="comment" destination="tK9-TE-Yey" id="Znc-d6-Ytx"/>
-                                            <outlet property="deleteButton" destination="LK2-gd-o4c" id="On1-CD-ji7"/>
-                                            <outlet property="like" destination="I4k-Ov-WC9" id="GiT-1J-P6P"/>
-                                            <outlet property="publishTime" destination="aGV-Gj-uZy" id="c1L-6r-QcC"/>
-                                            <outlet property="username" destination="H1F-7g-0pu" id="kWp-ZB-gKe"/>
+                                            <outlet property="Images" destination="lfT-4Q-Udf" id="0LZ-pF-fyA"/>
+                                            <outlet property="avator" destination="gO9-sF-lGK" id="sSK-Vp-hKw"/>
+                                            <outlet property="body" destination="0aC-jJ-OaX" id="wMT-JF-vnF"/>
+                                            <outlet property="comment" destination="tK9-TE-Yey" id="joa-w2-wiN"/>
+                                            <outlet property="deleteButton" destination="LK2-gd-o4c" id="3l9-zl-Wla"/>
+                                            <outlet property="like" destination="I4k-Ov-WC9" id="ggr-I9-N6d"/>
+                                            <outlet property="publishTime" destination="aGV-Gj-uZy" id="l4L-jq-pzO"/>
+                                            <outlet property="username" destination="H1F-7g-0pu" id="sS0-Jd-dRq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -32,7 +32,7 @@ class PostCell: UITableViewCell {
       username.text = post.username
       avator.kf_setImageWithURL(NSURL(string: post.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
       if(current_user_id != post.user_id){
-        deleteButton.removeFromSuperview()
+        deleteButton.alpha = 0
       }
     }
   }
