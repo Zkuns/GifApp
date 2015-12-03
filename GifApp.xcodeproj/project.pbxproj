@@ -21,6 +21,7 @@
 		F774E1E31C0564BA00ED8C65 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774E1E21C0564BA00ED8C65 /* MenuCell.swift */; };
 		F78B7F031C0AA35700E794E6 /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B7F021C0AA35700E794E6 /* UserCenterViewController.swift */; };
 		F7B48F971C0D64F900DC8A08 /* toggleDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B48F961C0D64F900DC8A08 /* toggleDayButton.swift */; };
+		F7CBC2261C10175500CB98D8 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBC2251C10175500CB98D8 /* PostCell.swift */; };
 		F7DD8B161C0E749400F20DC3 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DD8B151C0E749400F20DC3 /* ImageUtil.swift */; };
 		F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */; };
 		F7DFD9411C06D30300465F40 /* GeekTalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */; };
@@ -77,6 +78,7 @@
 		F774E1E21C0564BA00ED8C65 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		F78B7F021C0AA35700E794E6 /* UserCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
 		F7B48F961C0D64F900DC8A08 /* toggleDayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toggleDayButton.swift; sourceTree = "<group>"; };
+		F7CBC2251C10175500CB98D8 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F7DD8B151C0E749400F20DC3 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
 		F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeekTalkViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				F7B48F961C0D64F900DC8A08 /* toggleDayButton.swift */,
 				F7F21B721C0EC6860099EB13 /* defaultButton.swift */,
 				F7F21B741C0ECC0F0099EB13 /* loginInputView.swift */,
+				F7CBC2251C10175500CB98D8 /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				F7323E061C093766002CDDC4 /* Post.swift in Sources */,
 				F774E1E31C0564BA00ED8C65 /* MenuCell.swift in Sources */,
 				F7323E081C094BA7002CDDC4 /* LoginViewController.swift in Sources */,
+				F7CBC2261C10175500CB98D8 /* PostCell.swift in Sources */,
 				F7DFD9431C06D31300465F40 /* TrafficViewController.swift in Sources */,
 				F7E1AE931C043726001E5FE0 /* SpeechViewController.swift in Sources */,
 				F71E863B1C0B271B00ED2595 /* QrCell.swift in Sources */,

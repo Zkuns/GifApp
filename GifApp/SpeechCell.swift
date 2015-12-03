@@ -18,6 +18,7 @@ class SpeechCell: UITableViewCell {
   
   func setData(speech: Speech){
     self.avator.image = nil
+  
     title.text! = speech.title!
     duration.text! = speech.start_at_after_fomat("HH:mm")
     if let gu = speech.guest{

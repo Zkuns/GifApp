@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Bond.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,17 +32,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>012FFDF0535D5B3AC2B304C1E4ABA2A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>432ECC54282C84882B482CCB4CF227FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7EF03E8ED909AACF0B55C7EEDD598072</key>
+		<key>80076C510C29F960587E43C0597ECBD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B463565F227BE3992316F95F3498E0E9</key>
+		<key>83FD627460D620DEBA73B0F201A716C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,10 +1,12 @@
 PODS:
   - Alamofire (3.1.2)
+  - Bond (4.3.0)
   - Kingfisher (1.8.2)
   - SwiftyJSON (2.3.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - Bond (~> 4.0)
   - Kingfisher (~> 1.8)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -19,6 +21,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  Bond: ebe2364b18130690083cbceff036420b21494ae4
   Kingfisher: b39315e9dbed7e8ffe73a9ca1be2ee006d1d57e4
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 

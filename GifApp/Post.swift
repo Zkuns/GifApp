@@ -7,7 +7,51 @@
 //
 
 import Foundation
+import SwiftyJSON
+import Alamofire
 
+let postAPI = Config.baseUrl + "/api/v1/posts"
 class Post{
+  let id: String?
+  let username: String?
+  let body: String?
+  let avator: String?
+  let like_count: Int?
+  let user_id: String?
+  let publish_at: String?
+  let images: [String]?
+  let comments_count: Int?
+  
+  init(id: String?, username: String?, body: String?, avator: String?, like_count: Int?, user_id: String?, publish_at: String?, images: [String]?, comments: Int?){
+    self.id = id
+    self.username = username
+    self.body = body
+    self.avator = avator
+    self.like_count = like_count
+    self.user_id = user_id
+    self.publish_at = publish_at
+    self.images = images
+    self.comments_count = comments
+  }
+  
+  static func getPost(post: JSON) -> Post{
+    let images = post["images"].array!.map{ image in
+      return image.string!
+    }
+    let like = post["like_count"].int
+    let comments_count = post["comments_count"].int
+    let po = Post(id: post["id"].string, username: post["username"].string, body: post["body"].string, avator: post["avator"].string, like_count: like, user_id: post["user_id"].string, publish_at: post["publsh_at"].string, images: images, comments: comments_count)
+    return po
+  }
+  
+  static func getData(callback: (posts: [Post]?)->()){
+    Alamofire.request(.GET, postAPI).response{ request, response, data, error in
+      let posts = JSON(data: data!)["posts"].array
+      let result = posts!.map{ post -> Post in
+        return getPost(post)
+      }
+      callback(posts: result)
+    }
+  }
   
 }
