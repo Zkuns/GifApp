@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 //let userInfoAPI = Config.baseUrl + "/api/v1/users/app_user_info.json?access_token="
-let userInfoAPI = OmniauthConfig.resoureUrl + "/api/v1/activities/d345e8e8-f512-4192-8cb7-7aaf19f3a084/users/ticket_info.json?access_token="
+let userInfoAPI = OmniauthConfig.resoureUrl + "/api/v1/activities/d345e8e8-f512-4192-8cb7-7aaf19f3a084/users/app_user_info?access_token="
 let userAccessTokenAPI = OmniauthConfig.authenticateUrl + "/oauth/token"
 class User{
   let id: String?
