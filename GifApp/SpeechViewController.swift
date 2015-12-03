@@ -102,6 +102,7 @@ extension SpeechViewController: UITableViewDataSource{
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
     let cell = tableView.dequeueReusableCellWithIdentifier("speechCell", forIndexPath: indexPath) as! SpeechCell
     let speech = Speech.split(currentSpeeches!)[indexPath.section][indexPath.row]
+    ImageUtil.convertImageToCircle(cell.avator)
     cell.setData(speech)
     return cell
   }

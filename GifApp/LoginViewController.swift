@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    email.delegate = self
+    password.delegate = self
     updateUI()
   }
   
@@ -44,5 +46,12 @@ class LoginViewController: UIViewController {
   
   @IBAction func close() {
     selfDisappear()
+  }
+}
+
+extension LoginViewController: UITextFieldDelegate{
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
   }
 }

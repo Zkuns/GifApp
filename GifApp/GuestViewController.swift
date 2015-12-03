@@ -89,21 +89,7 @@ extension GuestViewController: UITableViewDataSource{
     let guest = orderGuests[indexPath.section].1[indexPath.row]
     cell.setData(guest)
     ImageUtil.convertImageToCircle(cell.avator)
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-      if let imageUrl = guest.avator{
-        let imageData = NSData(contentsOfURL: NSURL(string: imageUrl)!)
-        dispatch_async(dispatch_get_main_queue()){
-          let cell = tableView.cellForRowAtIndexPath(indexPath)
-          if let cell = cell as? GuestCell{
-            if imageData != nil{
-              cell.avator.image = UIImage(data: imageData!)!
-            } else {
-              cell.avator.image = nil
-            }
-          }
-        }
-      }
-    }
+    cell.avator.kf_setImageWithURL(NSURL(string: guest.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
     return cell
   }
 }

@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 //let userInfoAPI = Config.baseUrl + "/api/v1/users/app_user_info.json?access_token="
-let userInfoAPI = OmniauthConfig.resoureUrl + "/api/v1/users/app_user_info.json?access_token="
+let userInfoAPI = OmniauthConfig.resoureUrl + "/api/v1/activities/d345e8e8-f512-4192-8cb7-7aaf19f3a084/users/ticket_info.json?access_token="
 let userAccessTokenAPI = OmniauthConfig.authenticateUrl + "/oauth/token"
 class User{
   let id: String?
@@ -24,9 +24,13 @@ class User{
   static var user: User?
   static var access_token: String?{
     set{
-      database.setObject(newValue!, forKey: UserConfig.userTokenKey)
-      database.synchronize()
-      NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: NotificationName.userChanged, object: nil))
+      if (newValue != nil){
+        database.setObject(newValue!, forKey: UserConfig.userTokenKey)
+        database.synchronize()
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: NotificationName.userChanged, object: nil))
+      } else {
+        database.setObject(nil, forKey: UserConfig.userTokenKey)
+      }
     }
     get{
       return database.stringForKey(UserConfig.userTokenKey)
@@ -37,6 +41,7 @@ class User{
     if access_token != nil {
       getUserInfo(access_token!){ user in
         callback(user)
+        self.user = user
       }
     }else{
       callback(nil)
