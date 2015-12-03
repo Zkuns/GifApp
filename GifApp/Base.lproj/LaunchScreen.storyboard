@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -21,30 +20,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="LauncheScreen" translatesAutoresizingMaskIntoConstraints="NO" id="CSc-iQ-03U">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="FBs-Wb-Bdr"/>
-                                    <constraint firstAttribute="height" constant="128" id="YiN-oV-d1S"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="FBs-Wb-Bdr"/>
-                                        <exclude reference="YiN-oV-d1S"/>
-                                    </mask>
-                                </variation>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CSc-iQ-03U" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="5h7-yP-oi2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CSc-iQ-03U" secondAttribute="trailing" constant="-20" id="Hp6-dD-tZI"/>
+                            <constraint firstItem="CSc-iQ-03U" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="5h7-yP-oi2"/>
+                            <constraint firstAttribute="trailing" secondItem="CSc-iQ-03U" secondAttribute="trailing" id="Hp6-dD-tZI"/>
                             <constraint firstItem="CSc-iQ-03U" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="gcK-yJ-7YZ"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="CSc-iQ-03U" secondAttribute="bottom" id="pUv-7g-sM7"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

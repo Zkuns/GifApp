@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 //let userInfoAPI = Config.baseUrl + "/api/v1/users/app_user_info.json?access_token="
-let userInfoAPI = OmniauthConfig.resoureUrl + "/api/v1/activities/d345e8e8-f512-4192-8cb7-7aaf19f3a084/users/app_user_info?access_token="
+let userInfoAPI = OmniauthConfig.resoureUrl + "/api/v1/activities/d345e8e8-f512-4192-8cb7-7aaf19f3a084/users/app_user_info.json?access_token="
 let userAccessTokenAPI = OmniauthConfig.authenticateUrl + "/oauth/token"
 class User{
   let id: String?
@@ -60,6 +60,7 @@ class User{
   static func login(email: String, passwd: String){
     Alamofire.request(.POST, userAccessTokenAPI, parameters: ["email": email, "password": passwd, "grant_type": "password", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
       let data = JSON(data: data!)
+      print("login result data = \(data)")
       if data["error"] != nil{
       } else if data["access_token"].string != nil {
         access_token = data["access_token"].string!
@@ -70,14 +71,14 @@ class User{
   
   static func getUserInfo(accessToken: String, callback: (User?)->()){
     Alamofire.request(.GET, userInfoAPI + accessToken).response{ request, response, data, error in
-      if error != nil{
+      let statusCode = response?.statusCode ?? -1
+      print("getUserInfo statusCode = \(statusCode), data = \(data)")
+      if statusCode < 200 || statusCode >= 300 {
         print(error)
         callback(nil)
       } else {
         print(userInfoAPI + accessToken)
-        print(data)
         let data = JSON(data: data!)
-        print(data)
         let QRimages = data["qrcode"].array!.map{ qrImage -> String in
           return qrImage["id"].string!
         }

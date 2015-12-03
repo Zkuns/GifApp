@@ -2,88 +2,104 @@
 //  UserCenterViewController.swift
 //  GifApp
 //
-//  Created by 朱坤 on 11/29/15.
-//  Copyright © 2015 Zkuns. All rights reserved.
+//  Created by ScorpiusZ on 15/12/3.
+//  Copyright © 2015年 Zkuns. All rights reserved.
 //
 
 import UIKit
 
-class UserCenterViewController: UIViewController {
+class UserCenterViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   var index: Int?
-  var qrImages: [String]?
-  var posts: [Post]?
-  var speeches: [Speech]?
-  var user: User?
-  var current_index: Int?{
-    didSet{
-      centerTable.reloadData()
-    }
-  }
   
-  @IBOutlet weak var centerTable: UITableView!
-  @IBOutlet weak var segment: UISegmentedControl!
-  @IBOutlet weak var username: UILabel!
-  @IBOutlet weak var avator: UIImageView!
+  @IBOutlet weak var segmentControl: GSegmentControl!
+  var items = [SlidePageItem]()
+  var controllers: [PageViewController] = []
+  private var pageViewController: PageViewController?
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    centerTable.delegate = self
-    centerTable.dataSource = self
-    User.getCurrentUser(){
-      user in
-      self.user = user
+    
+    let rightButton = UIBarButtonItem(title: "登出", style: UIBarButtonItemStyle.Done, target: self , action: "logout")
+    navigationItem.rightBarButtonItem = rightButton
+    
+    items=UserCenterItems.items
+    initSegmentControl()
+    createControllers()
+    setPageViewControllerPage(0)
+    
+  }
+  
+  
+  func logout(){
+    print("logout")
+  }
+  private func initSegmentControl(){
+    segmentControl.items = items.map{ item -> String in
+      return item.title
     }
   }
   
-  func qrImageAPI(id: String) -> String{
-    return "http://www.geekpark.net/qr/\(id)?download=1"
-  }
-}
-
-extension UserCenterViewController: UITableViewDataSource{
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    if current_index == 0{
-      return 1
-    } else {
-      return 1
+  private func createControllers(){
+    let controllerIds = items.map{ item -> String in
+      return item.controllerIdentifier
     }
-  }
-  
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-    if current_index == 0{
-      return (user?.QRimage?.count) ?? 0
-    } else {
-      return (user?.collections?.count) ?? 0
-    }
-  }
-  
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-    let cell = UITableViewCell()
-    if current_index == 0{
-      let cell = tableView.dequeueReusableCellWithIdentifier("qrCell", forIndexPath: indexPath) as! QrCell
-      dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-        if let images = self.user?.QRimage{
-          let imageData = NSData(contentsOfURL: NSURL(string: self.qrImageAPI(images[indexPath.row]))!)
-          dispatch_async(dispatch_get_main_queue()){
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if let cell = cell as? QrCell{
-              if imageData != nil{
-                cell.qrImage.image = UIImage(data: imageData!)!
-              } else {
-                cell.qrImage.image = nil
-              }
-            }
-          }
-        }
+    for controllerIdentifier in controllerIds{
+      if let controller = storyboard?.instantiateViewControllerWithIdentifier(controllerIdentifier) as? PageViewController{
+        controllers.append(controller)
       }
-    } else {
-      let cell = tableView.dequeueReusableCellWithIdentifier("speechCell", forIndexPath: indexPath) as! SpeechCell
-      cell.setData(Speech.find_by_id((user?.collections![indexPath.row])!))
     }
-    return cell
+  }
+  
+  func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    let itemController = viewController as! PageViewController
+    return viewControllerAtIndex((itemController.itemIndex ?? 0)+1)
+  }
+  
+  func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    let itemController = viewController as! PageViewController
+    return viewControllerAtIndex((itemController.itemIndex ?? 1)-1)
+  }
+  
+  
+  private func viewControllerAtIndex(index: Int) -> PageViewController?{
+    if index > controllers.count - 1{
+      return nil
+    }
+    segmentControl.selectedIndex = index
+    controllers[index].itemIndex = index
+    return controllers[index]
+  }
+  
+  private func setPageViewControllerPage(index: Int!){
+    if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageController") as? UIPageViewController {
+      pageViewController.dataSource = self
+      pageViewController.delegate = self
+      
+      if let pageContentController = viewControllerAtIndex(index){
+        pageViewController.setViewControllers([pageContentController], direction: .Forward, animated: true, completion: nil)
+      }
+      
+      let y = segmentControl.frame.origin.y + segmentControl.frame.height
+      pageViewController.view.frame = CGRectMake(0, y+10, self.view.frame.width, self.view.frame.size.height)
+      
+      addChildViewController(pageViewController)
+      view.addSubview(pageViewController.view)
+      pageViewController.didMoveToParentViewController(self)
+    }
+  }
+  
+  
+  func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    return controllers.count
+  }
+  
+  func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    return 0
+  }
+  
+  @IBAction func selectPageView(sender: AnyObject) {
+    setPageViewControllerPage(segmentControl.selectedIndex)
   }
 }
 
-extension UserCenterViewController: UITableViewDelegate{
-  
-}
