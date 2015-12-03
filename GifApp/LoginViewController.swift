@@ -36,7 +36,8 @@ class LoginViewController: UIViewController {
   @IBAction func login() {
     let email = self.email.text!
     let password = self.password.text!
-    User.login(email, passwd: password)
+//    User.login(email, passwd: password)
+    User.login("zhaojunjie@geekpark.net", passwd: "geek_Zjj@901105,")
     selfDisappear()
   }
   

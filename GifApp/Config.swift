@@ -36,6 +36,24 @@ struct NotificationName{
   static let userChanged: String = "notification_user_changed"
 }
 
+class PageViewController: UIViewController{
+  var itemIndex: Int?
+}
+class UserCenterItems{
+  static let items = [ SlidePageItem(title: "票据", controllerIdentifier: "UserTicketsViewController")
+    ,SlidePageItem(title: "收藏", controllerIdentifier: "UserCollectionsController")
+    ,SlidePageItem(title: "动态", controllerIdentifier: "UserNewsController")
+  ]
+}
+struct SlidePageItem {
+  let title: String
+  let controllerIdentifier: String
+}
+
+struct Default {
+  static let avatar = "default_avator"
+}
+
 struct ColorConfig{
   static let greenColor = UIColor(red: 0.0, green: 170.0/255.0, blue: 173.0/255.0, alpha: 1.0)
   static let grayColor = UIColor(red: 160.0/255.0, green: 160.0/255.0, blue: 160.0/255.0, alpha: 1.0)

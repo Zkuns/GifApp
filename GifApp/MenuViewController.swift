@@ -20,18 +20,12 @@ class MenuViewController: UIViewController {
   
   var user: User?{
     didSet{
+      updateUserArea()
       if user == nil{
         updateHeaderWithoutUser()
       } else {
         updateHeaderWithUser(user!)
       }
-    }
-  }
-  
-  var avatorUrl: String?{
-    didSet{
-      print("avatorUrl \(avatorUrl)")
-      avator.kf_setImageWithURL(NSURL(string: (avatorUrl ?? ""))!, placeholderImage: UIImage(named: "default_avator"))
     }
   }
   
@@ -66,14 +60,16 @@ class MenuViewController: UIViewController {
     menuTable.separatorStyle = UITableViewCellSeparatorStyle.None
   }
   
+  private func updateUserArea(){
+    username.text = user?.username ?? "登录"
+    avator.kf_setImageWithURL( NSURL(string: user?.avator ?? "")!, placeholderImage: UIImage(named:Default.avatar))
+    collection.text = "\(user?.collections?.count ?? 0)"
+    post.text = "\(user?.posts?.count ?? 0)"
+  }
+  
   private func updateHeaderWithUser(user: User){
     let moveToUserCenterQR = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
     loginArea.addGestureRecognizer(moveToUserCenterQR)
-    print("user. avator = \(user.avator)")
-    avatorUrl = user.avator
-    username.text = user.username!
-    collection.text = String(user.collections!.count)
-    post.text = String(user.posts!.count)
     self.view.setNeedsDisplay()
     moveToUserCenterCol = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
     moveToUserCenterPost = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
@@ -83,9 +79,7 @@ class MenuViewController: UIViewController {
   
   private func updateHeaderWithoutUser(){
     let openLoginPage = UITapGestureRecognizer(target: self, action: "openLoginPage:")
-    avator.image = UIImage(named: "default_avator")
     loginArea.addGestureRecognizer(openLoginPage)
-    username.text = "登陆"
     if moveToUserCenterCol != nil {
       postArea.removeGestureRecognizer(moveToUserCenterCol!)
       collectionArea.removeGestureRecognizer(moveToUserCenterCol!)
