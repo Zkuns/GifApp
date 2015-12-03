@@ -30,22 +30,8 @@ class MenuViewController: UIViewController {
   
   var avatorUrl: String?{
     didSet{
-      if avatorUrl != nil{
-        if let url = NSURL(string: avatorUrl!){
-          dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-            let imageData = NSData(contentsOfURL: url)
-            dispatch_async(dispatch_get_main_queue()){
-              if imageData != nil {
-                self.avator.image = UIImage(data: imageData!)
-              } else {
-                self.avator.image = UIImage(named: "default_avator")
-              }
-            }
-          }
-        }
-      } else {
-        self.avator.image = UIImage(named: "default_avator")
-      }
+      print("avatorUrl \(avatorUrl)")
+      avator.kf_setImageWithURL(NSURL(string: (avatorUrl ?? ""))!, placeholderImage: UIImage(named: "default_avator"))
     }
   }
   
@@ -83,6 +69,7 @@ class MenuViewController: UIViewController {
   private func updateHeaderWithUser(user: User){
     let moveToUserCenterQR = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
     loginArea.addGestureRecognizer(moveToUserCenterQR)
+    print("user. avator = \(user.avator)")
     avatorUrl = user.avator
     username.text = user.username!
     collection.text = String(user.collections!.count)

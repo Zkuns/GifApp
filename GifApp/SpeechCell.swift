@@ -24,20 +24,7 @@ class SpeechCell: UITableViewCell {
       guestName.text! = gu.name!
       guestCompany.text! = gu.company!
       guestTitle.text! = gu.title!
-      dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-        if let imageUrl = gu.avator{
-          let imageData = NSData(contentsOfURL: NSURL(string: imageUrl)!)
-          dispatch_async(dispatch_get_main_queue()){
-            if imageData != nil{
-              ImageUtil.convertImageToCircle(self.avator)
-              self.avator.image = UIImage(data: imageData!)!
-            } else {
-              self.avator.image = nil
-            }
-          }
-        }
-      }
-      
+      self.avator.kf_setImageWithURL(NSURL(string: gu.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
     }
   }
 }

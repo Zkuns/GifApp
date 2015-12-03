@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SpeechDetailViewController: UIViewController{
   
@@ -33,11 +34,14 @@ class SpeechDetailViewController: UIViewController{
     titleLable.text = speech?.title
     themeLable.text = speech?.theme
     showtimeLable.text = speech?.start_at_after_fomat("HH:mm")
-    showdateLable.text = speech?.start_at_after_fomat("YYYY.MM.DD")
+    print(speech?.start_at)
+    showdateLable.text = speech?.start_at_after_fomat("YYYY.MM.dd")
     speakerNameLable.text = guest?.name
     companyAndPositionLable.text = guest?.company
     descriptionLable.text = speech?.description
     backgroundView.backgroundColor = ColorConfig.greenColor
+    avatorImageView.kf_setImageWithURL(NSURL(string: (guest?.avator ?? ""))!)
+    ImageUtil.convertImageToCircle(self.avatorImageView)
     
     let image = UIImage(named: "collect_white")
     let button = UIButton(frame: CGRectMake(0, 0, (image?.size.width)!, (image?.size.height)!))
@@ -46,28 +50,10 @@ class SpeechDetailViewController: UIViewController{
     navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
     
     //给description添加背景框
-    updateAvatarImage()
     let bgConer = UIImage(named: "chat_coner")
     let bgImage = UIImageView(image: bgConer)
     bgImage.frame.origin = CGPoint(x: (backgroundView.frame.origin.x - 10), y: backgroundView.frame.origin.y - 25)
     view.addSubview(bgImage)
   }
   
-  func updateAvatarImage(){
-    if let avatarUrl = guest?.avator {
-      if let url = NSURL(string: avatarUrl){
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-          let imageData = NSData(contentsOfURL: url)
-          dispatch_async(dispatch_get_main_queue()){
-            if imageData != nil {
-              ImageUtil.convertImageToCircle(self.avatorImageView)
-              self.avatorImageView.image = UIImage(data: imageData!)
-            } else {
-              self.avatorImageView.image = nil
-            }
-          }
-        }
-      }
-    }
-  }
 }

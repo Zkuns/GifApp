@@ -18,7 +18,7 @@ class GuestCell: UITableViewCell {
     name.text = guest.name
     company.text = guest.company
     title.text = guest.title
-    avator.image = nil
+    avator.kf_setImageWithURL(NSURL(string: guest.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
   }
   
 }
