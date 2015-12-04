@@ -28,9 +28,8 @@ class LoginViewController: UIViewController {
   }
   
   func selfDisappear(){
-    self.view.removeFromSuperview()
-    self.didMoveToParentViewController(nil)
-    self.removeFromParentViewController()
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    appDelegate.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
   }
   
   @IBAction func login() {

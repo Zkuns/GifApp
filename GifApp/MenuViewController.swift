@@ -21,16 +21,10 @@ class MenuViewController: UIViewController {
   var user: User?{
     didSet{
       updateUserArea()
-      if user == nil{
-        updateHeaderWithoutUser()
-      } else {
-        updateHeaderWithUser(user!)
-      }
     }
   }
   
   var delegate: ChangeControllerDelegate?
-  var openLoginPageDelegate: OpenLoginPageDelegate?
   @IBOutlet weak var menuTable: UITableView!
   let menuItems = MenuItem.menuItems
   var moveToUserCenterCol: UITapGestureRecognizer?
@@ -45,7 +39,6 @@ class MenuViewController: UIViewController {
       notification in
       self.updateCurrentUser()
     }
-    updateCurrentUser()
   }
   
   func updateCurrentUser(){
@@ -58,6 +51,7 @@ class MenuViewController: UIViewController {
   func updateUI(){
     ImageUtil.convertImageToCircle(avator)
     menuTable.separatorStyle = UITableViewCellSeparatorStyle.None
+    updateCurrentUser()
   }
   
   private func updateUserArea(){
@@ -65,9 +59,7 @@ class MenuViewController: UIViewController {
     avator.kf_setImageWithURL( NSURL(string: user?.avator ?? "")!, placeholderImage: UIImage(named:Default.avatar))
     collection.text = "\(user?.collections?.count ?? 0)"
     post.text = "\(user?.posts?.count ?? 0)"
-  }
-  
-  private func updateHeaderWithUser(user: User){
+    
     let moveToUserCenterQR = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
     loginArea.addGestureRecognizer(moveToUserCenterQR)
     self.view.setNeedsDisplay()
@@ -77,25 +69,18 @@ class MenuViewController: UIViewController {
     collectionArea.addGestureRecognizer(moveToUserCenterCol!)
   }
   
-  private func updateHeaderWithoutUser(){
-    let openLoginPage = UITapGestureRecognizer(target: self, action: "openLoginPage:")
-    loginArea.addGestureRecognizer(openLoginPage)
-    if moveToUserCenterCol != nil {
-      postArea.removeGestureRecognizer(moveToUserCenterCol!)
-      collectionArea.removeGestureRecognizer(moveToUserCenterCol!)
-    }
-  }
-  
 }
 
 extension MenuViewController: UIGestureRecognizerDelegate{
   func moveToUserCenter(recogizer: UIPanGestureRecognizer){
-    let view = recogizer.view
-    delegate?.changeToUserCenterController(view!.tag)
-  }
-  
-  func openLoginPage(recogizer: UIPanGestureRecognizer){
-    openLoginPageDelegate?.openLoginPage()
+    if User.user != nil{
+      let view = recogizer.view
+      delegate?.changeToUserCenterController(view!.tag)
+    }else{
+      if let loginController = storyboard?.instantiateViewControllerWithIdentifier("login") as? LoginViewController{
+        presentViewController(loginController, animated: true, completion: nil)
+      }
+    }
   }
 }
 

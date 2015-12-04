@@ -19,11 +19,6 @@ protocol ChangeControllerDelegate{
   func changeToUserCenterController(index: Int)
 }
 
-//打开登陆界面的delegate
-protocol OpenLoginPageDelegate{
-  func openLoginPage()
-}
-
 class ContainerViewController: UIViewController{
   //当前的开关状态
   var currentState = State.Close
@@ -49,7 +44,6 @@ class ContainerViewController: UIViewController{
     addChildViewController(menuViewController!)
     view.addSubview(menuViewController!.view)
     menuViewController!.delegate = self
-    menuViewController!.openLoginPageDelegate = self
     menuViewController!.didMoveToParentViewController(self)
     
     panGesture = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
@@ -71,6 +65,11 @@ class ContainerViewController: UIViewController{
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     if(appDelegate.firstLaunch){
       loadLaunchView()
+      appDelegate.firstLaunch = false
+    }
+    
+    NSNotificationCenter.defaultCenter().addObserverForName(NotificationName.userLogout, object: nil, queue: NSOperationQueue.mainQueue()){ notification in
+      self.changeController(MenuItem.menuItems.first!)
     }
     
   }
@@ -121,15 +120,6 @@ class ContainerViewController: UIViewController{
     UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: action, completion: nil)
   }
   
-}
-
-extension ContainerViewController: OpenLoginPageDelegate{
-  func openLoginPage(){
-    let loginViewController = storyBoard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
-    view.addSubview(loginViewController.view)
-    addChildViewController(loginViewController)
-    loginViewController.didMoveToParentViewController(self)
-  }
 }
 
 extension ContainerViewController: UIGestureRecognizerDelegate{
