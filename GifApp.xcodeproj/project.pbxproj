@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		8E794AA61C102D3A004ACFEE /* UserCollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E794AA51C102D3A004ACFEE /* UserCollectionsController.swift */; };
 		8E794AA81C102DEE004ACFEE /* UserNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E794AA71C102DEE004ACFEE /* UserNewsController.swift */; };
+		8E794AAC1C10723E004ACFEE /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E794AAB1C10723E004ACFEE /* TicketCell.swift */; };
 		8E8675E01C1027270001D41B /* GSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8675DF1C1027270001D41B /* GSegmentControl.swift */; };
 		8E8675E21C1028260001D41B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8675E11C1028260001D41B /* UserCenterViewController.swift */; };
 		8E8675E41C102CBB0001D41B /* UserTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8675E31C102CBB0001D41B /* UserTicketsViewController.swift */; };
 		8EE6E9291C082EA800623DF5 /* SpeechDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */; };
 		8EE6E92B1C084D6C00623DF5 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */; };
-		F71E863B1C0B271B00ED2595 /* QrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E863A1C0B271B00ED2595 /* QrCell.swift */; };
 		F7236E577D0960A4F3FDF070 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7917F83BB9CFF58352FA1162 /* Pods.framework */; };
 		F7323E021C093445002CDDC4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7323E011C093445002CDDC4 /* User.swift */; };
 		F7323E041C09375B002CDDC4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7323E031C09375B002CDDC4 /* Comment.swift */; };
@@ -70,13 +70,13 @@
 		7917F83BB9CFF58352FA1162 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E794AA51C102D3A004ACFEE /* UserCollectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionsController.swift; sourceTree = "<group>"; };
 		8E794AA71C102DEE004ACFEE /* UserNewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNewsController.swift; sourceTree = "<group>"; };
+		8E794AAB1C10723E004ACFEE /* TicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
 		8E8675DF1C1027270001D41B /* GSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSegmentControl.swift; sourceTree = "<group>"; };
 		8E8675E11C1028260001D41B /* UserCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
 		8E8675E31C102CBB0001D41B /* UserTicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTicketsViewController.swift; sourceTree = "<group>"; };
 		8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechDetailViewController.swift; sourceTree = "<group>"; };
 		8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		E10D38ED082BA3EBB16F3EC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		F71E863A1C0B271B00ED2595 /* QrCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QrCell.swift; sourceTree = "<group>"; };
 		F7323E011C093445002CDDC4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F7323E031C09375B002CDDC4 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		F7323E051C093766002CDDC4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -194,12 +194,12 @@
 				F755B23E1C070F4700A63143 /* SpeechCell.swift */,
 				F755B2401C07264D00A63143 /* SpeechHeader.swift */,
 				F755B2421C07E52A00A63143 /* GuestCell.swift */,
-				F71E863A1C0B271B00ED2595 /* QrCell.swift */,
 				8E8675DF1C1027270001D41B /* GSegmentControl.swift */,
 				F7B48F961C0D64F900DC8A08 /* toggleDayButton.swift */,
 				F7F21B721C0EC6860099EB13 /* defaultButton.swift */,
 				F7F21B741C0ECC0F0099EB13 /* loginInputView.swift */,
 				F7CBC2251C10175500CB98D8 /* PostCell.swift */,
+				8E794AAB1C10723E004ACFEE /* TicketCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -465,7 +465,6 @@
 				F7CBC2261C10175500CB98D8 /* PostCell.swift in Sources */,
 				F7DFD9431C06D31300465F40 /* TrafficViewController.swift in Sources */,
 				F7E1AE931C043726001E5FE0 /* SpeechViewController.swift in Sources */,
-				F71E863B1C0B271B00ED2595 /* QrCell.swift in Sources */,
 				F755B23F1C070F4700A63143 /* SpeechCell.swift in Sources */,
 				F755B2431C07E52A00A63143 /* GuestCell.swift in Sources */,
 				F7DD8B161C0E749400F20DC3 /* ImageUtil.swift in Sources */,
@@ -473,6 +472,7 @@
 				F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */,
 				F7323E021C093445002CDDC4 /* User.swift in Sources */,
 				8E8675E01C1027270001D41B /* GSegmentControl.swift in Sources */,
+				8E794AAC1C10723E004ACFEE /* TicketCell.swift in Sources */,
 				F7DFD9471C06D32C00465F40 /* AboutViewController.swift in Sources */,
 				F7F21B751C0ECC0F0099EB13 /* loginInputView.swift in Sources */,
 				F7B48F971C0D64F900DC8A08 /* toggleDayButton.swift in Sources */,
