@@ -63,7 +63,7 @@ class UserCenterViewController: UIViewController, UIPageViewControllerDataSource
   
   
   private func viewControllerAtIndex(index: Int) -> PageViewController?{
-    if index > controllers.count - 1{
+    if index > controllers.count - 1 || index < 0 {
       return nil
     }
     segmentControl.selectedIndex = index
