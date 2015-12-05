@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var wechatLoginButton: UIButton!
   @IBOutlet weak var closeButton: UIButton!
-  
+
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,15 +25,15 @@ class LoginViewController: UIViewController {
     password.delegate = self
     updateUI()
   }
-  
+
   func updateUI(){
   }
-  
+
   func disappear(){
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     appDelegate.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
   }
-  
+
   @IBAction func login() {
     let email = self.email.text!
     let password = self.password.text!
@@ -45,11 +45,11 @@ class LoginViewController: UIViewController {
       self.disappear()
     }
   }
-  
+
   @IBAction func loginWechat() {
     
   }
-  
+
   @IBAction func close() {
     disappear()
   }

@@ -71,6 +71,7 @@ class User{
   
   
   static func getUserInfo(accessToken: String, callback: (User?)->()){
+    print(accessToken)
     Alamofire.request(.GET, userInfoAPI + accessToken).response{ request, response, data, error in
       let statusCode = response?.statusCode ?? -1
       print("getUserInfo statusCode = \(statusCode), data = \(data)")
@@ -83,8 +84,8 @@ class User{
         let QRimages = data["qrcode"].array!.map{ qrImage -> String in
           return qrImage["id"].string!
         }
-        //      let posts = data["posts"].array
-        //      let collection = data["comments"].array
+//        let posts = data["posts"].array
+//        let collection = data["comments"].array
         user = User(id: data["id"].string, username: data["username"].string, avator: data["avator"].string, QRimage: QRimages, posts: [], collections: [])
         callback(user)
       }

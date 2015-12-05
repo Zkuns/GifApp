@@ -18,14 +18,15 @@ class GeekTalkViewController: UIViewController {
   }
   
   override func viewDidLoad() {
-    postTable.delegate = self
-    postTable.dataSource = self
     Post.getData(){ data in
       self.posts = data
+      self.postTable.delegate = self
+      self.postTable.dataSource = self
     }
   }
   
   func updateUI(){
+    postTable.separatorStyle = UITableViewCellSeparatorStyle.None
     postTable.reloadData()
   }
 }
@@ -47,6 +48,17 @@ extension GeekTalkViewController: UITableViewDataSource{
     return cell
   }
   
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    var cell = tableView.cellForRowAtIndexPath(indexPath)
+    print(cell?.frame.height)
+//    print(cell.images)
+//    print(cell.Images.contentSize.height)
+    return CGFloat(indexPath.row * 100)
+  }
+  
+//  func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+//    return UITableViewAutomaticDimension
+//  }
 }
 
 extension GeekTalkViewController: UITableViewDelegate{

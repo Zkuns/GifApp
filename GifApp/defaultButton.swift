@@ -13,6 +13,8 @@ class defaultButton: UIButton {
     didSet{
       if (highlighted){
         self.alpha = 0.8
+      } else {
+        self.alpha = 1
       }
     }
   }

@@ -28,6 +28,7 @@
 		F774E1E31C0564BA00ED8C65 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774E1E21C0564BA00ED8C65 /* MenuCell.swift */; };
 		F7B48F971C0D64F900DC8A08 /* toggleDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B48F961C0D64F900DC8A08 /* toggleDayButton.swift */; };
 		F7CBC2261C10175500CB98D8 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBC2251C10175500CB98D8 /* PostCell.swift */; };
+		F7CBC2281C11732B00CB98D8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBC2271C11732B00CB98D8 /* ImageCell.swift */; };
 		F7DD8B161C0E749400F20DC3 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DD8B151C0E749400F20DC3 /* ImageUtil.swift */; };
 		F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */; };
 		F7DFD9411C06D30300465F40 /* GeekTalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */; };
@@ -91,6 +92,7 @@
 		F774E1E21C0564BA00ED8C65 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		F7B48F961C0D64F900DC8A08 /* toggleDayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toggleDayButton.swift; sourceTree = "<group>"; };
 		F7CBC2251C10175500CB98D8 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		F7CBC2271C11732B00CB98D8 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		F7DD8B151C0E749400F20DC3 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
 		F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeekTalkViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				F7F21B741C0ECC0F0099EB13 /* loginInputView.swift */,
 				F7CBC2251C10175500CB98D8 /* PostCell.swift */,
 				8E794AAB1C10723E004ACFEE /* TicketCell.swift */,
+				F7CBC2271C11732B00CB98D8 /* ImageCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				F7F21B751C0ECC0F0099EB13 /* loginInputView.swift in Sources */,
 				F7B48F971C0D64F900DC8A08 /* toggleDayButton.swift in Sources */,
 				8E794AA81C102DEE004ACFEE /* UserNewsController.swift in Sources */,
+				F7CBC2281C11732B00CB98D8 /* ImageCell.swift in Sources */,
 				F7323E041C09375B002CDDC4 /* Comment.swift in Sources */,
 				F7DFD9411C06D30300465F40 /* GeekTalkViewController.swift in Sources */,
 				F7DFD94A1C06F7BF00465F40 /* Speech.swift in Sources */,
