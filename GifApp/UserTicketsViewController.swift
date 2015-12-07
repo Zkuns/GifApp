@@ -40,6 +40,8 @@ extension UserTicketsViewController: UITableViewDataSource{
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("ticketCell", forIndexPath: indexPath) as! TicketCell
+    // TODO:
+    cell.ticket = Ticket(id: "\(indexPath.row)", title: "title \(indexPath.row)", description: "description : \(indexPath.row)")
     return cell
   }
   

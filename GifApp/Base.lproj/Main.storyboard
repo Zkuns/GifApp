@@ -979,12 +979,12 @@
                                 <exclude reference="14u-iQ-7SC"/>
                                 <exclude reference="AWd-XP-xvz"/>
                                 <exclude reference="ffH-U6-i9B"/>
-                                <exclude reference="FUO-Dd-6LO"/>
-                                <exclude reference="U5p-0L-5g4"/>
-                                <exclude reference="b0G-J9-Zof"/>
                                 <exclude reference="0px-dI-yyK"/>
                                 <exclude reference="HIx-lz-xNm"/>
                                 <exclude reference="t4p-tO-RQV"/>
+                                <exclude reference="FUO-Dd-6LO"/>
+                                <exclude reference="U5p-0L-5g4"/>
+                                <exclude reference="b0G-J9-Zof"/>
                                 <exclude reference="Stk-5p-ar5"/>
                                 <exclude reference="qJe-fk-A2R"/>
                                 <exclude reference="HNw-yl-6oQ"/>
@@ -1314,7 +1314,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="238" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AuI-Ss-pet">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="238" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AuI-Ss-pet">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
