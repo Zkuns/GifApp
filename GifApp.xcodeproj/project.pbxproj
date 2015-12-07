@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E327B821C156B350063E985 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E327B811C156B350063E985 /* Ticket.swift */; };
 		8E794AA61C102D3A004ACFEE /* UserCollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E794AA51C102D3A004ACFEE /* UserCollectionsController.swift */; };
 		8E794AA81C102DEE004ACFEE /* UserNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E794AA71C102DEE004ACFEE /* UserNewsController.swift */; };
 		8E794AAC1C10723E004ACFEE /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E794AAB1C10723E004ACFEE /* TicketCell.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		0E1DE30FF95AD1406E5ADD24 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7917F83BB9CFF58352FA1162 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E327B811C156B350063E985 /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		8E794AA51C102D3A004ACFEE /* UserCollectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionsController.swift; sourceTree = "<group>"; };
 		8E794AA71C102DEE004ACFEE /* UserNewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNewsController.swift; sourceTree = "<group>"; };
 		8E794AAB1C10723E004ACFEE /* TicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				F7323E011C093445002CDDC4 /* User.swift */,
 				F7323E031C09375B002CDDC4 /* Comment.swift */,
 				F7323E051C093766002CDDC4 /* Post.swift */,
+				8E327B811C156B350063E985 /* Ticket.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				F755B2431C07E52A00A63143 /* GuestCell.swift in Sources */,
 				F7DD8B161C0E749400F20DC3 /* ImageUtil.swift in Sources */,
 				F7F21B731C0EC6860099EB13 /* defaultButton.swift in Sources */,
+				8E327B821C156B350063E985 /* Ticket.swift in Sources */,
 				F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */,
 				F7323E021C093445002CDDC4 /* User.swift in Sources */,
 				8E8675E01C1027270001D41B /* GSegmentControl.swift in Sources */,

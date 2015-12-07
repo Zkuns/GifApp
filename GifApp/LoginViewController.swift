@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import JLToast
+import SwiftSpinner
 
 class LoginViewController: UIViewController {
   @IBOutlet weak var email: UITextField!
@@ -27,7 +29,7 @@ class LoginViewController: UIViewController {
   func updateUI(){
   }
   
-  func selfDisappear(){
+  func disappear(){
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     appDelegate.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
   }
@@ -35,8 +37,13 @@ class LoginViewController: UIViewController {
   @IBAction func login() {
     let email = self.email.text!
     let password = self.password.text!
-    User.login(email, passwd: password)
-    selfDisappear()
+    SwiftSpinner.show("Authenticating user account")
+    User.login(email, passwd: password){
+      isSuccess,resultMsg in
+      SwiftSpinner.hide()
+      JLToast.makeText(resultMsg).show()
+      self.disappear()
+    }
   }
   
   @IBAction func loginWechat() {
@@ -44,7 +51,7 @@ class LoginViewController: UIViewController {
   }
   
   @IBAction func close() {
-    selfDisappear()
+    disappear()
   }
 }
 

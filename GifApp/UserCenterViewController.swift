@@ -62,12 +62,17 @@ class UserCenterViewController: UIViewController, UIPageViewControllerDataSource
     return viewControllerAtIndex((itemController.itemIndex ?? 1)-1)
   }
   
+  func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    if let currentViewController = pageViewController.viewControllers?.last as? PageViewController{
+      segmentControl.selectedIndex = currentViewController.itemIndex ?? 0
+    }
+  }
+  
   
   private func viewControllerAtIndex(index: Int) -> PageViewController?{
     if index > controllers.count - 1 || index < 0 {
       return nil
     }
-    segmentControl.selectedIndex = index
     controllers[index].itemIndex = index
     return controllers[index]
   }
@@ -78,7 +83,7 @@ class UserCenterViewController: UIViewController, UIPageViewControllerDataSource
       pageViewController.delegate = self
       
       if let pageContentController = viewControllerAtIndex(index){
-        pageViewController.setViewControllers([pageContentController], direction: .Forward, animated: true, completion: nil)
+        pageViewController.setViewControllers([pageContentController], direction: .Forward, animated: false, completion: nil)
       }
       
       let y = segmentControl.frame.origin.y + segmentControl.frame.height
