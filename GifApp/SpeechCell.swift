@@ -15,10 +15,13 @@ class SpeechCell: UITableViewCell {
   @IBOutlet weak var guestTitle: UILabel!
   @IBOutlet weak var duration: UILabel!
   @IBOutlet weak var avator: UIImageView!
+  @IBOutlet weak var collectedButton: UIButton!
+  
   
   func setData(speech: Speech){
     self.avator.image = nil
-  
+    
+    collectedButton.selected = speech.isCollected
     title.text! = speech.title!
     duration.text! = speech.start_at_after_fomat("HH:mm")
     if let gu = speech.guest{

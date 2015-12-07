@@ -12,7 +12,7 @@ import SwiftyJSON
 
 let speechAPI = Config.baseUrl + "/api/v1/activities/663b2c7b-14c9-48bc-abaa-7810c6073168/speeches"
 class Speech{
-  let id: String?
+  let id: String
   let title: String?
   let description: String?
   let start_at: String?
@@ -20,7 +20,22 @@ class Speech{
   let theme: String?
   var guest: Guest?
   
-  init(id: String?, title: String?, description: String?, start_at: String?, end_at: String?, theme: String?){
+  private let TAG = _stdlib_getDemangledTypeName(Speech.self)
+  var isCollected: Bool {
+    get {
+      return LocalStorage.arrayContains(TAG, value: id)
+    }
+    set{
+      if newValue && !LocalStorage.arrayContains(TAG, value: id){
+        LocalStorage.arrayAppend(TAG, value: id)
+      }
+      if !newValue && LocalStorage.arrayContains(TAG, value: id){
+        LocalStorage.removeFromArray(TAG,value: id)
+      }
+    }
+  }
+  
+  init(id: String, title: String?, description: String?, start_at: String?, end_at: String?, theme: String?){
     self.id = id
     self.title = title
     self.description = description
@@ -84,7 +99,7 @@ class Speech{
   }
   
   static func getSpeech(speech: JSON) -> Speech{
-    let sp = Speech(id: speech["id"].string, title: speech["title"].string, description: speech["description"].string, start_at: speech["start_at"].string, end_at: speech["end_at"].string, theme: speech["theme"].string)
+    let sp = Speech(id: speech["id"].string!, title: speech["title"].string, description: speech["description"].string, start_at: speech["start_at"].string, end_at: speech["end_at"].string, theme: speech["theme"].string)
     if speech["guest"] != nil {
       sp.guest = Guest.getGuest(speech["guest"])
     }
