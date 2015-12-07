@@ -69,7 +69,6 @@ import UIKit
   }
   
   func displayNewSelectedIndex(){
-    print("displayNewSelectedIndex index = \(selectedIndex)")
     if selectedIndex > (labels.count - 1) || selectedIndex < 0 {
       return
     }
