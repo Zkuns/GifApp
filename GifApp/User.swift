@@ -24,15 +24,11 @@ class User{
   static var user: User?
   static var access_token: String?{
     set{
-      if (newValue != nil){
-        database.setObject(newValue!, forKey: UserConfig.userTokenKey)
-      } else {
-        database.setObject(nil, forKey: UserConfig.userTokenKey)
-      }
+      LocalStorage.setString(UserConfig.userTokenKey, value: newValue)
       NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: NotificationName.userChanged, object: nil))
     }
     get{
-      return database.stringForKey(UserConfig.userTokenKey)
+      return LocalStorage.getString(UserConfig.userTokenKey)
     }
   }
   

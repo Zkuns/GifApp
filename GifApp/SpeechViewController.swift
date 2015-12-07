@@ -56,6 +56,11 @@ class SpeechViewController: UIViewController {
     }
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    speechTable.reloadData()
+  }
+  
   func updateUI(){
     speechTable.reloadData()
   }
@@ -76,6 +81,13 @@ class SpeechViewController: UIViewController {
     }
   }
     
+  @IBAction func setCollected(sender: UIButton) {
+    if let speech = currentSpeeches?[sender.tag]{
+      print("speech \(speech.title), isCollected = \(speech.isCollected)")
+      speech.isCollected = !speech.isCollected
+      speechTable.reloadData()
+    }
+  }
 }
 
 extension SpeechViewController: UITableViewDataSource{
@@ -104,6 +116,7 @@ extension SpeechViewController: UITableViewDataSource{
     let speech = Speech.split(currentSpeeches!)[indexPath.section][indexPath.row]
     ImageUtil.convertImageToCircle(cell.avator)
     cell.setData(speech)
+    cell.collectedButton.tag = indexPath.row
     return cell
   }
   

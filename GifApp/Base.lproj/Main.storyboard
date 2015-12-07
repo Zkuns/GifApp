@@ -270,7 +270,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sQD-28-MWx" id="nI4-os-vCI">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="66.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCI-jO-OKV">
@@ -307,7 +307,7 @@
                                         <rect key="frame" x="0.0" y="95" width="600" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZGD-eb-nhR" id="6yX-JY-Sm1">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="112"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="111.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTb-7i-Cj9">
@@ -346,13 +346,17 @@
                                                         <constraint firstAttribute="width" secondItem="bMQ-gG-Q6m" secondAttribute="height" multiplier="1:1" id="k8L-zZ-j7L"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7E-h7-LVp">
-                                                    <rect key="frame" x="562" y="46" width="20" height="20"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7E-h7-LVp">
+                                                    <rect key="frame" x="562" y="46" width="20" height="19"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="l7E-h7-LVp" secondAttribute="height" multiplier="1:1" id="xew-Yk-qGq"/>
                                                     </constraints>
-                                                    <state key="normal" backgroundImage="collect"/>
+                                                    <state key="normal" image="collect"/>
+                                                    <state key="selected" image="collect_selected" backgroundImage="collect_selected"/>
+                                                    <connections>
+                                                        <action selector="setCollected:" destination="H6J-Cl-gpp" eventType="touchUpInside" id="qdZ-DS-JCi"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="guesttitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b89-Ge-WhF">
                                                     <rect key="frame" x="313" y="59" width="61" height="17"/>
@@ -398,6 +402,7 @@
                                         <animations/>
                                         <connections>
                                             <outlet property="avator" destination="bMQ-gG-Q6m" id="WbW-0C-t2x"/>
+                                            <outlet property="collectedButton" destination="l7E-h7-LVp" id="mzc-L5-1tX"/>
                                             <outlet property="duration" destination="0k0-DY-0P4" id="JKo-we-Hg6"/>
                                             <outlet property="guestCompany" destination="mnZ-Tq-mMQ" id="LlT-CF-A4M"/>
                                             <outlet property="guestName" destination="kMp-lo-VWr" id="VT1-50-HQH"/>
@@ -519,7 +524,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oDs-jP-ID8" id="eHU-dv-zAG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OLa-PW-Jdx">
@@ -622,7 +627,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="191"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A6l-T7-5L6" id="P9w-V8-7QW">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="191"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="190.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO9-sF-lGK">
@@ -1049,7 +1054,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t6p-Xt-8a8" id="Q2i-lt-hpb">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kCS-ce-Iwh">
@@ -1323,7 +1328,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="225"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OsR-oS-TCR" id="l5e-HE-F4N">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="224.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket_bg" translatesAutoresizingMaskIntoConstraints="NO" id="pC0-7j-Wxi">
@@ -1541,6 +1546,7 @@
         <image name="close_hightlight" width="22" height="22"/>
         <image name="collect" width="20" height="19"/>
         <image name="collect_black" width="20" height="19"/>
+        <image name="collect_selected" width="21" height="21"/>
         <image name="email" width="17" height="14"/>
         <image name="location" width="12" height="16"/>
         <image name="logo" width="199" height="39"/>
@@ -1549,6 +1555,6 @@
         <image name="wechat" width="24" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nIV-l7-ZGy"/>
+        <segue reference="jEH-1t-6YL"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -46,6 +46,9 @@ class SpeechDetailViewController: UIViewController{
     let image = UIImage(named: "collect_white")
     let button = UIButton(frame: CGRectMake(0, 0, (image?.size.width)!, (image?.size.height)!))
     button.setBackgroundImage(image, forState: .Normal)
+    button.setBackgroundImage(UIImage(named: "collect_selected"), forState: .Selected)
+    button.addTarget(self, action: "selectedClick", forControlEvents: UIControlEvents.TouchUpInside)
+    button.selected = speech?.isCollected ?? false
 //    button.addTarget(self, action: "", forControlEvents: UIControlEvents.TouchUpInside)
     navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
     
@@ -54,6 +57,13 @@ class SpeechDetailViewController: UIViewController{
     let bgImage = UIImageView(image: bgConer)
     bgImage.frame.origin = CGPoint(x: (backgroundView.frame.origin.x - 10), y: backgroundView.frame.origin.y - 25)
     view.addSubview(bgImage)
+  }
+  
+  func selectedClick(){
+    speech?.isCollected = !(speech?.isCollected ?? false)
+    if let button = navigationItem.rightBarButtonItem?.customView as? UIButton {
+      button.selected = speech?.isCollected ?? false
+    }
   }
   
 }
