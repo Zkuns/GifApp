@@ -26,11 +26,10 @@ class User{
     set{
       if (newValue != nil){
         database.setObject(newValue!, forKey: UserConfig.userTokenKey)
-        database.synchronize()
-        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: NotificationName.userChanged, object: nil))
       } else {
         database.setObject(nil, forKey: UserConfig.userTokenKey)
       }
+      NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: NotificationName.userChanged, object: nil))
     }
     get{
       return database.stringForKey(UserConfig.userTokenKey)
@@ -66,6 +65,11 @@ class User{
         access_token = data["access_token"].string!
       }
     }
+  }
+  
+  static func logout(){
+    user = nil
+    access_token = nil
   }
   
   

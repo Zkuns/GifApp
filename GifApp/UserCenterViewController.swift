@@ -32,7 +32,8 @@ class UserCenterViewController: UIViewController, UIPageViewControllerDataSource
   
   
   func logout(){
-    print("logout")
+    User.logout()
+    NSNotificationCenter.defaultCenter().postNotificationName(NotificationName.userLogout, object: nil)
   }
   private func initSegmentControl(){
     segmentControl.items = items.map{ item -> String in
