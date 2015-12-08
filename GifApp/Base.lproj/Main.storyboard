@@ -1245,8 +1245,88 @@
                     <view key="view" contentMode="scaleToFill" id="fmN-xj-N9i">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wiC-vs-Q5z">
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-cH-q47">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="600"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前些天，在北京创客盛会的极客公园展位上，极客之选的同学拿出几件好玩的产品做展示和体验。期间，一位四五十岁的大爷，在体验了一款手部按摩仪之后显示出了不屑的表情。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udV-hg-1xd">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="54"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbh-Tc-qLc">
+                                                <rect key="frame" x="0.0" y="64" width="560" height="72"/>
+                                                <animations/>
+                                                <string key="text">    😬「是按照手部穴位按摩的吗？能测出身体有什么问题么？」
+    😂「呃，不能，做不了诊疗，只是保健按摩。」
+    😬 「这么不智能啊？」
+    😂 「真说您高血压高血糖了您敢信吗？！」</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5o-pQ-XMx">
+                                                <rect key="frame" x="0.0" y="146" width="560" height="233"/>
+                                                <animations/>
+                                                <string key="text">大爷瞬间回到了现实，嘿嘿地笑着说:「那倒是，那倒是」。
+
+那一刻我觉得，我们喊了那么多年破除迷信，相信科学，结果，好多人把科学当迷信一样相信了。
+
+我不知道这一套对于产品功能的定式思维是谁给灌输的，一说可穿戴智设备就是心肝脾肺肾吃喝拉撒睡的全检测，一说智能硬件就得远程控制万物互联；一说大数据就是用户习惯数据挖掘定向推荐。可是然后呢？
+
+再精准的情绪识别，也不知道家里死人的时候，有人是心里偷着乐的；再灵敏的智能手环，也盯不住给狗带上自欺欺人刷运动量。
+
+要踏踏实实地相信，科技有很多干不了的事，同时，科技有更多能干的事。</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_gif" translatesAutoresizingMaskIntoConstraints="NO" id="Oq2-Pp-jke">
+                                                <rect key="frame" x="102.5" y="389" width="355" height="127"/>
+                                                <animations/>
+                                            </imageView>
+                                        </subviews>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="udV-hg-1xd" firstAttribute="leading" secondItem="dVD-cH-q47" secondAttribute="leading" id="0El-PA-n7w"/>
+                                            <constraint firstAttribute="trailing" secondItem="udV-hg-1xd" secondAttribute="trailing" id="4RE-3X-9bo"/>
+                                            <constraint firstItem="Oq2-Pp-jke" firstAttribute="centerX" secondItem="dVD-cH-q47" secondAttribute="centerX" id="Akb-qM-Ox8"/>
+                                            <constraint firstAttribute="trailing" secondItem="E5o-pQ-XMx" secondAttribute="trailing" id="M7U-H4-aDr"/>
+                                            <constraint firstItem="udV-hg-1xd" firstAttribute="top" secondItem="dVD-cH-q47" secondAttribute="top" id="RFm-pf-PCY"/>
+                                            <constraint firstItem="Oq2-Pp-jke" firstAttribute="top" secondItem="E5o-pQ-XMx" secondAttribute="bottom" constant="10" id="UF7-R5-Y2K"/>
+                                            <constraint firstItem="E5o-pQ-XMx" firstAttribute="top" secondItem="hbh-Tc-qLc" secondAttribute="bottom" constant="10" id="aVX-3B-mw8"/>
+                                            <constraint firstItem="E5o-pQ-XMx" firstAttribute="leading" secondItem="dVD-cH-q47" secondAttribute="leading" id="bGr-cP-7hd"/>
+                                            <constraint firstItem="hbh-Tc-qLc" firstAttribute="top" secondItem="udV-hg-1xd" secondAttribute="bottom" constant="10" id="o4z-aG-QEX"/>
+                                            <constraint firstItem="hbh-Tc-qLc" firstAttribute="leading" secondItem="dVD-cH-q47" secondAttribute="leading" id="oGj-PF-o6Z"/>
+                                            <constraint firstAttribute="trailing" secondItem="hbh-Tc-qLc" secondAttribute="trailing" id="pah-Gx-PdD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dVD-cH-q47" secondAttribute="trailing" id="1Ko-4c-kt0"/>
+                                    <constraint firstItem="dVD-cH-q47" firstAttribute="centerX" secondItem="wiC-vs-Q5z" secondAttribute="centerX" id="4Oc-Em-GBD"/>
+                                    <constraint firstItem="dVD-cH-q47" firstAttribute="top" secondItem="wiC-vs-Q5z" secondAttribute="top" id="XOK-ob-M66"/>
+                                    <constraint firstAttribute="bottom" secondItem="dVD-cH-q47" secondAttribute="bottom" id="j2j-cl-2OW"/>
+                                    <constraint firstItem="dVD-cH-q47" firstAttribute="centerY" secondItem="wiC-vs-Q5z" secondAttribute="centerY" id="rdU-He-3uQ"/>
+                                    <constraint firstItem="dVD-cH-q47" firstAttribute="leading" secondItem="wiC-vs-Q5z" secondAttribute="leading" id="tNu-j3-5R4"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="wiC-vs-Q5z" secondAttribute="trailing" id="FYi-Nc-ofO"/>
+                            <constraint firstItem="K8a-Ra-w5R" firstAttribute="top" secondItem="wiC-vs-Q5z" secondAttribute="bottom" id="Fce-iE-CBE"/>
+                            <constraint firstItem="wiC-vs-Q5z" firstAttribute="top" secondItem="fmN-xj-N9i" secondAttribute="topMargin" id="H53-Bx-UYg"/>
+                            <constraint firstItem="wiC-vs-Q5z" firstAttribute="leading" secondItem="fmN-xj-N9i" secondAttribute="leadingMargin" id="hnn-Un-Pb4"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8F-vJ-5Ov" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1759,6 +1839,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about_gif" width="355" height="127"/>
         <image name="arrow" width="10" height="15"/>
         <image name="cat" width="1600" height="1200"/>
         <image name="chat_black" width="16" height="16"/>
