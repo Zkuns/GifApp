@@ -10,34 +10,36 @@ import UIKit
 
 class PostCell: UITableViewCell {
   
-  @IBOutlet weak var like: UIButton!
-  @IBOutlet weak var comment: UIButton!
-  @IBOutlet weak var Images: UICollectionView!
+  var detailImageDelegate: DetailImageDelegate?
+  @IBOutlet weak var publish_at: UILabel!
+  @IBOutlet weak var images: GridView!
   @IBOutlet weak var body: UILabel!
-  @IBOutlet weak var publishTime: UILabel!
-  @IBOutlet weak var username: UILabel!
-  @IBOutlet weak var avator: UIImageView!
-  @IBOutlet weak var deleteButton: UIButton!
-  
-  func setData(post: Post?, current_user_id: String?){
-    Images.delegate = self
-    Images.dataSource = self
-    if let post = post{
-      if let like = post.like_count{
-        self.like.titleLabel?.text = (like==0 ? "点赞" : "\(like)")
-      }
-      if let comments_count = post.comments_count{
-        self.comment.titleLabel?.text = (comments_count==0 ? "评论" : "\(comments_count)")
-      }
-      body.text = post.body
-      publishTime.text = post.publish_at
-      username.text = post.username
-      avator.kf_setImageWithURL(NSURL(string: post.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
-      if(current_user_id != post.user_id){
-//        deleteButton.alpha = 0
-      }
+  var post: Post?{
+    didSet{
+      updateUI()
     }
   }
+  
+  func updateUI(){
+    body.text = post?.body ?? " "
+    publish_at.text = TimeUtil.fomatTime(post?.publish_at, form: "HH:mm")
+    body.sizeToFit()
+    images.sizeToFit()
+    images.reloadData()
+  }
+  
+  func setData(post: Post?){
+    images.images = post?.images
+    images.delegate = self
+    images.dataSource = self
+    self.post = post
+  }
+  
+  func getRowHeight() -> CGFloat{
+    return body.frame.height + images.frame.height
+  }
+  
+  
 }
 
 extension PostCell: UICollectionViewDataSource{
@@ -46,29 +48,49 @@ extension PostCell: UICollectionViewDataSource{
   }
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 10
+    return post?.images?.count ?? 0
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = Images.dequeueReusableCellWithReuseIdentifier("imageCell", forIndexPath: indexPath) as! ImageCell
-    cell.backgroundColor = UIColor.blackColor()
-    cell.imageView.image = UIImage(named: "cat")
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier("imageCell", forIndexPath: indexPath) as! ImageCell
+    cell.setImage((post?.images?[indexPath.row])!)
     return cell
   }
 }
 
 extension PostCell: UICollectionViewDelegate{
-  
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    detailImageDelegate?.openDetail((post?.images?[indexPath.row])!)
+  }
 }
 
 extension PostCell: UICollectionViewDelegateFlowLayout{
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
-    let size = CGSize(width: 100, height: 100)
-    return size
+    var width = 115
+    var height = 115
+    if (post?.images?.count ?? 0) == 1 {
+      width = 300
+      height = 300
+      collectionView.frame = CGRect(origin: collectionView.frame.origin, size: CGSize(width: collectionView.frame.width, height: collectionView.frame.height))
+    }
+    return CGSize(width: width, height: height)
   }
   func collectionView(collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout,
     insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-      return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
+      if (post?.images?.count ?? 0) == 1{
+        let right = collectionView.frame.width - 300
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: right)
+      }
+      return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
   }
+  
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    return 0
+  }
+  
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    return 5
+  }
+  
 }

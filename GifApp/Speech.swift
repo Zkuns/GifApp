@@ -90,7 +90,6 @@ class Speech{
         return getSpeech(speech)
       }
       if error != nil{
-        print(error)
         callback(success: false, speeches: nil)
       } else {
         callback(success: true, speeches: splitByDay(speeches))

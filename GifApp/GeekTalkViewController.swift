@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol DetailImageDelegate{
+//  func openDetail(images_url: [String])
+  func openDetail(url: String)
+}
+
 class GeekTalkViewController: UIViewController {
   @IBOutlet weak var postTable: UITableView!
   
@@ -18,15 +23,22 @@ class GeekTalkViewController: UIViewController {
   }
   
   override func viewDidLoad() {
+    initTableView()
     Post.getData(){ data in
       self.posts = data
-      self.postTable.delegate = self
-      self.postTable.dataSource = self
+      print(self.posts)
     }
   }
   
+  private func initTableView(){
+    postTable.delegate = self
+    postTable.dataSource = self
+    postTable.estimatedRowHeight = postTable.rowHeight
+//    postTable.rowHeight = UITableViewAutomaticDimension
+//    postTable.separatorStyle = UITableViewCellSeparatorStyle.None
+  }
+  
   func updateUI(){
-    postTable.separatorStyle = UITableViewCellSeparatorStyle.None
     postTable.reloadData()
   }
 }
@@ -43,26 +55,61 @@ extension GeekTalkViewController: UITableViewDataSource{
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
     let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostCell
     let post = posts?[indexPath.row]
-    ImageUtil.convertImageToCircle(cell.avator)
-    cell.setData(post, current_user_id: User.user?.id)
+    print("\(indexPath.row) \(posts?[indexPath.row].publish_at) post = \(posts?[indexPath.row].images)")
+    cell.detailImageDelegate = self
+    cell.setData(post)
     return cell
   }
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    var cell = tableView.cellForRowAtIndexPath(indexPath)
-    print(cell?.frame.height)
-//    print(cell.images)
-//    print(cell.Images.contentSize.height)
-    return CGFloat(indexPath.row * 100)
+    let cell = tableView.dequeueReusableCellWithIdentifier("postCell") as! PostCell
+    cell.setData(posts?[indexPath.row])
+    return cell.getRowHeight()
   }
   
-//  func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-//    return UITableViewAutomaticDimension
-//  }
+  
 }
 
 extension GeekTalkViewController: UITableViewDelegate{
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
+  
 }
+
+extension GeekTalkViewController: DetailImageDelegate{
+  func openDetail(url: String){
+    if let controller = storyboard?.instantiateViewControllerWithIdentifier("imageDetail") as? ImageDetailController{
+      dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
+        let data = NSData(contentsOfURL: NSURL(string: url)!)
+        dispatch_async(dispatch_get_main_queue()){
+          let image = UIImage(data: data!)!
+          controller.image = image
+          self.presentViewController(controller, animated: true, completion: nil)
+        }
+      }
+    }
+  }
+}
+
+//extension GeekTalkViewController: DetailImageDelegate{
+//  func openDetail(images_url: [String]){
+//    if let controller = storyboard?.instantiateViewControllerWithIdentifier("imageDetail") as? ImageDetailController{
+//      dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
+//        let imagesData = images_url.map{ url in
+//          NSData(contentsOfURL: NSURL(string: url)!)
+//        }
+//        dispatch_async(dispatch_get_main_queue()){
+//          let images = imagesData.map{ imageData -> UIImage in
+//            if let data = imageData{
+//              return UIImage(data: data)!
+//            }
+//            return UIImage()
+//          }
+//          controller.pageImages = images
+//          self.presentViewController(controller, animated: true, completion: nil)
+//        }
+//      }
+//    }
+//  }
+//}

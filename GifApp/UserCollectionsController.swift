@@ -15,3 +15,4 @@ class UserCollectionsController: PageViewController {
     }
 
 }
+

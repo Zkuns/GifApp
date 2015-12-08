@@ -11,6 +11,7 @@ import SwiftyJSON
 import Alamofire
 
 let postAPI = Config.baseUrl + "/api/v1/posts"
+//let postAPI = "http://192.168.199.172:3000/api/v1/posts"
 class Post{
   let id: String?
   let username: String?
@@ -18,11 +19,12 @@ class Post{
   let avator: String?
   let like_count: Int?
   let user_id: String?
-  let publish_at: String?
+  let publish_at: String
   let images: [String]?
   let comments_count: Int?
+  var row_height: CGFloat?
   
-  init(id: String?, username: String?, body: String?, avator: String?, like_count: Int?, user_id: String?, publish_at: String?, images: [String]?, comments: Int?){
+  init(id: String?, username: String?, body: String?, avator: String?, like_count: Int?, user_id: String?, publish_at: String, images: [String]?, comments: Int?){
     self.id = id
     self.username = username
     self.body = body
@@ -35,12 +37,12 @@ class Post{
   }
   
   static func getPost(post: JSON) -> Post{
-    let images = post["images"].array!.map{ image in
+    let images = post["images"].array!.map{ image-> String in
       return image.string!
     }
     let like = post["like_count"].int
     let comments_count = post["comments_count"].int
-    let po = Post(id: post["id"].string, username: post["username"].string, body: post["body"].string, avator: post["avator"].string, like_count: like, user_id: post["user_id"].string, publish_at: post["publsh_at"].string, images: images, comments: comments_count)
+    let po = Post(id: post["id"].string, username: post["username"].string, body: post["body"].string, avator: post["avator"].string, like_count: like, user_id: post["user_id"].string, publish_at: post["publish_at"].string!, images: images, comments: comments_count)
     return po
   }
   

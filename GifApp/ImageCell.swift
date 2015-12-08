@@ -11,4 +11,8 @@ import UIKit
 class ImageCell: UICollectionViewCell {
 
   @IBOutlet weak var imageView: UIImageView!
+  
+  func setImage(imageUrl: String){
+    imageView.kf_setImageWithURL(NSURL(string: imageUrl)!,placeholderImage: UIImage(named: "cat"))
+  }
 }

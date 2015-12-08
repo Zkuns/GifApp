@@ -12,14 +12,12 @@ class LaunchScreenController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("LaunchView viewDidLoad")
     startAnimation()
   }
   
   func startAnimation(){
     let height = UIScreen.mainScreen().bounds.height
     let width = UIScreen.mainScreen().bounds.width
-    print("height = \(height), width = \(width)")
     let imgView = UIImageView(frame: CGRectMake(0, 0, width , height))
     imgView.backgroundColor = UIColor.blackColor()
     imgView.contentMode = UIViewContentMode.ScaleAspectFit
