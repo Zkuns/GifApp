@@ -51,6 +51,13 @@ struct SlidePageItem {
   let controllerIdentifier: String
 }
 
+struct TrafficItem {
+  let tagText: String
+  let titleText: String
+  let descriptionText: String
+  let iconImage: UIImage
+}
+
 struct Default {
   static let avatar = "default_avator"
 }
