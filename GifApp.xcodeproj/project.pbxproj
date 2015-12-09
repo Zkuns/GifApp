@@ -16,6 +16,7 @@
 		8E8675E01C1027270001D41B /* GSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8675DF1C1027270001D41B /* GSegmentControl.swift */; };
 		8E8675E21C1028260001D41B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8675E11C1028260001D41B /* UserCenterViewController.swift */; };
 		8E8675E41C102CBB0001D41B /* UserTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8675E31C102CBB0001D41B /* UserTicketsViewController.swift */; };
+		8E90BEF91C1816F300540AFE /* HttpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90BEF81C1816F300540AFE /* HttpUtils.swift */; };
 		8EE6E9291C082EA800623DF5 /* SpeechDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */; };
 		8EE6E92B1C084D6C00623DF5 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */; };
 		F71A60AB1C16ABD800C5C905 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A60AA1C16ABD800C5C905 /* TimeUtil.swift */; };
@@ -84,6 +85,7 @@
 		8E8675DF1C1027270001D41B /* GSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSegmentControl.swift; sourceTree = "<group>"; };
 		8E8675E11C1028260001D41B /* UserCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
 		8E8675E31C102CBB0001D41B /* UserTicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTicketsViewController.swift; sourceTree = "<group>"; };
+		8E90BEF81C1816F300540AFE /* HttpUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtils.swift; sourceTree = "<group>"; };
 		8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechDetailViewController.swift; sourceTree = "<group>"; };
 		8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		E10D38ED082BA3EBB16F3EC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				F7DD8B151C0E749400F20DC3 /* ImageUtil.swift */,
 				8E327B831C15A8AB0063E985 /* LocalStorage.swift */,
 				F71A60AA1C16ABD800C5C905 /* TimeUtil.swift */,
+				8E90BEF81C1816F300540AFE /* HttpUtils.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				F7DFD94A1C06F7BF00465F40 /* Speech.swift in Sources */,
 				8E8675E21C1028260001D41B /* UserCenterViewController.swift in Sources */,
 				8E327B841C15A8AB0063E985 /* LocalStorage.swift in Sources */,
+				8E90BEF91C1816F300540AFE /* HttpUtils.swift in Sources */,
 				8EE6E92B1C084D6C00623DF5 /* LaunchScreenController.swift in Sources */,
 				F71A60AD1C16CE6400C5C905 /* ImageDetailController.swift in Sources */,
 				F7E1AE5D1C03EA27001E5FE0 /* ContainerViewController.swift in Sources */,

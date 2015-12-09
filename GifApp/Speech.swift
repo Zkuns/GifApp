@@ -136,6 +136,24 @@ class Speech{
     return result
   }
   
+  static func getCollectedSpeech(callback:( Bool,[Speech]?)->() ) -> ()  {
+    Alamofire.request(.GET, speechAPI).response{ request, response, data, error in
+      if HttpUtils.isSuccess(response) {
+        let speechData = JSON(data: data!)["speeches"].array
+        let speeches = speechData!.map{ speech-> Speech in
+          return getSpeech(speech)
+        }
+        let result = speeches.filter { speech in
+          speech.isCollected
+        }
+        callback(true,result)
+      }else{
+        callback(false,[])
+      }
+    }
+  }
+  
+  
   static func find_by_id(speech_id: String) -> Speech{
     return Speech(id: "", title: "", description: "'", start_at: "", end_at: "", theme: "")
   }
