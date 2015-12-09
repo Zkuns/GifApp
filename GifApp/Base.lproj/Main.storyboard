@@ -1747,14 +1747,14 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWw-7p-npq">
-                                                    <rect key="frame" x="187" y="80" width="427" height="29"/>
+                                                    <rect key="frame" x="187" y="61.5" width="427" height="26.5"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <color key="textColor" red="0.99215686274509807" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelasdasdasdasdasdasdasdasdasdasdasda asd asd " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKy-Iu-LpQ">
-                                                    <rect key="frame" x="187" y="108" width="379" height="76"/>
+                                                    <rect key="frame" x="187" y="88" width="379" height="96"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1766,7 +1766,7 @@
                                                 <constraint firstItem="cWw-7p-npq" firstAttribute="centerY" secondItem="xt6-7k-lZ5" secondAttribute="centerY" id="5co-ru-EMs"/>
                                                 <constraint firstItem="FKy-Iu-LpQ" firstAttribute="bottom" secondItem="xt6-7k-lZ5" secondAttribute="bottom" id="EQr-dH-rRs"/>
                                                 <constraint firstItem="FKy-Iu-LpQ" firstAttribute="trailing" secondItem="pC0-7j-Wxi" secondAttribute="trailing" constant="-24" id="GPm-s6-5BZ"/>
-                                                <constraint firstItem="cWw-7p-npq" firstAttribute="baseline" secondItem="xt6-7k-lZ5" secondAttribute="centerY" constant="-10" id="L7V-sK-IeF"/>
+                                                <constraint firstItem="cWw-7p-npq" firstAttribute="baseline" secondItem="xt6-7k-lZ5" secondAttribute="centerY" constant="-30" id="L7V-sK-IeF"/>
                                                 <constraint firstItem="pC0-7j-Wxi" firstAttribute="leading" secondItem="xt6-7k-lZ5" secondAttribute="trailing" constant="-177" id="Nnc-x1-BZp"/>
                                                 <constraint firstItem="xt6-7k-lZ5" firstAttribute="leading" secondItem="pC0-7j-Wxi" secondAttribute="leading" constant="34" id="Umw-0r-Dcb"/>
                                                 <constraint firstItem="xt6-7k-lZ5" firstAttribute="height" secondItem="pC0-7j-Wxi" secondAttribute="height" multiplier="32:46" id="Usz-Az-bOR"/>

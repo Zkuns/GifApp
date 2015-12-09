@@ -11,13 +11,13 @@ import Alamofire
 import SwiftyJSON
 
 //let userInfoAPI = Config.baseUrl + "/api/v1/users/app_user_info.json?access_token="
-let userInfoAPI = OmniauthConfig.resoureUrl + "/api/v1/activities/d345e8e8-f512-4192-8cb7-7aaf19f3a084/users/app_user_info.json?access_token="
+let userInfoAPI = OmniauthConfig.resoureUrl + "/api/v1/activities/\(Config.currentActivityId)/users/app_user_info.json?access_token="
 let userAccessTokenAPI = OmniauthConfig.authenticateUrl + "/oauth/token"
 class User{
   let id: String?
   let avator: String?
   let username: String?
-  let QRimage: [String]?
+  let tickets: [Ticket]?
   let posts: [Post]?
   let collections: [String]?
   static let database = NSUserDefaults.standardUserDefaults()
@@ -43,11 +43,11 @@ class User{
     }
   }
   
-  init(id: String?, username: String?, avator: String?, QRimage: [String]?, posts: [Post]?, collections: [String]?){
+  init(id: String?, username: String?, avator: String?, tickets: [Ticket]?, posts: [Post]?, collections: [String]?){
     self.id = id
     self.username = username
     self.avator = avator
-    self.QRimage = QRimage
+    self.tickets = tickets
     self.posts = posts
     self.collections = collections
   }
@@ -74,19 +74,19 @@ class User{
     print(accessToken)
     Alamofire.request(.GET, userInfoAPI + accessToken).response{ request, response, data, error in
       let statusCode = response?.statusCode ?? -1
-      print("getUserInfo statusCode = \(statusCode), data = \(data)")
+      print("getUserInfo statusCode = \(statusCode)")
       if statusCode < 200 || statusCode >= 300 {
         print(error)
         callback(nil)
       } else {
         print(userInfoAPI + accessToken)
         let data = JSON(data: data!)
-        let QRimages = data["qrcode"].array!.map{ qrImage -> String in
-          return qrImage["id"].string!
-        }
 //        let posts = data["posts"].array
 //        let collection = data["comments"].array
-        user = User(id: data["id"].string, username: data["username"].string, avator: data["avator"].string, QRimage: QRimages, posts: [], collections: [])
+        let tickets = data["ticket"].array!.map{ data -> Ticket in
+          return Ticket(id: data["id"].string!, title: data["title"].string!)
+        }
+        user = User(id: data["id"].string, username: data["username"].string, avator: data["avator"].string, tickets: tickets, posts: [], collections: [])
         callback(user)
       }
     }
