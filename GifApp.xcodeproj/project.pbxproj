@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E327B821C156B350063E985 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E327B811C156B350063E985 /* Ticket.swift */; };
 		8E327B841C15A8AB0063E985 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E327B831C15A8AB0063E985 /* LocalStorage.swift */; };
+		8E6656B81C17371400935712 /* TrafficCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6656B71C17371400935712 /* TrafficCell.swift */; };
 		8E794AA61C102D3A004ACFEE /* UserCollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E794AA51C102D3A004ACFEE /* UserCollectionsController.swift */; };
 		8E794AA81C102DEE004ACFEE /* UserNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E794AA71C102DEE004ACFEE /* UserNewsController.swift */; };
 		8E794AAC1C10723E004ACFEE /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E794AAB1C10723E004ACFEE /* TicketCell.swift */; };
@@ -76,6 +77,7 @@
 		7917F83BB9CFF58352FA1162 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E327B811C156B350063E985 /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		8E327B831C15A8AB0063E985 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		8E6656B71C17371400935712 /* TrafficCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficCell.swift; sourceTree = "<group>"; };
 		8E794AA51C102D3A004ACFEE /* UserCollectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionsController.swift; sourceTree = "<group>"; };
 		8E794AA71C102DEE004ACFEE /* UserNewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNewsController.swift; sourceTree = "<group>"; };
 		8E794AAB1C10723E004ACFEE /* TicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				8E794AAB1C10723E004ACFEE /* TicketCell.swift */,
 				F7CBC2271C11732B00CB98D8 /* ImageCell.swift */,
 				F73931E31C158BEE000C66B4 /* GridView.swift */,
+				8E6656B71C17371400935712 /* TrafficCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7E1AE891C042827001E5FE0 /* MenuItem.swift in Sources */,
+				8E6656B81C17371400935712 /* TrafficCell.swift in Sources */,
 				8E8675E41C102CBB0001D41B /* UserTicketsViewController.swift in Sources */,
 				F7323E061C093766002CDDC4 /* Post.swift in Sources */,
 				F71A60AB1C16ABD800C5C905 /* TimeUtil.swift in Sources */,
