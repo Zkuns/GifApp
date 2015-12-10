@@ -10,8 +10,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-let postAPI = Config.baseUrl + "/api/v1/posts"
-//let postAPI = "http://192.168.199.172:3000/api/v1/posts"
+let postAPI = Config.baseUrl + "/api/v1/posts?page="
 class Post{
   let id: String?
   let title: String?
@@ -48,13 +47,14 @@ class Post{
     return po
   }
   
-  static func getData(callback: (posts: [Post]?)->()){
-    Alamofire.request(.GET, postAPI).response{ request, response, data, error in
+  static func getData(page: Int, callback: (Bool, [Post]?)->()){
+    Alamofire.request(.GET, postAPI+"\(page)").response{ request, response, data, error in
       let posts = JSON(data: data!)["posts"].array
+      let refresh = JSON(data: data!)["refresh"].bool
       let result = posts!.map{ post -> Post in
         return getPost(post)
       }
-      callback(posts: result)
+      callback(refresh ?? true, result)
     }
   }
   

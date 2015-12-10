@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Refresher
 
 protocol DetailImageDelegate{
 //  func openDetail(images_url: [String])
@@ -15,6 +16,9 @@ protocol DetailImageDelegate{
 
 class GeekTalkViewController: UIViewController {
   @IBOutlet weak var postTable: UITableView!
+  var refreshControl: UIRefreshControl?
+  var page = 1
+  var hasMore: Bool = true
   
   var posts: [Post]?{
     didSet{
@@ -24,22 +28,44 @@ class GeekTalkViewController: UIViewController {
   
   override func viewDidLoad() {
     initTableView()
-    Post.getData(){ data in
-      self.posts = data
-      print(self.posts)
-    }
+    reloadData(1)
   }
   
   private func initTableView(){
     postTable.delegate = self
     postTable.dataSource = self
-    postTable.estimatedRowHeight = postTable.rowHeight
+    refreshControl = UIRefreshControl()
+    refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+    postTable.addSubview(refreshControl!)
 //    postTable.rowHeight = UITableViewAutomaticDimension
 //    postTable.separatorStyle = UITableViewCellSeparatorStyle.None
   }
   
+  func refresh(sender: AnyObject){
+    self.hasMore = true
+    page = 1
+    Post.getData(page){ _, data in
+      self.posts = data
+      self.refreshControl?.endRefreshing()
+      self.page += 1
+    }
+  }
+  
   func updateUI(){
     postTable.reloadData()
+  }
+  
+  func reloadData(page: Int){
+    Post.getData(page){ refresh, data in
+      if (data?.count ?? 0 < 3){ self.hasMore = false }
+      if refresh {
+        self.posts = data
+        self.page = 1
+      } else {
+        self.posts = (self.posts ?? [Post]()) + (data ?? [Post]())
+      }
+      self.page += 1
+    }
   }
 }
 
@@ -53,6 +79,10 @@ extension GeekTalkViewController: UITableViewDataSource{
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+    print("count is \(posts?.count) hasmore is \(hasMore) \(indexPath.row)")
+    if indexPath.row == ((posts?.count ?? 0 ) - 1) && (hasMore) {
+      reloadData(page)
+    }
     let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostCell
     let post = posts?[indexPath.row]
     cell.detailImageDelegate = self

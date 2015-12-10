@@ -579,7 +579,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="61"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KIm-dP-kht">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KIm-dP-kht">
                                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="61"/>
                                                                         <animations/>
                                                                     </imageView>
@@ -1236,8 +1236,8 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_gif" translatesAutoresizingMaskIntoConstraints="NO" id="Oq2-Pp-jke">
-                                                <rect key="frame" x="20" y="604" width="560" height="127"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_gif" translatesAutoresizingMaskIntoConstraints="NO" id="Oq2-Pp-jke">
+                                                <rect key="frame" x="123" y="604" width="355" height="127"/>
                                                 <animations/>
                                             </imageView>
                                         </subviews>
