@@ -11,6 +11,7 @@ import UIKit
 class PostCell: UITableViewCell {
   
   var detailImageDelegate: DetailImageDelegate?
+  @IBOutlet weak var title: UILabel!
   @IBOutlet weak var publish_at: UILabel!
   @IBOutlet weak var images: GridView!
   @IBOutlet weak var body: UILabel!
@@ -21,8 +22,11 @@ class PostCell: UITableViewCell {
   }
   
   func updateUI(){
+    title.text = post?.title ?? " "
     body.text = post?.body ?? " "
     publish_at.text = TimeUtil.fomatTime(post?.publish_at, form: "HH:mm")
+    publish_at.sizeToFit()
+    title.sizeToFit()
     body.sizeToFit()
     images.sizeToFit()
     images.reloadData()
@@ -36,9 +40,11 @@ class PostCell: UITableViewCell {
   }
   
   func getRowHeight() -> CGFloat{
-    return body.frame.height + images.frame.height
+    let constraint_height: CGFloat = 40
+//    let real_height = body.frame.height + CGFloat(body.numberOfLines * 2)
+//    print(real_height)
+    return constraint_height + title.frame.height + publish_at.frame.height + body.frame.height + images.frame.height
   }
-  
   
 }
 

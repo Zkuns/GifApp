@@ -16,14 +16,14 @@ class GridView: UICollectionView {
   }
   
   private func imageSize() -> CGSize{
-    let itemSize = CGSize(width: 115, height: 150)
+    let itemSize = CGSize(width: 115, height: 115)
     var height: CGFloat = 0
     let width: CGFloat = 700
     if let images = images{
       let num = images.count
-      height = getRows(num)*(itemSize.height)
+      height = getRows(num)*(itemSize.height) + 5
       if (num > 0){ print("\(num) is , \(getRows(num)), height is \(height)") }
-      if (num == 1){ height = 360 }
+      if (num == 1){ height = 300 }
     }
     return CGSize(width: width, height: height)
   }

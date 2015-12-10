@@ -8,6 +8,10 @@
 
 import UIKit
 
-class AboutViewController: UIViewController {
+class AboutViewController: UIViewController{
   
+  @IBOutlet weak var mainView: UIView!
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
 }

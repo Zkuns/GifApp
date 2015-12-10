@@ -70,6 +70,22 @@ class Speech{
     return calendar.components([.Month, .Day, .Hour, .Minute], fromDate: date)
   }
   
+//  static func split(speeches: [Speech]) -> [[Speech]]{
+//    var result = [[Speech]]()
+//    var key = [String]()
+//    for speech in speeches {
+//      if let theme = speech.theme {
+//        if let index = key.indexOf(theme){
+//          result[index].append(speech)
+//        } else {
+//          key.append(theme)
+//          result.append([speech])
+//        }
+//      }
+//    }
+//    return result
+//  }
+  
   static func split(speeches: [Speech]) -> [[Speech]]{
     var amSpeeches = [Speech]()
     var pmSpeeches = [Speech]()

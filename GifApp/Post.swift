@@ -14,6 +14,7 @@ let postAPI = Config.baseUrl + "/api/v1/posts"
 //let postAPI = "http://192.168.199.172:3000/api/v1/posts"
 class Post{
   let id: String?
+  let title: String?
   let username: String?
   let body: String?
   let avator: String?
@@ -24,8 +25,9 @@ class Post{
   let comments_count: Int?
   var row_height: CGFloat?
   
-  init(id: String?, username: String?, body: String?, avator: String?, like_count: Int?, user_id: String?, publish_at: String, images: [String]?, comments: Int?){
+  init(id: String?, title: String?, username: String?, body: String?, avator: String?, like_count: Int?, user_id: String?, publish_at: String, images: [String]?, comments: Int?){
     self.id = id
+    self.title = title
     self.username = username
     self.body = body
     self.avator = avator
@@ -42,7 +44,7 @@ class Post{
     }
     let like = post["like_count"].int
     let comments_count = post["comments_count"].int
-    let po = Post(id: post["id"].string, username: post["username"].string, body: post["body"].string, avator: post["avator"].string, like_count: like, user_id: post["user_id"].string, publish_at: post["publish_at"].string!, images: images, comments: comments_count)
+    let po = Post(id: post["id"].string, title: post["title"].string, username: post["username"].string, body: post["body"].string, avator: post["avator"].string, like_count: like, user_id: post["user_id"].string, publish_at: post["publish_at"].string!, images: images, comments: comments_count)
     return po
   }
   

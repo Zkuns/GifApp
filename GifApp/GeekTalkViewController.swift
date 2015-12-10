@@ -55,7 +55,6 @@ extension GeekTalkViewController: UITableViewDataSource{
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
     let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostCell
     let post = posts?[indexPath.row]
-    print("\(indexPath.row) \(posts?[indexPath.row].publish_at) post = \(posts?[indexPath.row].images)")
     cell.detailImageDelegate = self
     cell.setData(post)
     return cell
@@ -66,7 +65,6 @@ extension GeekTalkViewController: UITableViewDataSource{
     cell.setData(posts?[indexPath.row])
     return cell.getRowHeight()
   }
-  
   
 }
 
