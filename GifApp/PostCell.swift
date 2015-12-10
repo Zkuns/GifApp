@@ -72,8 +72,8 @@ extension PostCell: UICollectionViewDelegate{
 
 extension PostCell: UICollectionViewDelegateFlowLayout{
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
-    var width = 115
-    var height = 115
+    var width = UIScreen.mainScreen().bounds.width  / 3.2
+    var height = width
     if (post?.images?.count ?? 0) == 1 {
       width = 300
       height = 300

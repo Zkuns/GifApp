@@ -20,6 +20,13 @@ class Speech{
   let theme: String?
   var guest: Guest?
   
+  static var currentSpeeches: [Speech]?
+  
+  enum SpeechType{
+    case Default
+    case User
+  }
+  
   private let TAG = _stdlib_getDemangledTypeName(Speech.self)
   var isCollected: Bool {
     get {
@@ -70,47 +77,79 @@ class Speech{
     return calendar.components([.Month, .Day, .Hour, .Minute], fromDate: date)
   }
   
-//  static func split(speeches: [Speech]) -> [[Speech]]{
-//    var result = [[Speech]]()
-//    var key = [String]()
-//    for speech in speeches {
-//      if let theme = speech.theme {
-//        if let index = key.indexOf(theme){
-//          result[index].append(speech)
-//        } else {
-//          key.append(theme)
-//          result.append([speech])
-//        }
-//      }
-//    }
-//    return result
-//  }
-  
-  static func split(speeches: [Speech]) -> [[Speech]]{
-    var amSpeeches = [Speech]()
-    var pmSpeeches = [Speech]()
-    for speech in speeches {
-      if speech.getDateHour() > 12{
-        pmSpeeches.append(speech)
-      } else {
-        amSpeeches.append(speech)
-      }
+  static func getSpeeches(speechType: SpeechType, index: Int, callback: ( Bool, [(String,[Speech])] )->() ){
+    switch speechType{
+    case SpeechType.User:
+      getCollectedSpeech(callback)
+    default:
+      getAllSpeech(index, callback: callback)
     }
-    return [amSpeeches, pmSpeeches]
   }
   
-  static func getData(callback: (success: Bool, speeches: [[Speech]]?)->()){
+  static private func getSpeechesData(callback: (Bool, [Speech]) -> () ){
+    if currentSpeeches?.count ?? 0 > 0{
+      callback(true,currentSpeeches!)
+      return
+    }
     Alamofire.request(.GET, speechAPI).response{ request, response, data, error in
-      let speechData = JSON(data: data!)["speeches"].array
-      let speeches = speechData!.map{ speech-> Speech in
-        return getSpeech(speech)
-      }
-      if error != nil{
-        callback(success: false, speeches: nil)
-      } else {
-        callback(success: true, speeches: splitByDay(speeches))
+      if HttpUtils.isSuccess(response) {
+        let speechData = JSON(data: data!)["speeches"].array
+        let speeches = speechData!.map{ speech-> Speech in
+          return getSpeech(speech)
+        }
+        currentSpeeches = speeches
+        callback(true,speeches)
+      }else{
+        callback(false,[])
       }
     }
+  }
+  
+  static private func getAllSpeech(index: Int, callback: (Bool,[(String,[Speech])])->() ){
+    getSpeechesData(){
+      isSuccess,speeches in
+      callback(isSuccess,splitByTheme(splitByDay(speeches)[index]))
+    }
+  }
+  
+  static private func getCollectedSpeech(callback: ( Bool, [(String,[Speech])])->() ){
+    getSpeechesData(){
+      isSuccess,speeches in
+      let result = speeches.filter { speech in
+        speech.isCollected
+      }
+      callback(isSuccess,splitByDate(result))
+    }
+  }
+  
+  
+  static func splitByDate(speeches: [Speech]) -> [(String,[Speech])] {
+    var dict = [String:[Speech]]()
+    var result = [(String,[Speech])]()
+    for speech in speeches {
+      if let start_at = speech.start_at {
+        let date = TimeUtil.fomatTime(start_at, form: "yyyy-MM-dd")
+        dict[date] = (dict[date] ?? []) + [speech]
+      }
+    }
+    for (key,speeches) in dict{
+      result.append((key,speeches))
+    }
+    return result
+  }
+  
+  static func splitByTheme(speeches: [Speech]) -> [(String,[Speech])] {
+    var dict = [String:[Speech]]()
+    var result = [(String,[Speech])]()
+    for speech in speeches {
+      if let theme = speech.theme {
+        dict[theme] = (dict[theme] ?? [] ) + [speech]
+      }
+    }
+    for (key,speeches) in dict{
+      result.append((key,speeches))
+    }
+    return result
   }
   
   static func getSpeech(speech: JSON) -> Speech{
@@ -134,28 +173,6 @@ class Speech{
       return value
     }
     return result
-  }
-  
-  static func getCollectedSpeech(callback:( Bool,[Speech]?)->() ) -> ()  {
-    Alamofire.request(.GET, speechAPI).response{ request, response, data, error in
-      if HttpUtils.isSuccess(response) {
-        let speechData = JSON(data: data!)["speeches"].array
-        let speeches = speechData!.map{ speech-> Speech in
-          return getSpeech(speech)
-        }
-        let result = speeches.filter { speech in
-          speech.isCollected
-        }
-        callback(true,result)
-      }else{
-        callback(false,[])
-      }
-    }
-  }
-  
-  
-  static func find_by_id(speech_id: String) -> Speech{
-    return Speech(id: "", title: "", description: "'", start_at: "", end_at: "", theme: "")
   }
   
 }
