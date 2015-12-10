@@ -12,14 +12,22 @@ class UserTicketsViewController: PageViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  private var tickets = [Ticket](){
+    didSet{
+     tableView.reloadData()
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupTableView()
+    tickets = User.user?.tickets ?? []
   }
   
   private func setupTableView(){
     tableView.delegate = self
     tableView.dataSource = self
+    tableView.separatorStyle = UITableViewCellSeparatorStyle.None
   }
   
 }
@@ -35,13 +43,12 @@ extension UserTicketsViewController: UITableViewDataSource{
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 4
+    return tickets.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("ticketCell", forIndexPath: indexPath) as! TicketCell
-    // TODO:
-    cell.ticket = Ticket(id: "\(indexPath.row)", title: "title \(indexPath.row)", description: "description : \(indexPath.row)")
+    cell.ticket = tickets[indexPath.row]
     return cell
   }
   

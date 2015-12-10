@@ -13,6 +13,8 @@ struct Config {
   static let menu_ratio: CGFloat = 0.7
   static let baseUrl: String = "http://events.geekpark.net"
   static let speechesAPI: String = "http://events.geekpark.net/api/v1/activities/663b2c7b-14c9-48bc-abaa-7810c6073168/speeches"
+  //static let currentActivityId = "d345e8e8-f512-4192-8cb7-7aaf19f3a084"
+  static let currentActivityId: String = "663b2c7b-14c9-48bc-abaa-7810c6073168"
 }
 
 struct LaunchConfig {
