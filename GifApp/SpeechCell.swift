@@ -17,18 +17,32 @@ class SpeechCell: UITableViewCell {
   @IBOutlet weak var avator: UIImageView!
   @IBOutlet weak var collectedButton: UIButton!
   
+  var speech: Speech? {
+    didSet{
+      updateUI()
+    }
+  }
   
-  func setData(speech: Speech){
-    self.avator.image = nil
+  func updateUI() {
+    avator.image = nil
     
-    collectedButton.selected = speech.isCollected
-    title.text! = speech.title!
-    duration.text! = speech.start_at_after_fomat("HH:mm")
-    if let gu = speech.guest{
+    collectedButton.selected = speech?.isCollected ?? false
+    title.text! = speech?.title ?? ""
+    duration.text! = TimeUtil.fomatTime(speech?.start_at, form: "HH:mm")
+    if let gu = speech?.guest{
       guestName.text! = gu.name!
       guestCompany.text! = gu.company!
       guestTitle.text! = gu.title!
       self.avator.kf_setImageWithURL(NSURL(string: gu.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
     }
+  }
+  
+  @IBAction func collectSpeech(sender: AnyObject) {
+    speech?.isCollected = !(speech?.isCollected ?? false)
+    updateUI()
+  }
+  
+  func setData(speech: Speech){
+    self.speech  = speech
   }
 }

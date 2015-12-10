@@ -17,6 +17,7 @@
 		8E8675E21C1028260001D41B /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8675E11C1028260001D41B /* UserCenterViewController.swift */; };
 		8E8675E41C102CBB0001D41B /* UserTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8675E31C102CBB0001D41B /* UserTicketsViewController.swift */; };
 		8E90BEF91C1816F300540AFE /* HttpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90BEF81C1816F300540AFE /* HttpUtils.swift */; };
+		8E90BEFB1C19400A00540AFE /* SpeechesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90BEFA1C19400A00540AFE /* SpeechesViewController.swift */; };
 		8EE6E9291C082EA800623DF5 /* SpeechDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */; };
 		8EE6E92B1C084D6C00623DF5 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */; };
 		F71A60AB1C16ABD800C5C905 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A60AA1C16ABD800C5C905 /* TimeUtil.swift */; };
@@ -86,6 +87,7 @@
 		8E8675E11C1028260001D41B /* UserCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
 		8E8675E31C102CBB0001D41B /* UserTicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTicketsViewController.swift; sourceTree = "<group>"; };
 		8E90BEF81C1816F300540AFE /* HttpUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtils.swift; sourceTree = "<group>"; };
+		8E90BEFA1C19400A00540AFE /* SpeechesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechesViewController.swift; sourceTree = "<group>"; };
 		8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechDetailViewController.swift; sourceTree = "<group>"; };
 		8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		E10D38ED082BA3EBB16F3EC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				8E794AA51C102D3A004ACFEE /* UserCollectionsController.swift */,
 				8E794AA71C102DEE004ACFEE /* UserNewsController.swift */,
 				F71A60AC1C16CE6400C5C905 /* ImageDetailController.swift */,
+				8E90BEFA1C19400A00540AFE /* SpeechesViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 			files = (
 				F7E1AE891C042827001E5FE0 /* MenuItem.swift in Sources */,
 				8E6656B81C17371400935712 /* TrafficCell.swift in Sources */,
+				8E90BEFB1C19400A00540AFE /* SpeechesViewController.swift in Sources */,
 				8E8675E41C102CBB0001D41B /* UserTicketsViewController.swift in Sources */,
 				F7323E061C093766002CDDC4 /* Post.swift in Sources */,
 				F71A60AB1C16ABD800C5C905 /* TimeUtil.swift in Sources */,

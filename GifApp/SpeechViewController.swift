@@ -8,57 +8,37 @@
 
 import UIKit
 
-class SpeechViewController: UIViewController {
+class SpeechViewController: PageViewController {
 
   @IBOutlet weak var speechTable: UITableView!
   
-  @IBOutlet weak var toggleButton3: ToggleDayButton!
-  @IBOutlet weak var toggleButton2: ToggleDayButton!
-  @IBOutlet weak var toggleButton1: ToggleDayButton!
-  var currentSpeeches: [Speech]?{
-    didSet{
-      if (self.currentSpeeches != nil){
-        updateUI()
-      }
-    }
+  var currentSpeechType: Speech.SpeechType = Speech.SpeechType.User
+  
+  var speeches: [(String, [Speech])]? {
+    didSet{ updateUI() }
   }
   
-  var currentIndex: Int?{
-    didSet{
-      currentSpeeches = self.speeches?[currentIndex!]
-    }
-  }
-  
-  var speeches: [[Speech]]? {
-    didSet{
-      currentIndex = 0
-    }
-  }
-  
-  @IBAction func toggleDay(sender: AnyObject) {
-    if let tag = sender.tag{
-      currentIndex = tag
-    }
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    ToggleDayButton.buttons = [toggleButton1, toggleButton2, toggleButton3]
+    
+    setupTableView()
+  }
+  
+  private func setupTableView() {
     speechTable.delegate = self
     speechTable.dataSource = self
+    speechTable.separatorStyle = UITableViewCellSeparatorStyle.None
     
-    let rightButton = UIBarButtonItem(title: "现场", style: UIBarButtonItemStyle.Done, target: nil, action: "")
-    navigationItem.rightBarButtonItem = rightButton
-    Speech.getData(){ success, speeches in
-      if (success){
-        self.speeches = speeches
-      }
-    }
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    speechTable.reloadData()
+    Speech.getSpeeches(currentSpeechType,index: itemIndex!){
+      isSuccess,speeches in
+      self.speeches = speeches
+    }
+    updateUI()
   }
   
   func updateUI(){
@@ -71,9 +51,10 @@ class SpeechViewController: UIViewController {
         case "show_detail_from_speech":
           if let dvc = segue.destinationViewController as? SpeechDetailViewController{
             if let index = self.speechTable.indexPathForCell(sender as! SpeechCell){
-              let speech = Speech.split(currentSpeeches!)[index.section][index.row]
-              dvc.speech = speech
-              dvc.guest = speech.guest
+              if let speech = self.speeches?[index.section].1[index.row] {
+                dvc.speech = speech
+                dvc.guest = speech.guest
+              }
             }
         }
       default:break
@@ -81,42 +62,29 @@ class SpeechViewController: UIViewController {
     }
   }
     
-  @IBAction func setCollected(sender: UIButton) {
-    if let speech = currentSpeeches?[sender.tag]{
-      print("speech \(speech.title), isCollected = \(speech.isCollected)")
-      speech.isCollected = !speech.isCollected
-      speechTable.reloadData()
-    }
-  }
 }
 
 extension SpeechViewController: UITableViewDataSource{
-  func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let cell = tableView.dequeueReusableCellWithIdentifier("speechHeader") as! SpeechHeader
-    if (currentSpeeches != nil){
-      cell.theme.text! = currentSpeeches![section].theme!
-    }
-    return cell.contentView
+  
+  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return speeches?[section].0
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 2
+    return speeches?.count ?? 0
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if currentSpeeches?.count > 0{
-      return Speech.split(currentSpeeches!)[section].count
-    } else {
-      return 0
-    }
+    return speeches?[section].1.count ?? 0
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
     let cell = tableView.dequeueReusableCellWithIdentifier("speechCell", forIndexPath: indexPath) as! SpeechCell
-    let speech = Speech.split(currentSpeeches!)[indexPath.section][indexPath.row]
-    ImageUtil.convertImageToCircle(cell.avator)
-    cell.setData(speech)
-    cell.collectedButton.tag = indexPath.row
+    if let speech = speeches?[indexPath.section].1[indexPath.row] {
+      ImageUtil.convertImageToCircle(cell.avator)
+      cell.setData(speech)
+      cell.collectedButton.tag = indexPath.row
+    }
     return cell
   }
   

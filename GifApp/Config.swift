@@ -44,8 +44,14 @@ class PageViewController: UIViewController{
 }
 class UserCenterItems{
   static let items = [ SlidePageItem(title: "票据", controllerIdentifier: "UserTicketsViewController")
-    ,SlidePageItem(title: "收藏", controllerIdentifier: "UserCollectionsController")
-    ,SlidePageItem(title: "动态", controllerIdentifier: "UserNewsController")
+    , SlidePageItem(title: "收藏", controllerIdentifier: "SpeechViewController")
+  ]
+}
+
+class SpeechesItems{
+  static let items = [ SlidePageItem(title: "2016.01.15", controllerIdentifier: "SpeechViewController")
+    , SlidePageItem(title: "2016.01.16", controllerIdentifier: "SpeechViewController")
+    , SlidePageItem(title: "2016.01.17", controllerIdentifier: "SpeechViewController")
   ]
 }
 struct SlidePageItem {
