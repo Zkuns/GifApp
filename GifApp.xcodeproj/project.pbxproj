@@ -18,6 +18,7 @@
 		8E8675E41C102CBB0001D41B /* UserTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8675E31C102CBB0001D41B /* UserTicketsViewController.swift */; };
 		8E90BEF91C1816F300540AFE /* HttpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90BEF81C1816F300540AFE /* HttpUtils.swift */; };
 		8E90BEFB1C19400A00540AFE /* SpeechesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90BEFA1C19400A00540AFE /* SpeechesViewController.swift */; };
+		8EE362C91C1A80640053FC48 /* RegisteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE362C81C1A80640053FC48 /* RegisteController.swift */; };
 		8EE6E9291C082EA800623DF5 /* SpeechDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */; };
 		8EE6E92B1C084D6C00623DF5 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */; };
 		F71A60AB1C16ABD800C5C905 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A60AA1C16ABD800C5C905 /* TimeUtil.swift */; };
@@ -88,6 +89,7 @@
 		8E8675E31C102CBB0001D41B /* UserTicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTicketsViewController.swift; sourceTree = "<group>"; };
 		8E90BEF81C1816F300540AFE /* HttpUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtils.swift; sourceTree = "<group>"; };
 		8E90BEFA1C19400A00540AFE /* SpeechesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechesViewController.swift; sourceTree = "<group>"; };
+		8EE362C81C1A80640053FC48 /* RegisteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteController.swift; sourceTree = "<group>"; };
 		8EE6E9281C082EA800623DF5 /* SpeechDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechDetailViewController.swift; sourceTree = "<group>"; };
 		8EE6E92A1C084D6C00623DF5 /* LaunchScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		E10D38ED082BA3EBB16F3EC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				8E794AA71C102DEE004ACFEE /* UserNewsController.swift */,
 				F71A60AC1C16CE6400C5C905 /* ImageDetailController.swift */,
 				8E90BEFA1C19400A00540AFE /* SpeechesViewController.swift */,
+				8EE362C81C1A80640053FC48 /* RegisteController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				8E327B821C156B350063E985 /* Ticket.swift in Sources */,
 				F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */,
 				F7323E021C093445002CDDC4 /* User.swift in Sources */,
+				8EE362C91C1A80640053FC48 /* RegisteController.swift in Sources */,
 				8E8675E01C1027270001D41B /* GSegmentControl.swift in Sources */,
 				8E794AAC1C10723E004ACFEE /* TicketCell.swift in Sources */,
 				F7DFD9471C06D32C00465F40 /* AboutViewController.swift in Sources */,

@@ -8,4 +8,3 @@ pod 'Kingfisher', '~> 1.8'
 pod 'QRCode', '~> 0.5'
 pod 'SwiftSpinner'
 pod 'JLToast', '~> 1.3'
-pod "DGElasticPullToRefresh"

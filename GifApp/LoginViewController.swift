@@ -23,6 +23,16 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     email.delegate = self
     password.delegate = self
+    NSNotificationCenter.defaultCenter().addObserverForName(NotificationName.userRegisted, object: nil ,queue: NSOperationQueue.mainQueue()){
+      notification in
+      if let info = notification.userInfo as? Dictionary<String,String> {
+        if let email = info["email"] {
+          if let password = info["password"] {
+            self.login(email, password: password)
+          }
+        }
+      }
+    }
     updateUI()
   }
 
@@ -37,6 +47,11 @@ class LoginViewController: UIViewController {
   @IBAction func login() {
     let email = self.email.text!
     let password = self.password.text!
+    login(email, password: password)
+  }
+  
+  private func login(email: String, password: String){
+    print("login: \(email) , \(password)")
     SwiftSpinner.show("Authenticating user account")
     User.login(email, passwd: password){
       isSuccess,resultMsg in
@@ -44,6 +59,7 @@ class LoginViewController: UIViewController {
       JLToast.makeText(resultMsg).show()
       self.disappear()
     }
+    
   }
 
   @IBAction func loginWechat() {
