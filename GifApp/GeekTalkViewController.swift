@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Refresher
 
 protocol DetailImageDelegate{
 //  func openDetail(images_url: [String])
