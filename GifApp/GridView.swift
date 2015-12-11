@@ -22,7 +22,6 @@ class GridView: UICollectionView {
     if let images = images{
       let num = images.count
       height = getRows(num)*(itemSize.height) + 5
-      if (num > 0){ print("\(num) is , \(getRows(num)), height is \(height)") }
       if (num == 1){ height = 300 }
     }
     return CGSize(width: width, height: height)

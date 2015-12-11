@@ -68,6 +68,7 @@ struct TrafficItem {
 
 struct Default {
   static let avatar = "default_avator"
+  static let image = "logo"
 }
 
 struct ColorConfig{

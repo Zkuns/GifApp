@@ -41,7 +41,6 @@ class Guest{
         return getGuest(guest)
       }
       if (error != nil){
-        print(error)
         callback(success: false, guests: nil)
       } else {
         callback(success: true, guests: splitByFirstChar(result))

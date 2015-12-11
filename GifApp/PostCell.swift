@@ -42,7 +42,6 @@ class PostCell: UITableViewCell {
   func getRowHeight() -> CGFloat{
     let constraint_height: CGFloat = 40
 //    let real_height = body.frame.height + CGFloat(body.numberOfLines * 2)
-//    print(real_height)
     return constraint_height + title.frame.height + publish_at.frame.height + body.frame.height + images.frame.height
   }
   

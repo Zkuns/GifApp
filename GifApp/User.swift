@@ -71,15 +71,11 @@ class User{
   
   
   static func getUserInfo(accessToken: String, callback: (User?)->()){
-    print(accessToken)
     Alamofire.request(.GET, userInfoAPI + accessToken).response{ request, response, data, error in
       let statusCode = response?.statusCode ?? -1
-      print("getUserInfo statusCode = \(statusCode)")
       if statusCode < 200 || statusCode >= 300 {
-        print(error)
         callback(nil)
       } else {
-        print(userInfoAPI + accessToken)
         let data = JSON(data: data!)
 //        let posts = data["posts"].array
 //        let collection = data["comments"].array

@@ -34,7 +34,6 @@ class SpeechDetailViewController: UIViewController{
     titleLable.text = speech?.title
     themeLable.text = speech?.theme
     showtimeLable.text = speech?.start_at_after_fomat("HH:mm")
-    print(speech?.start_at)
     showdateLable.text = speech?.start_at_after_fomat("YYYY.MM.dd")
     speakerNameLable.text = guest?.name
     companyAndPositionLable.text = guest?.company

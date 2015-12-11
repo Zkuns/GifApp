@@ -79,7 +79,6 @@ extension GeekTalkViewController: UITableViewDataSource{
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-    print("count is \(posts?.count) hasmore is \(hasMore) \(indexPath.row)")
     if indexPath.row == ((posts?.count ?? 0 ) - 1) && (hasMore) {
       reloadData(page)
     }

@@ -124,41 +124,44 @@ class ContainerViewController: UIViewController{
 
 extension ContainerViewController: UIGestureRecognizerDelegate{
   func handlePanGesture(recogizer: UIPanGestureRecognizer){
-    let left = recogizer.velocityInView(view).x < 0
-    switch recogizer.state{
-    case .Changed:
-      if (currentState == .Close){
-        animateController(0, origin_ratio: 1, size: recogizer.translationInView(view).x)
-      } else{
-        animateController(view.frame.size.width - CGFloat(Config.menu_width), origin_ratio: Config.menu_ratio, size: recogizer.translationInView(view).x)
-      }
-    case .Ended:
-      if (currentState == .Close) && !left{
-        toggleMenu()
-      } else if (currentState == .Open) && left {
-        toggleMenu()
-      } else {
-        if currentState == .Open{
-          currentState = .Close
+    if abs(recogizer.velocityInView(view).x) > 10{
+      let left = recogizer.velocityInView(view).x < 0
+      switch recogizer.state{
+      case .Changed:
+        if (currentState == .Close){
+          animateController(0, origin_ratio: 1, size: recogizer.translationInView(view).x)
+        } else{
+          animateController(view.frame.size.width - CGFloat(Config.menu_width), origin_ratio: Config.menu_ratio, size: recogizer.translationInView(view).x)
+        }
+      case .Ended:
+        if (currentState == .Close) && !left{
+          toggleMenu()
+        } else if (currentState == .Open) && left {
           toggleMenu()
         } else {
-          currentState = .Open
+          if currentState == .Open{
+            currentState = .Close
+            toggleMenu()
+          } else {
+            currentState = .Open
+            toggleMenu()
+          }
           toggleMenu()
         }
+      default: break
       }
-    default: break
     }
   }
   
   private func animateController(origin_x: CGFloat, origin_ratio: CGFloat, size: CGFloat){
     if ((origin_x + size) < 0){
       containerNavigationController.view.frame.origin.x = 0
-    } else if (origin_x + size > view.frame.size.width){
-      containerNavigationController.view.frame.origin.x = view.frame.size.width
-      self.containerNavigationController.view.transform = CGAffineTransformMakeScale(1, 1)
+    } else if (origin_x + size > view.frame.size.width - CGFloat(Config.menu_width)){
+      containerNavigationController.view.frame.origin.x = view.frame.size.width - CGFloat(Config.menu_width)
+//      self.containerNavigationController.view.transform = CGAffineTransformMakeScale(1, 1)
     } else {
       containerNavigationController.view.frame.origin.x = origin_x + size
-      let ratio = (size / (containerNavigationController.view.frame.width - Config.menu_width)) * 0.2
+      let ratio = (size / (view.frame.width - Config.menu_width)) * 0.2
       self.containerNavigationController.view.transform = CGAffineTransformMakeScale(origin_ratio - ratio, origin_ratio - ratio)
     }
   }
