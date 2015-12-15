@@ -146,7 +146,6 @@ extension ContainerViewController: UIGestureRecognizerDelegate{
             currentState = .Open
             toggleMenu()
           }
-          toggleMenu()
         }
       default: break
       }

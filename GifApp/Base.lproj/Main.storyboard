@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="7Rk-hC-6vI">
             <objects>
-                <viewController storyboardIdentifier="login" id="AUp-U3-5ec" customClass="LoginViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="AUp-U3-5ec" customClass="LoginViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9nk-R3-suZ"/>
                         <viewControllerLayoutGuide type="bottom" id="KgS-IN-H4U"/>
@@ -23,7 +23,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-PD-hbj">
                                 <rect key="frame" x="516" y="50" width="44" height="44"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="43N-hQ-uei"/>
                                     <constraint firstAttribute="height" constant="82" id="S9b-iV-CK8"/>
@@ -42,7 +41,6 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="mNk-tP-UXa">
                                 <rect key="frame" x="200" y="160" width="200" height="39"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="EUl-7W-23y"/>
                                     <constraint firstAttribute="width" constant="200" id="ay9-Q2-Sbg"/>
@@ -53,15 +51,13 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-oM-xgd">
                                         <rect key="frame" x="0.0" y="10" width="21" height="21"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="gMs-oM-xgd" secondAttribute="height" multiplier="1:1" id="Ch5-4e-OSk"/>
                                             <constraint firstAttribute="height" constant="21" id="VSv-Db-ITP"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMg-iJ-s0T" customClass="loginInputView" customModule="GifApp" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="6" width="439" height="30"/>
-                                        <animations/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMg-iJ-s0T" customClass="loginInputView" customModule="GIF_GeekPark" customModuleProvider="target">
+                                        <rect key="frame" x="33" y="12" width="439" height="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
@@ -72,7 +68,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.62352941179999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="jMg-iJ-s0T" firstAttribute="centerY" secondItem="wr7-YB-gIG" secondAttribute="centerY" id="3vA-yD-QaW"/>
@@ -94,15 +89,13 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="QiK-CA-iD2">
                                         <rect key="frame" x="0.0" y="10" width="21" height="21"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QiK-CA-iD2" secondAttribute="height" multiplier="1:1" id="EaG-ux-9hU"/>
                                             <constraint firstAttribute="height" constant="21" id="bog-Eg-SrL"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="极客公园邮箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yt6-8W-RyO" customClass="loginInputView" customModule="GifApp" customModuleProvider="target">
-                                        <rect key="frame" x="33" y="6" width="439" height="30"/>
-                                        <animations/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="极客公园邮箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yt6-8W-RyO" customClass="loginInputView" customModule="GIF_GeekPark" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="13" width="439" height="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -113,7 +106,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.62352941179999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="0KE-06-Hyb"/>
@@ -132,9 +124,8 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i92-Rf-k4G" customClass="defaultButton" customModule="GifApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i92-Rf-k4G" customClass="defaultButton" customModule="GIF_GeekPark" customModuleProvider="target">
                                 <rect key="frame" x="153" y="421" width="295" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="U1w-kt-Fcw"/>
@@ -151,26 +142,31 @@
                                     <action selector="login" destination="AUp-U3-5ec" eventType="touchUpInside" id="r8x-u5-Xvq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQ8-bt-qf4">
-                                <rect key="frame" x="20" y="428" width="46" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQ8-bt-qf4" customClass="defaultButton" customModule="GIF_GeekPark" customModuleProvider="target">
+                                <rect key="frame" x="153" y="473" width="295" height="44"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="18"/>
+                                <state key="normal" title="注 册">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <segue destination="QSx-0G-VNK" kind="showDetail" id="Ouo-4Z-zVP"/>
+                                    <action selector="showRegister:" destination="AUp-U3-5ec" eventType="touchUpInside" id="NAg-dw-zwe"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.0" green="0.62352941179999999" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wr7-YB-gIG" firstAttribute="centerX" secondItem="hFa-Nj-1xR" secondAttribute="centerX" id="73z-GZ-Nz1"/>
+                            <constraint firstItem="PQ8-bt-qf4" firstAttribute="width" secondItem="i92-Rf-k4G" secondAttribute="width" id="CJd-zG-0H3"/>
                             <constraint firstItem="mNk-tP-UXa" firstAttribute="top" secondItem="9nk-R3-suZ" secondAttribute="bottom" constant="140" id="MVB-70-Wyh"/>
+                            <constraint firstItem="PQ8-bt-qf4" firstAttribute="top" secondItem="i92-Rf-k4G" secondAttribute="bottom" constant="8" id="PfP-16-Thn"/>
                             <constraint firstItem="TmE-Au-8on" firstAttribute="leading" secondItem="hFa-Nj-1xR" secondAttribute="leadingMargin" constant="40" id="QJV-hs-adf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6cN-PD-hbj" secondAttribute="trailing" constant="20" id="RLM-Ae-Db8"/>
                             <constraint firstItem="i92-Rf-k4G" firstAttribute="centerX" secondItem="hFa-Nj-1xR" secondAttribute="centerX" id="SPt-SR-41A"/>
+                            <constraint firstItem="PQ8-bt-qf4" firstAttribute="height" secondItem="i92-Rf-k4G" secondAttribute="height" id="SQm-gJ-a9l"/>
                             <constraint firstItem="TmE-Au-8on" firstAttribute="centerX" secondItem="hFa-Nj-1xR" secondAttribute="centerX" id="Xwp-3o-NW7"/>
                             <constraint firstItem="wr7-YB-gIG" firstAttribute="top" secondItem="TmE-Au-8on" secondAttribute="bottom" constant="10" id="cJb-9p-JZg"/>
                             <constraint firstItem="wr7-YB-gIG" firstAttribute="leading" secondItem="hFa-Nj-1xR" secondAttribute="leadingMargin" constant="40" id="cML-66-Kov"/>
+                            <constraint firstItem="PQ8-bt-qf4" firstAttribute="centerX" secondItem="i92-Rf-k4G" secondAttribute="centerX" id="j8F-TI-aEh"/>
                             <constraint firstItem="mNk-tP-UXa" firstAttribute="centerX" secondItem="hFa-Nj-1xR" secondAttribute="centerX" id="kmV-of-clu"/>
                             <constraint firstItem="TmE-Au-8on" firstAttribute="top" secondItem="mNk-tP-UXa" secondAttribute="bottom" constant="100" id="mHA-sI-T9r"/>
                             <constraint firstItem="6cN-PD-hbj" firstAttribute="top" secondItem="9nk-R3-suZ" secondAttribute="bottom" constant="30" id="uz1-Q6-5bo"/>
@@ -192,7 +188,7 @@
         <!--Container View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ContainerViewController" id="BYZ-38-t0r" customClass="ContainerViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContainerViewController" id="BYZ-38-t0r" customClass="ContainerViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -200,7 +196,6 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -211,7 +206,7 @@
         <!--Speech View Controller-->
         <scene sceneID="sW9-Pq-3LN">
             <objects>
-                <viewController storyboardIdentifier="SpeechViewController" automaticallyAdjustsScrollViewInsets="NO" id="H6J-Cl-gpp" customClass="SpeechViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpeechViewController" automaticallyAdjustsScrollViewInsets="NO" id="H6J-Cl-gpp" customClass="SpeechViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xCN-4n-bVv"/>
                         <viewControllerLayoutGuide type="bottom" id="Ejp-uf-BSd"/>
@@ -222,25 +217,22 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hMC-sL-Hsb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="speechHeader" rowHeight="67" id="sQD-28-MWx" customClass="SpeechHeader" customModule="GifApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="speechHeader" rowHeight="67" id="sQD-28-MWx" customClass="SpeechHeader" customModule="GIF_GeekPark" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sQD-28-MWx" id="nI4-os-vCI">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="66.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCI-jO-OKV">
                                                     <rect key="frame" x="18" y="23" width="9" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="aCI-jO-OKV" firstAttribute="centerY" secondItem="nI4-os-vCI" secondAttribute="centerY" id="JZ0-lC-CGi"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="aCI-jO-OKV" secondAttribute="leading" constant="20" id="KZr-fo-8pm"/>
@@ -256,65 +248,57 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="theme" destination="aCI-jO-OKV" id="Iyj-pR-eVu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="speechCell" rowHeight="98" id="ZGD-eb-nhR" customClass="SpeechCell" customModule="GifApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="speechCell" rowHeight="98" id="ZGD-eb-nhR" customClass="SpeechCell" customModule="GIF_GeekPark" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="95" width="600" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZGD-eb-nhR" id="6yX-JY-Sm1">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="97.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="97"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTb-7i-Cj9">
                                                     <rect key="frame" x="118" y="24" width="26" height="18"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0k0-DY-0P4">
                                                     <rect key="frame" x="18" y="40" width="30" height="18"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="guetscompany" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnZ-Tq-mMQ">
                                                     <rect key="frame" x="196" y="58" width="90" height="16"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="guestname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMp-lo-VWr">
                                                     <rect key="frame" x="118" y="58" width="68" height="16"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bMQ-gG-Q6m">
                                                     <rect key="frame" x="58" y="24" width="50" height="50"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="EvG-gn-Afs"/>
                                                         <constraint firstAttribute="width" secondItem="bMQ-gG-Q6m" secondAttribute="height" multiplier="1:1" id="kEf-EX-vNM"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" text="guesttitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b89-Ge-WhF">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="guesttitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b89-Ge-WhF">
                                                     <rect key="frame" x="292" y="58" width="57" height="16"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7E-h7-LVp">
                                                     <rect key="frame" x="562" y="38" width="20" height="22"/>
-                                                    <animations/>
                                                     <state key="normal" image="collect"/>
                                                     <state key="selected" image="collect_selected" backgroundImage="collect_selected"/>
                                                     <connections>
@@ -323,7 +307,6 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRN-uN-Wqe">
                                                     <rect key="frame" x="540" y="0.0" width="60" height="97"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="Edx-LO-87R"/>
                                                     </constraints>
@@ -332,7 +315,6 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="l7E-h7-LVp" secondAttribute="trailing" constant="10" id="7ul-wb-0hO"/>
                                                 <constraint firstItem="SRN-uN-Wqe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b89-Ge-WhF" secondAttribute="trailing" constant="30" id="9f4-p9-Stx"/>
@@ -377,7 +359,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="SRN-uN-Wqe" secondAttribute="trailing" id="PH1-5d-iBa"/>
                                         </constraints>
@@ -395,7 +376,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hMC-sL-Hsb" secondAttribute="trailing" id="4yl-SB-wWS"/>
@@ -410,12 +390,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWU-pq-L53" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="1205"/>
+            <point key="canvasLocation" x="1250" y="1205"/>
         </scene>
         <!--Guest View Controller-->
         <scene sceneID="yev-Un-IhN">
             <objects>
-                <viewController storyboardIdentifier="GuestViewController" id="ekc-5i-W5L" customClass="GuestViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GuestViewController" id="ekc-5i-W5L" customClass="GuestViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ShB-CI-82j"/>
                         <viewControllerLayoutGuide type="bottom" id="Tse-fg-YME"/>
@@ -426,19 +406,17 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ArT-e3-ba4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="guestCell" rowHeight="60" id="oDs-jP-ID8" customClass="GuestCell" customModule="GifApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="guestCell" rowHeight="60" id="oDs-jP-ID8" customClass="GuestCell" customModule="GIF_GeekPark" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oDs-jP-ID8" id="eHU-dv-zAG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OLa-PW-Jdx">
                                                     <rect key="frame" x="18" y="5" width="50" height="50"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="OLa-PW-Jdx" secondAttribute="height" multiplier="1:1" id="RnB-Uc-8Z8"/>
                                                         <constraint firstAttribute="height" constant="50" id="ocK-LZ-XUO"/>
@@ -446,27 +424,23 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWi-ek-zgp">
                                                     <rect key="frame" x="78" y="8" width="68" height="18"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNn-kS-8iO">
                                                     <rect key="frame" x="78" y="36" width="56" height="16"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMB-Xv-YdL">
                                                     <rect key="frame" x="139" y="36" width="23" height="16"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="leadingMargin" secondItem="OLa-PW-Jdx" secondAttribute="leading" constant="-10" id="5BU-3Z-3GK"/>
                                                 <constraint firstItem="wNn-kS-8iO" firstAttribute="leading" secondItem="OLa-PW-Jdx" secondAttribute="trailing" constant="10" id="PJB-gi-wb5"/>
@@ -486,7 +460,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <outlet property="avator" destination="OLa-PW-Jdx" id="2h9-da-lou"/>
                                             <outlet property="company" destination="wNn-kS-8iO" id="TPq-DW-7S6"/>
@@ -498,7 +471,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ArT-e3-ba4" secondAttribute="trailing" id="8xS-dC-xKU"/>
@@ -513,12 +485,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lB-p9-CzI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="1888"/>
+            <point key="canvasLocation" x="1250" y="1888"/>
         </scene>
         <!--Geek Talk View Controller-->
         <scene sceneID="tDN-En-vQv">
             <objects>
-                <viewController storyboardIdentifier="GeekTalkViewController" id="fwb-JZ-lOM" customClass="GeekTalkViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GeekTalkViewController" id="fwb-JZ-lOM" customClass="GeekTalkViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M08-sm-PSp"/>
                         <viewControllerLayoutGuide type="bottom" id="Eud-zv-FJT"/>
@@ -529,26 +501,23 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="159" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dnq-bS-NAO">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="159" id="A6l-T7-5L6" customClass="PostCell" customModule="GifApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="159" id="A6l-T7-5L6" customClass="PostCell" customModule="GIF_GeekPark" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="159"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A6l-T7-5L6" id="P9w-V8-7QW">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="158.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="158"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="publish_at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2im-tk-f4S">
-                                                    <rect key="frame" x="8" y="37" width="62" height="16"/>
-                                                    <animations/>
+                                                    <rect key="frame" x="8" y="38" width="62" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lfT-4Q-Udf" customClass="GridView" customModule="GifApp" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="86" width="584" height="73"/>
-                                                    <animations/>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lfT-4Q-Udf" customClass="GridView" customModule="GIF_GeekPark" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="86" width="584" height="65"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="59.5" id="gP3-vy-Aeb"/>
@@ -560,7 +529,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="jFQ-cp-gZb" customClass="ImageCell" customModule="GifApp" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="jFQ-cp-gZb" customClass="ImageCell" customModule="GIF_GeekPark" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="64" height="61"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -569,13 +538,10 @@
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KIm-dP-kht">
                                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="61"/>
-                                                                        <animations/>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <animations/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
-                                                            <animations/>
                                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstItem="KIm-dP-kht" firstAttribute="leading" secondItem="jFQ-cp-gZb" secondAttribute="leading" id="6qG-VD-uah"/>
@@ -612,18 +578,17 @@
                                                 </collectionView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkH-sU-Ev5">
                                                     <rect key="frame" x="8" y="13" width="29" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aC-jJ-OaX">
-                                                    <rect key="frame" x="8" y="58" width="584" height="17"/>
-                                                    <animations/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aC-jJ-OaX">
+                                                    <rect key="frame" x="8" y="59" width="584" height="17"/>
+                                                    <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="140" id="aqO-7E-Vc8"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
@@ -633,7 +598,6 @@
                                                     </variation>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="HkH-sU-Ev5" firstAttribute="top" secondItem="P9w-V8-7QW" secondAttribute="topMargin" constant="5" id="9kf-mE-al7"/>
                                                 <constraint firstItem="lfT-4Q-Udf" firstAttribute="top" secondItem="0aC-jJ-OaX" secondAttribute="bottom" constant="8" id="D8K-Q5-Vju"/>
@@ -662,7 +626,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <outlet property="body" destination="0aC-jJ-OaX" id="wMT-JF-vnF"/>
                                             <outlet property="images" destination="lfT-4Q-Udf" id="rss-pi-wcp"/>
@@ -673,7 +636,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.56078431370000004" green="0.56078431370000004" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Dnq-bS-NAO" firstAttribute="top" secondItem="206-Ug-UH1" secondAttribute="top" id="TOF-3w-G6X"/>
@@ -688,12 +650,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Tc-QT-SSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="2580"/>
+            <point key="canvasLocation" x="-210" y="2836"/>
+        </scene>
+        <!--Image Page View Controller-->
+        <scene sceneID="xvG-fw-n7d">
+            <objects>
+                <viewController storyboardIdentifier="imageContainerViewController" id="zlR-A4-zKI" customClass="ImagePageViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XHF-se-VeP"/>
+                        <viewControllerLayoutGuide type="bottom" id="vHz-sD-uep"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tB4-8y-wBj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Fl-lq-2kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="2836"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="WKV-ik-8AG">
+            <objects>
+                <pageViewController storyboardIdentifier="imagePageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="d2h-LN-upq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mLo-ad-rLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1270" y="2599"/>
         </scene>
         <!--Image Detail Controller-->
         <scene sceneID="Qip-nG-pCR">
             <objects>
-                <viewController storyboardIdentifier="imageDetail" id="5WH-Mc-BSX" customClass="ImageDetailController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imageDetailController" id="5WH-Mc-BSX" customClass="ImageDetailController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QmU-lm-fk2"/>
                         <viewControllerLayoutGuide type="bottom" id="Wt3-2X-Yqq"/>
@@ -707,17 +695,14 @@
                                 <subviews>
                                     <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="tmn-uF-pr2">
                                         <rect key="frame" x="281" y="514" width="39" height="37"/>
-                                        <animations/>
                                     </pageControl>
                                 </subviews>
-                                <animations/>
                                 <constraints>
                                     <constraint firstItem="tmn-uF-pr2" firstAttribute="centerX" secondItem="iHc-Lj-a6M" secondAttribute="centerX" id="QP5-Gi-Hze"/>
                                     <constraint firstAttribute="bottom" secondItem="tmn-uF-pr2" secondAttribute="bottom" constant="49" id="x2b-zT-VZU"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iHc-Lj-a6M" firstAttribute="top" secondItem="PPn-GE-cPT" secondAttribute="top" id="9D5-Bu-R5T"/>
@@ -733,12 +718,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZQ-5L-3Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244" y="2580"/>
+            <point key="canvasLocation" x="1270" y="3310"/>
         </scene>
         <!--Traffic View Controller-->
         <scene sceneID="cLt-u3-w3P">
             <objects>
-                <viewController storyboardIdentifier="TrafficViewController" id="8TY-6f-7CM" customClass="TrafficViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrafficViewController" id="8TY-6f-7CM" customClass="TrafficViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nHk-ZQ-I7Z"/>
                         <viewControllerLayoutGuide type="bottom" id="82H-Nf-jR8"/>
@@ -749,7 +734,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhU-4Y-E8c">
                                 <rect key="frame" x="32" y="544" width="536" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Yqn-ky-W6c"/>
@@ -764,7 +748,6 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="traffic_image" translatesAutoresizingMaskIntoConstraints="NO" id="UJD-pm-TRf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.66666666666666663" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="Is8-TL-JJW"/>
@@ -779,19 +762,17 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="136" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wRD-te-Da6">
                                 <rect key="frame" x="0.0" y="248" width="600" height="290"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrafficCell" rowHeight="120" id="f44-g8-mwi" customClass="TrafficCell" customModule="GifApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrafficCell" rowHeight="120" id="f44-g8-mwi" customClass="TrafficCell" customModule="GIF_GeekPark" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f44-g8-mwi" id="Y0d-7v-LwM">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fW1-UQ-z5j">
                                                     <rect key="frame" x="60" y="0.0" width="5" height="120"/>
-                                                    <animations/>
                                                     <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="5" id="r4S-e3-Z0y"/>
@@ -799,7 +780,6 @@
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SH5-eL-tCi">
                                                     <rect key="frame" x="0.0" y="20" width="45" height="18"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -809,10 +789,8 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="traffic_addr_icon" translatesAutoresizingMaskIntoConstraints="NO" id="9QU-8M-fjd">
                                                             <rect key="frame" x="6" y="6" width="23" height="23"/>
-                                                            <animations/>
                                                         </imageView>
                                                     </subviews>
-                                                    <animations/>
                                                     <color key="backgroundColor" red="0.0" green="0.66773909330368042" blue="0.67813581228256226" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="9QU-8M-fjd" firstAttribute="height" secondItem="3n0-gn-YOS" secondAttribute="height" multiplier="2:3" id="9kf-QQ-dyg"/>
@@ -825,20 +803,17 @@
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVT-aR-f7N">
                                                     <rect key="frame" x="91" y="20" width="509" height="18"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcL-h4-NS2">
                                                     <rect key="frame" x="91" y="42" width="509" height="78"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="fVT-aR-f7N" firstAttribute="leading" secondItem="3n0-gn-YOS" secondAttribute="trailing" constant="12" id="FVc-QS-uTi"/>
                                                 <constraint firstItem="XcL-h4-NS2" firstAttribute="top" secondItem="fVT-aR-f7N" secondAttribute="bottom" constant="4" id="Oaw-a4-qcS"/>
@@ -855,7 +830,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
@@ -881,7 +855,6 @@
                                 <sections/>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wRD-te-Da6" firstAttribute="trailing" secondItem="UJD-pm-TRf" secondAttribute="trailing" id="0zI-cG-oY1"/>
@@ -916,12 +889,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="051-AM-xZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="3274"/>
+            <point key="canvasLocation" x="-1238" y="3198"/>
         </scene>
         <!--Registe Controller-->
         <scene sceneID="nxC-DF-cTM">
             <objects>
-                <viewController id="QSx-0G-VNK" customClass="RegisteController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QSx-0G-VNK" customClass="RegisteController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Ij-LD-eY8"/>
                         <viewControllerLayoutGuide type="bottom" id="xnV-Uc-jbW"/>
@@ -932,11 +905,9 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5in-0c-gnN">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5in-0c-gnN" firstAttribute="bottom" secondItem="xnV-Uc-jbW" secondAttribute="top" id="Pij-4a-T2c"/>
@@ -945,18 +916,19 @@
                             <constraint firstItem="5in-0c-gnN" firstAttribute="top" secondItem="BB5-3K-vwx" secondAttribute="top" id="fcT-a0-20i"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6Yw-CA-Koe"/>
                     <connections>
                         <outlet property="webView" destination="5in-0c-gnN" id="NPU-xj-SMV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PW9-20-agy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2086" y="1709"/>
+            <point key="canvasLocation" x="423" y="1267"/>
         </scene>
         <!--Speech Detail View Controller-->
         <scene sceneID="hxr-07-zeV">
             <objects>
-                <viewController storyboardIdentifier="SpeechDetailViewController" id="ZN9-sr-xBq" customClass="SpeechDetailViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpeechDetailViewController" id="ZN9-sr-xBq" customClass="SpeechDetailViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZUK-lV-Acr"/>
                         <viewControllerLayoutGuide type="bottom" id="0Dn-PH-oBa"/>
@@ -967,7 +939,6 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSm-Xj-yZB">
                                 <rect key="frame" x="20" y="30" width="44" height="18"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="6EU-dh-amo"/>
                                     <constraint firstAttribute="width" constant="538" id="7W3-iW-sdS"/>
@@ -984,14 +955,12 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="speaker name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZT-zA-sQO">
                                 <rect key="frame" x="252" y="191" width="96" height="18"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="company and postion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcj-1q-gQW">
                                 <rect key="frame" x="235" y="209" width="130" height="16"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="415" id="LSS-L2-sFb"/>
                                     <constraint firstAttribute="width" constant="42" id="ida-Ag-0Cq"/>
@@ -1008,7 +977,6 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uWH-J5-Bv7">
                                 <rect key="frame" x="250" y="91" width="100" height="100"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uWH-J5-Bv7" secondAttribute="height" multiplier="1:1" id="9VF-to-HVC"/>
                                     <constraint firstAttribute="height" constant="100" id="O9c-c9-i8W"/>
@@ -1020,16 +988,14 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="79号罐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJU-m8-rvj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="79号罐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJU-m8-rvj">
                                 <rect key="frame" x="533" y="30" width="48" height="18"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="show time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRA-gI-hQf">
                                 <rect key="frame" x="20" y="255" width="96" height="40"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="490" id="JeV-Di-Iu4"/>
                                 </constraints>
@@ -1047,14 +1013,12 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htp-tT-Dhv">
                                         <rect key="frame" x="20" y="10" width="30" height="18"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZd-Zp-EBk">
                                         <rect key="frame" x="20" y="38" width="392" height="16"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="545" id="3MU-h3-nxS"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="ZGo-xz-o0n"/>
@@ -1070,7 +1034,6 @@
                                         </variation>
                                     </label>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ZZd-Zp-EBk" secondAttribute="bottom" constant="10" id="9qI-eV-sLV"/>
@@ -1100,9 +1063,8 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="show date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yt-2c-5uq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="show date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yt-2c-5uq">
                                 <rect key="frame" x="20" y="299" width="96" height="21"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="Yb4-IE-Jmk"/>
                                 </constraints>
@@ -1110,9 +1072,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="xis-CM-pxg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="xis-CM-pxg">
                                 <rect key="frame" x="507" y="30" width="18" height="18"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="LqB-WO-3n9"/>
                                     <constraint firstAttribute="width" secondItem="xis-CM-pxg" secondAttribute="height" multiplier="1:1" id="cJg-uK-jVz"/>
@@ -1126,7 +1087,6 @@
                                 </variation>
                             </imageView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uRA-gI-hQf" firstAttribute="top" secondItem="MSm-Xj-yZB" secondAttribute="bottom" constant="31" id="0px-dI-yyK"/>
@@ -1197,12 +1157,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUL-bW-bv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1304" y="1579"/>
+            <point key="canvasLocation" x="2116" y="1579"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="pJW-z1-Lba">
             <objects>
-                <viewController storyboardIdentifier="AboutViewController" id="4Nh-1p-ugq" customClass="AboutViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" id="4Nh-1p-ugq" customClass="AboutViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kke-dm-njg"/>
                         <viewControllerLayoutGuide type="bottom" id="K8a-Ra-w5R"/>
@@ -1217,16 +1177,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-cH-q47">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="1100"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="        前些天，在北京创客盛会的极客公园展位上，极客之选的同学拿出几件好玩的产品做展示和体验。期间，一位四五十岁的大爷，在体验了一款手部按摩仪之后显示出了不屑的表情。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udV-hg-1xd">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="36"/>
-                                                <animations/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        前些天，在北京创客盛会的极客公园展位上，极客之选的同学拿出几件好玩的产品做展示和体验。期间，一位四五十岁的大爷，在体验了一款手部按摩仪之后显示出了不屑的表情。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udV-hg-1xd">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbh-Tc-qLc">
-                                                <rect key="frame" x="0.0" y="46" width="600" height="72"/>
-                                                <animations/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbh-Tc-qLc">
+                                                <rect key="frame" x="0.0" y="64" width="600" height="72"/>
                                                 <string key="text">    😒「是按照手部穴位按摩的吗？能测出身体有什么问题么？」
     😂「呃，不能，做不了诊疗，只是保健按摩。」
     😒 「这么不智能啊？」
@@ -1235,9 +1193,8 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5o-pQ-XMx">
-                                                <rect key="frame" x="0.0" y="128" width="600" height="466"/>
-                                                <animations/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5o-pQ-XMx">
+                                                <rect key="frame" x="0.0" y="146" width="600" height="466"/>
                                                 <string key="text">        大爷瞬间回到了现实，嘿嘿地笑着说:「那倒是，那倒是」。
 
         那一刻我觉得，我们喊了那么多年破除迷信，相信科学，结果，好多人把科学当迷信一样相信了。
@@ -1261,10 +1218,8 @@
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="about_gif" translatesAutoresizingMaskIntoConstraints="NO" id="Oq2-Pp-jke">
                                                 <rect key="frame" x="123" y="604" width="355" height="127"/>
-                                                <animations/>
                                             </imageView>
                                         </subviews>
-                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="udV-hg-1xd" firstAttribute="leading" secondItem="dVD-cH-q47" secondAttribute="leading" id="0El-PA-n7w"/>
@@ -1295,7 +1250,6 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <animations/>
                                 <constraints>
                                     <constraint firstItem="dVD-cH-q47" firstAttribute="top" secondItem="wiC-vs-Q5z" secondAttribute="top" id="3ij-Sy-buu"/>
                                     <constraint firstItem="dVD-cH-q47" firstAttribute="leading" secondItem="wiC-vs-Q5z" secondAttribute="leading" id="3xQ-ID-JJa"/>
@@ -1328,7 +1282,6 @@
                                 </variation>
                             </scrollView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wiC-vs-Q5z" firstAttribute="leading" secondItem="fmN-xj-N9i" secondAttribute="leading" id="4MJ-dQ-0Ng"/>
@@ -1367,12 +1320,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8F-vJ-5Ov" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="3981"/>
+            <point key="canvasLocation" x="-1238" y="3905"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="ILD-HC-5cJ">
             <objects>
-                <viewController storyboardIdentifier="menu" automaticallyAdjustsScrollViewInsets="NO" id="VIT-cy-J7s" customClass="MenuViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" automaticallyAdjustsScrollViewInsets="NO" id="VIT-cy-J7s" customClass="MenuViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xgF-VC-MHB"/>
                         <viewControllerLayoutGuide type="bottom" id="FEU-9G-lPJ"/>
@@ -1383,19 +1336,17 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0m7-i0-NNv">
                                 <rect key="frame" x="0.0" y="260" width="600" height="340"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" id="t6p-Xt-8a8" customClass="MenuCell" customModule="GifApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" id="t6p-Xt-8a8" customClass="MenuCell" customModule="GIF_GeekPark" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t6p-Xt-8a8" id="Q2i-lt-hpb">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kCS-ce-Iwh">
                                                     <rect key="frame" x="56" y="10" width="24" height="24"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="kCS-ce-Iwh" secondAttribute="height" multiplier="1:1" id="LbO-ME-vMS"/>
                                                         <constraint firstAttribute="height" constant="24" id="toy-IV-L0r"/>
@@ -1403,21 +1354,18 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJU-lz-8sx">
                                                     <rect key="frame" x="93" y="11" width="42" height="21"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="DeJ-NI-pvz">
                                                     <rect key="frame" x="459" y="14" width="10" height="15"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="7Iw-JP-1cn"/>
                                                         <constraint firstAttribute="width" secondItem="DeJ-NI-pvz" secondAttribute="height" multiplier="2:3" id="Bxa-1c-dVP"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="DeJ-NI-pvz" firstAttribute="centerY" secondItem="Q2i-lt-hpb" secondAttribute="centerY" id="4Dp-iX-4O3"/>
                                                 <constraint firstItem="kCS-ce-Iwh" firstAttribute="centerY" secondItem="Q2i-lt-hpb" secondAttribute="centerY" id="5zO-7P-b4Y"/>
@@ -1427,7 +1375,6 @@
                                                 <constraint firstItem="gJU-lz-8sx" firstAttribute="centerY" secondItem="Q2i-lt-hpb" secondAttribute="centerY" id="xmE-Ie-Nwl"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <connections>
                                             <outlet property="menuImage" destination="kCS-ce-Iwh" id="9rz-YB-VQi"/>
                                             <outlet property="menuText" destination="gJU-lz-8sx" id="iGA-By-HN1"/>
@@ -1437,21 +1384,18 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNP-Zv-z9S">
                                 <rect key="frame" x="207" y="224" width="10" height="18"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xle-bD-CCC">
                                 <rect key="frame" x="125" y="224" width="10" height="18"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collect_black" translatesAutoresizingMaskIntoConstraints="NO" id="bzk-b7-4Iy">
                                 <rect key="frame" x="119" y="195" width="21" height="21"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bzk-b7-4Iy" secondAttribute="height" multiplier="1:1" id="HCO-5E-JQZ"/>
                                     <constraint firstAttribute="height" constant="21" id="WiK-1K-eog"/>
@@ -1459,7 +1403,6 @@
                             </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gf8-0y-xfe">
                                 <rect key="frame" x="170" y="209" width="1" height="20"/>
-                                <animations/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="fYk-2x-CyR"/>
@@ -1468,7 +1411,6 @@
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_black" translatesAutoresizingMaskIntoConstraints="NO" id="auY-qN-qsr">
                                 <rect key="frame" x="201" y="195" width="21" height="21"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="auY-qN-qsr" secondAttribute="height" multiplier="1:1" id="GFL-Rk-QMW"/>
                                     <constraint firstAttribute="width" constant="21" id="nYs-Gm-Zq1"/>
@@ -1479,14 +1421,12 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etf-nj-7E3">
                                         <rect key="frame" x="32" y="120" width="76" height="21"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u5v-IF-Xf4">
                                         <rect key="frame" x="20" y="8" width="100" height="100"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="82" id="UW0-bQ-iu4"/>
                                             <constraint firstAttribute="height" constant="100" id="aO6-oc-sJc"/>
@@ -1501,7 +1441,6 @@
                                         </variation>
                                     </imageView>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pJT-gZ-IW7" secondAttribute="height" multiplier="1:1" id="2lg-ps-49f"/>
@@ -1512,7 +1451,6 @@
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kam-qa-v45">
                                 <rect key="frame" x="98" y="191" width="64" height="64"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="8QC-NF-ksQ"/>
@@ -1521,7 +1459,6 @@
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rsq-pO-opg">
                                 <rect key="frame" x="179" y="191" width="64" height="64"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="E46-rm-J3b"/>
@@ -1529,7 +1466,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.99215686274509807" green="0.86274509803921573" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="aNP-Zv-z9S" firstAttribute="top" secondItem="auY-qN-qsr" secondAttribute="bottom" constant="8" id="00u-90-sk6"/>
@@ -1586,7 +1522,7 @@
         <!--Speeches View Controller-->
         <scene sceneID="bMe-9f-HLJ">
             <objects>
-                <viewController storyboardIdentifier="SpeechesViewController" id="EHb-wE-UUB" customClass="SpeechesViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpeechesViewController" id="EHb-wE-UUB" customClass="SpeechesViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SyE-Zi-7W8"/>
                         <viewControllerLayoutGuide type="bottom" id="5u9-t1-Xsi"/>
@@ -1595,9 +1531,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VW1-x8-GOl" customClass="GSegmentControl" customModule="GifApp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VW1-x8-GOl" customClass="GSegmentControl" customModule="GIF_GeekPark" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="34"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="yPe-zW-Agb"/>
@@ -1607,7 +1542,6 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VW1-x8-GOl" firstAttribute="leading" secondItem="08E-ep-fwd" secondAttribute="leading" id="NwF-cP-XYm"/>
@@ -1621,12 +1555,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HvD-AU-usS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1927" y="2370"/>
+            <point key="canvasLocation" x="2116" y="2235"/>
         </scene>
         <!--User Center View Controller-->
         <scene sceneID="517-bW-2WG">
             <objects>
-                <viewController storyboardIdentifier="UserViewController" id="bXr-9t-sm3" customClass="UserCenterViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserViewController" id="bXr-9t-sm3" customClass="UserCenterViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lia-Iz-Ch8"/>
                         <viewControllerLayoutGuide type="bottom" id="xlI-lv-QPw"/>
@@ -1635,9 +1569,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5O-wH-e6N" customClass="GSegmentControl" customModule="GifApp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5O-wH-e6N" customClass="GSegmentControl" customModule="GIF_GeekPark" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="34"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="AG0-oB-78d"/>
@@ -1653,7 +1586,6 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="n5O-wH-e6N" firstAttribute="leading" secondItem="j6j-xw-KRW" secondAttribute="leadingMargin" id="7mE-dG-kfW"/>
@@ -1684,7 +1616,7 @@
         <!--User Tickets View Controller-->
         <scene sceneID="sf9-vW-Rxx">
             <objects>
-                <viewController storyboardIdentifier="UserTicketsViewController" id="reF-Sw-AF5" customClass="UserTicketsViewController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserTicketsViewController" id="reF-Sw-AF5" customClass="UserTicketsViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eJY-vY-KFg"/>
                         <viewControllerLayoutGuide type="bottom" id="3fb-vp-2CW"/>
@@ -1695,29 +1627,25 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="238" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AuI-Ss-pet">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ticketCell" rowHeight="225" id="OsR-oS-TCR" customClass="TicketCell" customModule="GifApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ticketCell" rowHeight="225" id="OsR-oS-TCR" customClass="TicketCell" customModule="GIF_GeekPark" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="225"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OsR-oS-TCR" id="l5e-HE-F4N">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="224.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket_bg" translatesAutoresizingMaskIntoConstraints="NO" id="pC0-7j-Wxi">
                                                     <rect key="frame" x="10" y="10" width="580" height="205"/>
-                                                    <animations/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xt6-7k-lZ5">
                                                     <rect key="frame" x="34" y="41" width="143" height="143"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="k5n-B1-icx">
                                                             <rect key="frame" x="4" y="5" width="134" height="134"/>
-                                                            <animations/>
                                                         </imageView>
                                                     </subviews>
-                                                    <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="k5n-B1-icx" firstAttribute="height" secondItem="xt6-7k-lZ5" secondAttribute="height" multiplier="15:16" id="3XP-8F-Cdn"/>
@@ -1732,22 +1660,19 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWw-7p-npq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWw-7p-npq">
                                                     <rect key="frame" x="187" y="62" width="427" height="26"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <color key="textColor" red="0.99215686274509807" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelasdasdasdasdasdasdasdasdasdasdasda asd asd " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKy-Iu-LpQ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Labelasdasdasdasdasdasdasdasdasdasdasda asd asd " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKy-Iu-LpQ">
                                                     <rect key="frame" x="187" y="88" width="379" height="96"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="cWw-7p-npq" firstAttribute="centerY" secondItem="xt6-7k-lZ5" secondAttribute="centerY" id="5co-ru-EMs"/>
                                                 <constraint firstItem="FKy-Iu-LpQ" firstAttribute="bottom" secondItem="xt6-7k-lZ5" secondAttribute="bottom" id="EQr-dH-rRs"/>
@@ -1776,7 +1701,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstItem="xt6-7k-lZ5" firstAttribute="leading" secondItem="OsR-oS-TCR" secondAttribute="leading" constant="34" id="2Um-BU-LlK"/>
                                             <constraint firstItem="pC0-7j-Wxi" firstAttribute="top" secondItem="OsR-oS-TCR" secondAttribute="top" constant="10" id="5SG-AU-gGl"/>
@@ -1800,7 +1724,6 @@
                                 <sections/>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AuI-Ss-pet" firstAttribute="top" secondItem="8Sz-2x-TAP" secondAttribute="top" id="Fjk-sf-BJ4"/>
@@ -1828,7 +1751,7 @@
         <!--User Collections Controller-->
         <scene sceneID="53f-dp-wp2">
             <objects>
-                <viewController storyboardIdentifier="UserCollectionsController" id="miV-hA-h9a" customClass="UserCollectionsController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserCollectionsController" id="miV-hA-h9a" customClass="UserCollectionsController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mh0-vw-bqb"/>
                         <viewControllerLayoutGuide type="bottom" id="Bqm-CV-ajZ"/>
@@ -1839,7 +1762,6 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHY-pO-ME2">
                                 <rect key="frame" x="20" y="20" width="560" height="36"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="f1l-m8-KOI"/>
                                 </constraints>
@@ -1848,7 +1770,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JHY-pO-ME2" firstAttribute="top" secondItem="Mh0-vw-bqb" secondAttribute="bottom" id="4hb-Xp-vlr"/>
@@ -1859,7 +1780,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgB-Gp-oWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2853" y="665"/>
+            <point key="canvasLocation" x="3665" y="665"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="Mh8-ta-wgk">
@@ -1867,12 +1788,12 @@
                 <pageViewController storyboardIdentifier="PageController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="9DZ-Tv-ScD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owX-tn-1zl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2291" y="996"/>
+            <point key="canvasLocation" x="2994" y="999"/>
         </scene>
         <!--User News Controller-->
         <scene sceneID="eN3-eF-RI6">
             <objects>
-                <viewController storyboardIdentifier="UserNewsController" id="lRd-4N-YA2" customClass="UserNewsController" customModule="GifApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserNewsController" id="lRd-4N-YA2" customClass="UserNewsController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kQ6-Cq-dhk"/>
                         <viewControllerLayoutGuide type="bottom" id="ugW-FL-21d"/>
@@ -1883,7 +1804,6 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQf-GI-Y7b">
                                 <rect key="frame" x="20" y="28" width="560" height="36"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="7NN-oC-9qw"/>
                                     <constraint firstAttribute="height" constant="36" id="qYo-Oe-bbm"/>
@@ -1898,7 +1818,6 @@
                                 </variation>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KQf-GI-Y7b" firstAttribute="top" secondItem="kQ6-Cq-dhk" secondAttribute="bottom" constant="8" symbolic="YES" id="Aag-BA-Udn"/>
@@ -1909,7 +1828,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfV-Tb-Ypz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2853" y="1319"/>
+            <point key="canvasLocation" x="3665" y="1319"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pqo-Xy-DC0">
+            <objects>
+                <navigationController storyboardIdentifier="register" automaticallyAdjustsScrollViewInsets="NO" id="vba-Sy-DFG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eh2-qh-Ot6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QSx-0G-VNK" kind="relationship" relationship="rootViewController" id="mz1-WF-fUV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jBU-35-9Nk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-389" y="1267"/>
         </scene>
     </scenes>
     <resources>

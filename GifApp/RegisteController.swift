@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class RegisteController: UIViewController, UIWebViewDelegate {
 
   @IBOutlet weak var webView: UIWebView!
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: UIBarButtonItemStyle.Plain, target: self, action: "disappear:")
     webView.delegate = self
     webView.loadRequest(NSURLRequest(URL: NSURL(string: "http://www.geekpark.net/users/signup?show=false&platform=ios")!))
   }
@@ -29,7 +31,18 @@ class RegisteController: UIViewController, UIWebViewDelegate {
     return true
   }
   
-  func webViewDidStartLoad(webView: UIWebView) {
+  func disappear(sender: AnyObject){
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    appDelegate.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    SwiftSpinner.show("loading")
+  }
+  
+  func webViewDidFinishLoad(webView: UIWebView) {
+    SwiftSpinner.hide()
   }
   
   private func handleCurrentUrl(url: NSURL){

@@ -27,7 +27,6 @@ class PostCell: UITableViewCell {
     publish_at.text = TimeUtil.fomatTime(post?.publish_at, form: "HH:mm")
     publish_at.sizeToFit()
     title.sizeToFit()
-    body.sizeToFit()
     images.sizeToFit()
     images.reloadData()
   }
@@ -41,8 +40,8 @@ class PostCell: UITableViewCell {
   
   func getRowHeight() -> CGFloat{
     let constraint_height: CGFloat = 40
-//    let real_height = body.frame.height + CGFloat(body.numberOfLines * 2)
-    return constraint_height + title.frame.height + publish_at.frame.height + body.frame.height + images.frame.height
+    let body_height = post?.body?.boundingRectWithSize(CGSize(width:320, height: CGFloat(DBL_MAX)), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: body.font!, NSForegroundColorAttributeName: UIColor.redColor()], context: nil).height
+    return constraint_height + title.frame.height + publish_at.frame.height + body_height! + images.frame.height
   }
   
 }
@@ -65,7 +64,7 @@ extension PostCell: UICollectionViewDataSource{
 
 extension PostCell: UICollectionViewDelegate{
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    detailImageDelegate?.openDetail((post?.images?[indexPath.row])!)
+    detailImageDelegate?.openDetail(post?.images)
   }
 }
 

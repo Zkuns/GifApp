@@ -15,9 +15,7 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var password: UITextField!
   @IBOutlet weak var modal: UIView!
   @IBOutlet weak var loginButton: UIButton!
-  @IBOutlet weak var wechatLoginButton: UIButton!
   @IBOutlet weak var closeButton: UIButton!
-
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,6 +34,12 @@ class LoginViewController: UIViewController {
     updateUI()
   }
 
+  @IBAction func showRegister(sender: AnyObject) {
+    if let registerController = storyboard?.instantiateViewControllerWithIdentifier("register") as? UINavigationController{
+      presentViewController(registerController, animated: true, completion: nil)
+    }
+  }
+  
   func updateUI(){
   }
 
@@ -59,10 +63,6 @@ class LoginViewController: UIViewController {
       JLToast.makeText(resultMsg).show()
       self.disappear()
     }
-    
-  }
-
-  @IBAction func loginWechat() {
     
   }
 

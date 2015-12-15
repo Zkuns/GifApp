@@ -9,8 +9,7 @@
 import UIKit
 
 protocol DetailImageDelegate{
-//  func openDetail(images_url: [String])
-  func openDetail(url: String)
+  func openDetail(urls: [String]?)
 }
 
 class GeekTalkViewController: UIViewController {
@@ -36,8 +35,6 @@ class GeekTalkViewController: UIViewController {
     refreshControl = UIRefreshControl()
     refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
     postTable.addSubview(refreshControl!)
-//    postTable.rowHeight = UITableViewAutomaticDimension
-//    postTable.separatorStyle = UITableViewCellSeparatorStyle.None
   }
   
   func refresh(sender: AnyObject){
@@ -104,16 +101,10 @@ extension GeekTalkViewController: UITableViewDelegate{
 }
 
 extension GeekTalkViewController: DetailImageDelegate{
-  func openDetail(url: String){
-    if let controller = storyboard?.instantiateViewControllerWithIdentifier("imageDetail") as? ImageDetailController{
-      dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-        let data = NSData(contentsOfURL: NSURL(string: url)!)
-        dispatch_async(dispatch_get_main_queue()){
-          let image = UIImage(data: data!)!
-          controller.image = image
-          self.presentViewController(controller, animated: true, completion: nil)
-        }
-      }
+  func openDetail(urls: [String]?){
+    if let controller = storyboard?.instantiateViewControllerWithIdentifier("imageContainerViewController") as? ImagePageViewController{
+      controller.images = urls
+      self.presentViewController(controller, animated: true, completion: nil)
     }
   }
 }

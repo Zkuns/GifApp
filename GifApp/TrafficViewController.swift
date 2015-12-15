@@ -11,7 +11,7 @@ import UIKit
 struct Url{
   static let Gaode: NSString = "iosamap://poi?sourceApplication=com.zk.gif&backScheme=ZkunGif&name=751D·park北京时尚设计广场,79罐"
   static let Baidu: NSString = "baidumap://map/geocoder?address=北京798艺术区-C区"
-  static let Default: NSString = "http://maps.apple.com/?ll=50.894967,4.341626"
+  static let Default: NSString = "http://maps.apple.com/?ll=116.505975,39.993377"
 }
 
 class TrafficViewController: UIViewController{

@@ -25,6 +25,7 @@ class GridView: UICollectionView {
       if (num == 1){ height = 300 }
     }
     return CGSize(width: width, height: height)
+//    return CGSize(width: 0, height: 0)
   }
   
   private func getRows(num: Int) -> CGFloat{
