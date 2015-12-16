@@ -60,8 +60,12 @@ class SpeechesViewController: UIViewController,UIPageViewControllerDataSource, U
   
   
   private func viewControllerAtIndex(index: Int) -> PageViewController?{
-    if index > controllers.count - 1 || index < 0 {
-      return nil
+    if index > controllers.count - 1 {
+      controllers[0].itemIndex = 0
+      return controllers[0]
+    }else if index < 0 {
+      controllers[controllers.count - 1].itemIndex = controllers.count - 1
+      return controllers[controllers.count - 1]
     }
     controllers[index].itemIndex = index
     return controllers[index]
