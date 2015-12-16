@@ -12,7 +12,7 @@ class TimeUtil{
   static func fomatTime(time: String?, form: String) -> String{
     let fomat = NSDateFormatter()
     fomat.dateFormat = form
-    let timeAfterFomat = fomat.stringFromDate(NSDate(timeIntervalSince1970: Double(time!)!))
+    let timeAfterFomat = fomat.stringFromDate(NSDate(timeIntervalSince1970: Double(time ?? "0")!))
     return timeAfterFomat
   }
 }

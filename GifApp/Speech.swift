@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let speechAPI = Config.baseUrl + "/api/v1/activities/663b2c7b-14c9-48bc-abaa-7810c6073168/speeches"
+let speechAPI = Config.baseUrl + "/api/v1/activities/\(Config.currentActivityId)/speeches"
 class Speech{
   let id: String
   let title: String?
@@ -99,7 +99,7 @@ class Speech{
         }
         currentSpeeches = speeches
         callback(true,speeches)
-      }else{
+      } else {
         callback(false,[])
       }
     }
@@ -107,8 +107,12 @@ class Speech{
   
   static private func getAllSpeech(index: Int, callback: (Bool,[(String,[Speech])])->() ){
     getSpeechesData(){
-      isSuccess,speeches in
-      callback(isSuccess,splitByTheme(splitByDay(speeches)[index]))
+      isSuccess, speeches in
+      if speeches.count <= 0{
+        callback(isSuccess, [])
+      } else {
+        callback(isSuccess,splitByTheme(splitByDay(speeches)[index]))
+      }
     }
   }
   
@@ -149,7 +153,12 @@ class Speech{
     for (key,speeches) in dict{
       result.append((key,speeches))
     }
-    return result
+    let sort_result = result.sort {
+      let time1 = Int(($0.1)[0].start_at ?? "0")
+      let time2 = Int(($1.1)[0].start_at ?? "0")
+      return time1 < time2
+    }
+    return sort_result
   }
   
   static func getSpeech(speech: JSON) -> Speech{

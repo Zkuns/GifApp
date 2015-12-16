@@ -29,12 +29,10 @@ class SpeechCell: UITableViewCell {
     collectedButton.selected = speech?.isCollected ?? false
     title.text! = speech?.title ?? ""
     duration.text! = TimeUtil.fomatTime(speech?.start_at, form: "HH:mm")
-    if let gu = speech?.guest{
-      guestName.text! = gu.name!
-      guestCompany.text! = gu.company!
-      guestTitle.text! = gu.title!
-      self.avator.kf_setImageWithURL(NSURL(string: gu.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
-    }
+    guestName.text! = speech?.guest?.name ?? ""
+    guestCompany.text! = speech?.guest?.company ?? ""
+    guestTitle.text! = speech?.guest?.title ?? ""
+    self.avator.kf_setImageWithURL(NSURL(string: speech?.guest?.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
   }
   
   @IBAction func collectSpeech(sender: AnyObject) {

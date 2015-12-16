@@ -53,13 +53,21 @@ class User{
   }
   
   static func login(email: String, passwd: String,callback: (Bool,resultMsg: String)->() ){
-    Alamofire.request(.POST, userAccessTokenAPI, parameters: ["email": email, "password": passwd, "grant_type": "password", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
+    let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+    configuration.timeoutIntervalForRequest = 4
+    Alamofire.Manager(configuration: configuration).request(.POST, userAccessTokenAPI, parameters: ["email": email, "password": passwd, "grant_type": "password", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
       let data = JSON(data: data!)
-      if data["error"] != nil{
-        callback(false,resultMsg: "登录失败")
-      } else if data["access_token"].string != nil {
-        access_token = data["access_token"].string!
-        callback(true,resultMsg: "登录成功")
+      if HttpUtils.isSuccess(response) {
+        if data["error"] {
+          callback(false, resultMsg: "账号或密码错误")
+        } else if data["access_token"].string != nil {
+          access_token = data["access_token"].string!
+          callback(true, resultMsg: "登录成功")
+        } else {
+          callback(false, resultMsg: "网络错误")
+        }
+      }else{
+        callback(false, resultMsg: "网络连接错误")
       }
     }
   }

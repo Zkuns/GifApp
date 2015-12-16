@@ -10,8 +10,8 @@ import UIKit
 
 struct Url{
   static let Gaode: NSString = "iosamap://poi?sourceApplication=com.zk.gif&backScheme=ZkunGif&name=751D·park北京时尚设计广场,79罐"
-  static let Baidu: NSString = "baidumap://map/geocoder?address=北京798艺术区-C区"
-  static let Default: NSString = "http://maps.apple.com/?ll=116.505975,39.993377"
+  static let Baidu: NSString = "baidumap://map/geocoder?address=751D·park北京时尚设计广场,79罐"
+  static let Default: NSString = "http://maps.apple.com/?ll=39.987209,116.499546"
 }
 
 class TrafficViewController: UIViewController{
@@ -22,14 +22,18 @@ class TrafficViewController: UIViewController{
   
   @IBAction func chooseMap(sender: UIButton) {
     let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-    alert.addAction(UIAlertAction(title: "高德", style: .Default, handler: {
-      action in
-      self.openMap(Url.Gaode)
-    }))
-    alert.addAction(UIAlertAction(title: "百度", style: .Default, handler: {
-      action in
-      self.openMap(Url.Baidu)
-    }))
+    if UIApplication.sharedApplication().canOpenURL(NSURL(string: "iosamap://")!){
+      alert.addAction(UIAlertAction(title: "高德", style: .Default, handler: {
+        action in
+        self.openMap(Url.Gaode)
+      }))
+    }
+    if UIApplication.sharedApplication().canOpenURL(NSURL(string: "baidumap://")!){
+      alert.addAction(UIAlertAction(title: "百度", style: .Default, handler: {
+        action in
+        self.openMap(Url.Baidu)
+      }))
+    }
     alert.addAction(UIAlertAction(title: "自带地图", style: .Default, handler:{
       action in
       self.openMap(Url.Default)
@@ -41,10 +45,7 @@ class TrafficViewController: UIViewController{
   private func openMap(url: NSString){
     let urlStr : NSString = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLFragmentAllowedCharacterSet())!
     let searchURL : NSURL = NSURL(string: urlStr as String)!
-    if UIApplication.sharedApplication().canOpenURL(searchURL)
-    {
-      UIApplication.sharedApplication().openURL(searchURL)
-    }
+    UIApplication.sharedApplication().openURL(searchURL)
   }
   
   override func viewDidLoad() {

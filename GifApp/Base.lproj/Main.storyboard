@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="7Rk-hC-6vI">
             <objects>
-                <viewController storyboardIdentifier="login" id="AUp-U3-5ec" customClass="LoginViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="AUp-U3-5ec" customClass="LoginViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9nk-R3-suZ"/>
                         <viewControllerLayoutGuide type="bottom" id="KgS-IN-H4U"/>
@@ -56,7 +56,7 @@
                                             <constraint firstAttribute="height" constant="21" id="VSv-Db-ITP"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMg-iJ-s0T" customClass="loginInputView" customModule="GIF_GeekPark" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMg-iJ-s0T" customClass="loginInputView" customModule="GIF" customModuleProvider="target">
                                         <rect key="frame" x="33" y="12" width="439" height="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -94,7 +94,7 @@
                                             <constraint firstAttribute="height" constant="21" id="bog-Eg-SrL"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="极客公园邮箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yt6-8W-RyO" customClass="loginInputView" customModule="GIF_GeekPark" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="极客公园邮箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yt6-8W-RyO" customClass="loginInputView" customModule="GIF" customModuleProvider="target">
                                         <rect key="frame" x="31" y="13" width="439" height="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -124,7 +124,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i92-Rf-k4G" customClass="defaultButton" customModule="GIF_GeekPark" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i92-Rf-k4G" customClass="defaultButton" customModule="GIF" customModuleProvider="target">
                                 <rect key="frame" x="153" y="421" width="295" height="44"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -142,7 +142,7 @@
                                     <action selector="login" destination="AUp-U3-5ec" eventType="touchUpInside" id="r8x-u5-Xvq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQ8-bt-qf4" customClass="defaultButton" customModule="GIF_GeekPark" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQ8-bt-qf4" customClass="defaultButton" customModule="GIF" customModuleProvider="target">
                                 <rect key="frame" x="153" y="473" width="295" height="44"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="18"/>
                                 <state key="normal" title="注 册">
@@ -188,7 +188,7 @@
         <!--Container View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ContainerViewController" id="BYZ-38-t0r" customClass="ContainerViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContainerViewController" id="BYZ-38-t0r" customClass="ContainerViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -206,7 +206,7 @@
         <!--Speech View Controller-->
         <scene sceneID="sW9-Pq-3LN">
             <objects>
-                <viewController storyboardIdentifier="SpeechViewController" automaticallyAdjustsScrollViewInsets="NO" id="H6J-Cl-gpp" customClass="SpeechViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpeechViewController" automaticallyAdjustsScrollViewInsets="NO" id="H6J-Cl-gpp" customClass="SpeechViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xCN-4n-bVv"/>
                         <viewControllerLayoutGuide type="bottom" id="Ejp-uf-BSd"/>
@@ -219,7 +219,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="speechHeader" rowHeight="67" id="sQD-28-MWx" customClass="SpeechHeader" customModule="GIF_GeekPark" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="speechHeader" rowHeight="67" id="sQD-28-MWx" customClass="SpeechHeader" customModule="GIF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sQD-28-MWx" id="nI4-os-vCI">
@@ -253,7 +253,7 @@
                                             <outlet property="theme" destination="aCI-jO-OKV" id="Iyj-pR-eVu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="speechCell" rowHeight="98" id="ZGD-eb-nhR" customClass="SpeechCell" customModule="GIF_GeekPark" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="speechCell" rowHeight="98" id="ZGD-eb-nhR" customClass="SpeechCell" customModule="GIF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="95" width="600" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZGD-eb-nhR" id="6yX-JY-Sm1">
@@ -291,7 +291,7 @@
                                                         <constraint firstAttribute="width" secondItem="bMQ-gG-Q6m" secondAttribute="height" multiplier="1:1" id="kEf-EX-vNM"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="guesttitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b89-Ge-WhF">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="guesttitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b89-Ge-WhF">
                                                     <rect key="frame" x="292" y="58" width="57" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
@@ -305,7 +305,7 @@
                                                         <action selector="collectSpeech:" destination="ZGD-eb-nhR" eventType="touchUpInside" id="d8g-Uf-dcO"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRN-uN-Wqe">
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRN-uN-Wqe">
                                                     <rect key="frame" x="540" y="0.0" width="60" height="97"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="Edx-LO-87R"/>
@@ -325,6 +325,7 @@
                                                 <constraint firstItem="lTb-7i-Cj9" firstAttribute="leading" secondItem="bMQ-gG-Q6m" secondAttribute="trailing" constant="10" id="Jzx-mf-4uE"/>
                                                 <constraint firstItem="bMQ-gG-Q6m" firstAttribute="top" secondItem="6yX-JY-Sm1" secondAttribute="topMargin" constant="25" id="MWh-dY-Pp3"/>
                                                 <constraint firstItem="kMp-lo-VWr" firstAttribute="bottom" secondItem="bMQ-gG-Q6m" secondAttribute="bottom" id="Q6r-3b-Pwq"/>
+                                                <constraint firstItem="SRN-uN-Wqe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lTb-7i-Cj9" secondAttribute="trailing" constant="30" id="RFF-JN-MIa"/>
                                                 <constraint firstItem="bMQ-gG-Q6m" firstAttribute="leading" secondItem="0k0-DY-0P4" secondAttribute="trailing" constant="10" id="RMy-X0-OPd"/>
                                                 <constraint firstItem="kMp-lo-VWr" firstAttribute="leading" secondItem="bMQ-gG-Q6m" secondAttribute="trailing" constant="10" id="RlH-iQ-FIe"/>
                                                 <constraint firstItem="mnZ-Tq-mMQ" firstAttribute="leading" secondItem="kMp-lo-VWr" secondAttribute="trailing" constant="10" id="RxK-Wb-2gq"/>
@@ -395,7 +396,7 @@
         <!--Guest View Controller-->
         <scene sceneID="yev-Un-IhN">
             <objects>
-                <viewController storyboardIdentifier="GuestViewController" id="ekc-5i-W5L" customClass="GuestViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GuestViewController" id="ekc-5i-W5L" customClass="GuestViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ShB-CI-82j"/>
                         <viewControllerLayoutGuide type="bottom" id="Tse-fg-YME"/>
@@ -408,7 +409,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="guestCell" rowHeight="60" id="oDs-jP-ID8" customClass="GuestCell" customModule="GIF_GeekPark" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="guestCell" rowHeight="60" id="oDs-jP-ID8" customClass="GuestCell" customModule="GIF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oDs-jP-ID8" id="eHU-dv-zAG">
@@ -490,7 +491,7 @@
         <!--Geek Talk View Controller-->
         <scene sceneID="tDN-En-vQv">
             <objects>
-                <viewController storyboardIdentifier="GeekTalkViewController" id="fwb-JZ-lOM" customClass="GeekTalkViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GeekTalkViewController" id="fwb-JZ-lOM" customClass="GeekTalkViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M08-sm-PSp"/>
                         <viewControllerLayoutGuide type="bottom" id="Eud-zv-FJT"/>
@@ -503,7 +504,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="159" id="A6l-T7-5L6" customClass="PostCell" customModule="GIF_GeekPark" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="159" id="A6l-T7-5L6" customClass="PostCell" customModule="GIF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="159"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A6l-T7-5L6" id="P9w-V8-7QW">
@@ -516,7 +517,7 @@
                                                     <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lfT-4Q-Udf" customClass="GridView" customModule="GIF_GeekPark" customModuleProvider="target">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lfT-4Q-Udf" customClass="GridView" customModule="GIF" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="86" width="584" height="65"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -529,7 +530,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="jFQ-cp-gZb" customClass="ImageCell" customModule="GIF_GeekPark" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="jFQ-cp-gZb" customClass="ImageCell" customModule="GIF" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="64" height="61"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -655,7 +656,7 @@
         <!--Image Page View Controller-->
         <scene sceneID="xvG-fw-n7d">
             <objects>
-                <viewController storyboardIdentifier="imageContainerViewController" id="zlR-A4-zKI" customClass="ImagePageViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imageContainerViewController" id="zlR-A4-zKI" customClass="ImagePageViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XHF-se-VeP"/>
                         <viewControllerLayoutGuide type="bottom" id="vHz-sD-uep"/>
@@ -663,8 +664,22 @@
                     <view key="view" contentMode="scaleToFill" id="tB4-8y-wBj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="7q7-w5-SQS">
+                                <rect key="frame" x="281" y="505" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </pageControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7q7-w5-SQS" firstAttribute="centerX" secondItem="tB4-8y-wBj" secondAttribute="centerX" id="Ot5-7k-OmS"/>
+                            <constraint firstItem="vHz-sD-uep" firstAttribute="top" secondItem="7q7-w5-SQS" secondAttribute="bottom" constant="58" id="s3U-mD-sUl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="7q7-w5-SQS" id="HQ2-p2-GxX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Fl-lq-2kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -681,7 +696,7 @@
         <!--Image Detail Controller-->
         <scene sceneID="Qip-nG-pCR">
             <objects>
-                <viewController storyboardIdentifier="imageDetailController" id="5WH-Mc-BSX" customClass="ImageDetailController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imageDetailController" id="5WH-Mc-BSX" customClass="ImageDetailController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QmU-lm-fk2"/>
                         <viewControllerLayoutGuide type="bottom" id="Wt3-2X-Yqq"/>
@@ -690,17 +705,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iHc-Lj-a6M">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iHc-Lj-a6M">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="tmn-uF-pr2">
-                                        <rect key="frame" x="281" y="514" width="39" height="37"/>
-                                    </pageControl>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="tmn-uF-pr2" firstAttribute="centerX" secondItem="iHc-Lj-a6M" secondAttribute="centerX" id="QP5-Gi-Hze"/>
-                                    <constraint firstAttribute="bottom" secondItem="tmn-uF-pr2" secondAttribute="bottom" constant="49" id="x2b-zT-VZU"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -712,7 +718,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pageControl" destination="tmn-uF-pr2" id="6j3-sQ-OfW"/>
                         <outlet property="scrollView" destination="iHc-Lj-a6M" id="Myv-fP-71X"/>
                     </connections>
                 </viewController>
@@ -723,7 +728,7 @@
         <!--Traffic View Controller-->
         <scene sceneID="cLt-u3-w3P">
             <objects>
-                <viewController storyboardIdentifier="TrafficViewController" id="8TY-6f-7CM" customClass="TrafficViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrafficViewController" id="8TY-6f-7CM" customClass="TrafficViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nHk-ZQ-I7Z"/>
                         <viewControllerLayoutGuide type="bottom" id="82H-Nf-jR8"/>
@@ -764,7 +769,7 @@
                                 <rect key="frame" x="0.0" y="248" width="600" height="290"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrafficCell" rowHeight="120" id="f44-g8-mwi" customClass="TrafficCell" customModule="GIF_GeekPark" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrafficCell" rowHeight="120" id="f44-g8-mwi" customClass="TrafficCell" customModule="GIF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f44-g8-mwi" id="Y0d-7v-LwM">
@@ -894,7 +899,7 @@
         <!--Registe Controller-->
         <scene sceneID="nxC-DF-cTM">
             <objects>
-                <viewController id="QSx-0G-VNK" customClass="RegisteController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QSx-0G-VNK" customClass="RegisteController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Ij-LD-eY8"/>
                         <viewControllerLayoutGuide type="bottom" id="xnV-Uc-jbW"/>
@@ -928,7 +933,7 @@
         <!--Speech Detail View Controller-->
         <scene sceneID="hxr-07-zeV">
             <objects>
-                <viewController storyboardIdentifier="SpeechDetailViewController" id="ZN9-sr-xBq" customClass="SpeechDetailViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpeechDetailViewController" id="ZN9-sr-xBq" customClass="SpeechDetailViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZUK-lV-Acr"/>
                         <viewControllerLayoutGuide type="bottom" id="0Dn-PH-oBa"/>
@@ -1012,7 +1017,7 @@
                                 <rect key="frame" x="128" y="255" width="432" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htp-tT-Dhv">
-                                        <rect key="frame" x="20" y="10" width="30" height="18"/>
+                                        <rect key="frame" x="20" y="10" width="392" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1038,6 +1043,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ZZd-Zp-EBk" secondAttribute="bottom" constant="10" id="9qI-eV-sLV"/>
                                     <constraint firstAttribute="bottom" secondItem="ZZd-Zp-EBk" secondAttribute="bottom" constant="10" id="Dx6-5j-T8H"/>
+                                    <constraint firstAttribute="trailing" secondItem="Htp-tT-Dhv" secondAttribute="trailing" constant="20" id="HV7-NW-0mg"/>
                                     <constraint firstItem="ZZd-Zp-EBk" firstAttribute="top" secondItem="Htp-tT-Dhv" secondAttribute="bottom" constant="10" id="Hgg-Ic-oKk"/>
                                     <constraint firstAttribute="trailing" secondItem="ZZd-Zp-EBk" secondAttribute="trailing" constant="20" id="Lpt-1A-Uhx"/>
                                     <constraint firstItem="ZZd-Zp-EBk" firstAttribute="leading" secondItem="Htp-tT-Dhv" secondAttribute="trailing" constant="-39" id="NcW-4r-DUm"/>
@@ -1162,7 +1168,7 @@
         <!--About View Controller-->
         <scene sceneID="pJW-z1-Lba">
             <objects>
-                <viewController storyboardIdentifier="AboutViewController" id="4Nh-1p-ugq" customClass="AboutViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" id="4Nh-1p-ugq" customClass="AboutViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kke-dm-njg"/>
                         <viewControllerLayoutGuide type="bottom" id="K8a-Ra-w5R"/>
@@ -1325,7 +1331,7 @@
         <!--Menu View Controller-->
         <scene sceneID="ILD-HC-5cJ">
             <objects>
-                <viewController storyboardIdentifier="menu" automaticallyAdjustsScrollViewInsets="NO" id="VIT-cy-J7s" customClass="MenuViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" automaticallyAdjustsScrollViewInsets="NO" id="VIT-cy-J7s" customClass="MenuViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xgF-VC-MHB"/>
                         <viewControllerLayoutGuide type="bottom" id="FEU-9G-lPJ"/>
@@ -1338,7 +1344,7 @@
                                 <rect key="frame" x="0.0" y="260" width="600" height="340"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.86274509799999999" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" id="t6p-Xt-8a8" customClass="MenuCell" customModule="GIF_GeekPark" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" id="t6p-Xt-8a8" customClass="MenuCell" customModule="GIF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t6p-Xt-8a8" id="Q2i-lt-hpb">
@@ -1522,7 +1528,7 @@
         <!--Speeches View Controller-->
         <scene sceneID="bMe-9f-HLJ">
             <objects>
-                <viewController storyboardIdentifier="SpeechesViewController" id="EHb-wE-UUB" customClass="SpeechesViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpeechesViewController" id="EHb-wE-UUB" customClass="SpeechesViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SyE-Zi-7W8"/>
                         <viewControllerLayoutGuide type="bottom" id="5u9-t1-Xsi"/>
@@ -1531,7 +1537,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VW1-x8-GOl" customClass="GSegmentControl" customModule="GIF_GeekPark" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VW1-x8-GOl" customClass="GSegmentControl" customModule="GIF" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1560,7 +1566,7 @@
         <!--User Center View Controller-->
         <scene sceneID="517-bW-2WG">
             <objects>
-                <viewController storyboardIdentifier="UserViewController" id="bXr-9t-sm3" customClass="UserCenterViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserViewController" id="bXr-9t-sm3" customClass="UserCenterViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lia-Iz-Ch8"/>
                         <viewControllerLayoutGuide type="bottom" id="xlI-lv-QPw"/>
@@ -1569,7 +1575,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5O-wH-e6N" customClass="GSegmentControl" customModule="GIF_GeekPark" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5O-wH-e6N" customClass="GSegmentControl" customModule="GIF" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1616,7 +1622,7 @@
         <!--User Tickets View Controller-->
         <scene sceneID="sf9-vW-Rxx">
             <objects>
-                <viewController storyboardIdentifier="UserTicketsViewController" id="reF-Sw-AF5" customClass="UserTicketsViewController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserTicketsViewController" id="reF-Sw-AF5" customClass="UserTicketsViewController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eJY-vY-KFg"/>
                         <viewControllerLayoutGuide type="bottom" id="3fb-vp-2CW"/>
@@ -1629,7 +1635,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ticketCell" rowHeight="225" id="OsR-oS-TCR" customClass="TicketCell" customModule="GIF_GeekPark" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ticketCell" rowHeight="225" id="OsR-oS-TCR" customClass="TicketCell" customModule="GIF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="225"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OsR-oS-TCR" id="l5e-HE-F4N">
@@ -1751,7 +1757,7 @@
         <!--User Collections Controller-->
         <scene sceneID="53f-dp-wp2">
             <objects>
-                <viewController storyboardIdentifier="UserCollectionsController" id="miV-hA-h9a" customClass="UserCollectionsController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserCollectionsController" id="miV-hA-h9a" customClass="UserCollectionsController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mh0-vw-bqb"/>
                         <viewControllerLayoutGuide type="bottom" id="Bqm-CV-ajZ"/>
@@ -1793,7 +1799,7 @@
         <!--User News Controller-->
         <scene sceneID="eN3-eF-RI6">
             <objects>
-                <viewController storyboardIdentifier="UserNewsController" id="lRd-4N-YA2" customClass="UserNewsController" customModule="GIF_GeekPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserNewsController" id="lRd-4N-YA2" customClass="UserNewsController" customModule="GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kQ6-Cq-dhk"/>
                         <viewControllerLayoutGuide type="bottom" id="ugW-FL-21d"/>

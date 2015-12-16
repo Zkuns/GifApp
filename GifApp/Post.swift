@@ -49,12 +49,16 @@ class Post{
   
   static func getData(page: Int, callback: (Bool, [Post]?)->()){
     Alamofire.request(.GET, postAPI+"\(page)").response{ request, response, data, error in
-      let posts = JSON(data: data!)["posts"].array
-      let refresh = JSON(data: data!)["refresh"].bool
-      let result = posts!.map{ post -> Post in
-        return getPost(post)
+      if HttpUtils.isSuccess(response){
+        let posts = JSON(data: data!)["posts"].array
+        let refresh = JSON(data: data!)["refresh"].bool
+        let result = posts!.map{ post -> Post in
+          return getPost(post)
+        }
+        callback(refresh ?? true, result)
+      } else {
+        callback(false, nil)
       }
-      callback(refresh ?? true, result)
     }
   }
   

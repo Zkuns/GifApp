@@ -41,6 +41,8 @@ class LoginViewController: UIViewController {
   }
   
   func updateUI(){
+    let tap = UITapGestureRecognizer(target: self, action: "disappearKeyBoard:")
+    self.view.addGestureRecognizer(tap)
   }
 
   func disappear(){
@@ -55,7 +57,6 @@ class LoginViewController: UIViewController {
   }
   
   private func login(email: String, password: String){
-    print("login: \(email) , \(password)")
     SwiftSpinner.show("Authenticating user account")
     User.login(email, passwd: password){
       isSuccess,resultMsg in
@@ -73,7 +74,18 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate{
   func textFieldShouldReturn(textField: UITextField) -> Bool {
-    textField.resignFirstResponder()
+    if textField == self.email{
+      password.becomeFirstResponder()
+    } else {
+      textField.resignFirstResponder()
+    }
     return true
+  }
+}
+
+extension LoginViewController: UIGestureRecognizerDelegate{
+  func disappearKeyBoard(recognizer: UITapGestureRecognizer){
+    email.resignFirstResponder()
+    password.resignFirstResponder()
   }
 }

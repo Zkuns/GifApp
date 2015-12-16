@@ -11,7 +11,6 @@ import UIKit
 class ImageDetailController: UIViewController, UIScrollViewDelegate{
   
   @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var pageControl: UIPageControl!
   
   var index: Int?
   var imageView = UIImageView()

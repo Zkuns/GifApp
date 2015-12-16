@@ -11,6 +11,7 @@ import UIKit
 class ImagePageViewController: UIViewController {
   var pageViewController: UIPageViewController?
   var images: [String]?
+  @IBOutlet weak var pageControl: UIPageControl!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,6 +35,7 @@ class ImagePageViewController: UIViewController {
     let controller = storyboard?.instantiateViewControllerWithIdentifier("imageDetailController") as? ImageDetailController
     controller?.index = index
     controller?.imageUrl = images?[index]
+    pageControl.currentPage = index
     return controller
   }
   

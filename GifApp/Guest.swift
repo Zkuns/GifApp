@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let guestAPI = Config.baseUrl + "/api/v1/activities/663b2c7b-14c9-48bc-abaa-7810c6073168/guests"
+let guestAPI = Config.baseUrl + "/api/v1/activities/\(Config.currentActivityId)/guests"
 class Guest{
   let name: String?
   let company: String?
@@ -36,14 +36,14 @@ class Guest{
   
   static func getData(callback: (success: Bool, guests: [(String,[Guest])]?)->()){
     Alamofire.request(.GET, guestAPI).response{ request, response, data, error in
-      let guests = JSON(data: data!)["guests"].array
-      let result = guests!.map{ guest -> Guest in
-        return getGuest(guest)
-      }
-      if (error != nil){
-        callback(success: false, guests: nil)
-      } else {
+      if HttpUtils.isSuccess(response) {
+        let guests = JSON(data: data!)["guests"].array
+        let result = guests!.map{ guest -> Guest in
+          return getGuest(guest)
+        }
         callback(success: true, guests: splitByFirstChar(result))
+      } else {
+        callback(success: false, guests: nil)
       }
     }
   }
