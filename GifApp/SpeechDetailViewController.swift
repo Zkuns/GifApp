@@ -52,10 +52,10 @@ class SpeechDetailViewController: UIViewController{
     navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
     
     //给description添加背景框
-    let bgConer = UIImage(named: "chat_coner")
-    let bgImage = UIImageView(image: bgConer)
-    bgImage.frame.origin = CGPoint(x: (backgroundView.frame.origin.x - 10), y: backgroundView.frame.origin.y - 25)
-    view.addSubview(bgImage)
+//    let bgConer = UIImage(named: "chat_coner")
+//    let bgImage = UIImageView(image: bgConer)
+//    bgImage.frame.origin = CGPoint(x: backgroundView.frame.origin.x - bgImage.frame.width/2-4, y: backgroundView.frame.origin.y - bgImage.frame.height)
+//    view.addSubview(bgImage)
   }
   
   func selectedClick(){

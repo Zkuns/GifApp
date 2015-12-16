@@ -52,11 +52,10 @@ class User{
     self.collections = collections
   }
   
-  static func login(email: String, passwd: String,callback: (Bool,resultMsg: String)->() ){
-    let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-    configuration.timeoutIntervalForRequest = 4
-    Alamofire.Manager(configuration: configuration).request(.POST, userAccessTokenAPI, parameters: ["email": email, "password": passwd, "grant_type": "password", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
+  static func login(let email: String, let passwd: String,callback: (Bool,resultMsg: String)->() ){
+    Alamofire.request(.POST, userAccessTokenAPI, parameters: ["email": email, "password": passwd, "grant_type": "password", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
       let data = JSON(data: data!)
+      print("email is \(email) password is \(passwd) data \(data["error"]) response is \(response)")
       if HttpUtils.isSuccess(response) {
         if data["error"] {
           callback(false, resultMsg: "账号或密码错误")

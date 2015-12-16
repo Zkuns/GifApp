@@ -112,8 +112,8 @@ class ContainerViewController: UIViewController{
     case .Close:
       containerNavigationController.view.addSubview(maskView!)
       action = {
-        self.containerNavigationController.view.frame.origin.x = self.view.frame.width - Config.menu_width
         self.containerNavigationController.view.transform = CGAffineTransformMakeScale(Config.menu_ratio, Config.menu_ratio)
+        self.containerNavigationController.view.frame.origin.x = self.view.frame.width - Config.menu_width
       }
       currentState = .Open
     }
@@ -124,7 +124,6 @@ class ContainerViewController: UIViewController{
 
 extension ContainerViewController: UIGestureRecognizerDelegate{
   func handlePanGesture(recogizer: UIPanGestureRecognizer){
-    if abs(recogizer.velocityInView(view).x) > 10{
       let left = recogizer.velocityInView(view).x < 0
       switch recogizer.state{
       case .Changed:
@@ -148,20 +147,21 @@ extension ContainerViewController: UIGestureRecognizerDelegate{
           }
         }
       default: break
-      }
     }
   }
   
   private func animateController(origin_x: CGFloat, origin_ratio: CGFloat, size: CGFloat){
-    if ((origin_x + size) < 0){
-      containerNavigationController.view.frame.origin.x = 0
-    } else if (origin_x + size > view.frame.size.width - CGFloat(Config.menu_width)){
-      containerNavigationController.view.frame.origin.x = view.frame.size.width - CGFloat(Config.menu_width)
-//      self.containerNavigationController.view.transform = CGAffineTransformMakeScale(1, 1)
-    } else {
-      containerNavigationController.view.frame.origin.x = origin_x + size
-      let ratio = (size / (view.frame.width - Config.menu_width)) * 0.2
-      self.containerNavigationController.view.transform = CGAffineTransformMakeScale(origin_ratio - ratio, origin_ratio - ratio)
+    if abs(origin_x + size) > 10{
+      if ((origin_x + size) < 0){
+        containerNavigationController.view.frame.origin.x = 0
+      } else if (origin_x + size > view.frame.size.width - CGFloat(Config.menu_width)){
+        containerNavigationController.view.frame.origin.x = view.frame.size.width - CGFloat(Config.menu_width)
+  //      self.containerNavigationController.view.transform = CGAffineTransformMakeScale(1, 1)
+      } else {
+        containerNavigationController.view.frame.origin.x = origin_x + size
+        let ratio = (size / (view.frame.width - Config.menu_width)) * 0.2
+        self.containerNavigationController.view.transform = CGAffineTransformMakeScale(origin_ratio - ratio, origin_ratio - ratio)
+      }
     }
   }
   

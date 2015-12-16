@@ -58,7 +58,7 @@ extension GuestViewController: UITableViewDataSource{
   
   func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
     let azchar = Array("abcedfghijklmnopqrstuvwxyz".characters)
-    let azstr = azchar.map{ return String($0).uppercaseString }
+    let azstr = azchar.map{ return " " + String($0).uppercaseString + " " }
     return azstr
   }
   
