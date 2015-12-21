@@ -19,7 +19,7 @@ protocol ChangeControllerDelegate{
   func changeToUserCenterController(index: Int)
 }
 
-class ContainerViewController: UIViewController{
+class ContainerViewController: ApplicationViewController{
   //当前的开关状态
   var currentState = State.Close
   //打开使用的遮罩层
@@ -33,6 +33,8 @@ class ContainerViewController: UIViewController{
       updateNavigationControllerUI()
     }
   }
+  
+  var launchView: UIView?
   
   var containerNavigationController = UINavigationController()
 
@@ -48,7 +50,7 @@ class ContainerViewController: UIViewController{
     
     panGesture = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
     tapGesture = UITapGestureRecognizer(target: self, action: "handleTapGesture:")
-    maskView = UIView(frame: CGRect(origin: containerNavigationController.view.frame.origin, size: CGSize(width: Config.menu_width, height: containerNavigationController.view.frame.height)))
+    maskView = UIView(frame: CGRect(origin: containerNavigationController.view.frame.origin, size: CGSize(width: Config.menu_width + CGFloat(100), height: containerNavigationController.view.frame.height)))
     let maskGesture = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
     maskView?.addGestureRecognizer(tapGesture!)
     maskView?.addGestureRecognizer(maskGesture)
@@ -61,38 +63,53 @@ class ContainerViewController: UIViewController{
     containerNavigationController.navigationBar.barTintColor = ColorConfig.greenColor
     containerNavigationController.navigationBar.translucent = false;
     currentMenuItem = MenuItem.menuItems.first
-    
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    if(appDelegate.firstLaunch){
-      loadLaunchView()
-      appDelegate.firstLaunch = false
-    }
+    checkFrom3DTouch()
+    loadLaunchView()
     
     NSNotificationCenter.defaultCenter().addObserverForName(NotificationName.userLogout, object: nil, queue: NSOperationQueue.mainQueue()){ notification in
       self.changeController(MenuItem.menuItems.first!)
     }
     
+    NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidBecomeActiveNotification, object: nil, queue: NSOperationQueue.mainQueue()){ notification in
+      self.checkFrom3DTouch()
+    }
   }
-  func loadLaunchView(){
-    let launchView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+  
+  private func checkFrom3DTouch(){
+    if (AppDelegate.getInByShortCut){
+      AppDelegate.getInByShortCut = false
+      launchView?.removeFromSuperview()
+      self.needLoginTo(){
+        self.currentMenuItem = MenuItem.userCenterItem
+        if self.currentState == .Open{
+          self.toggleMenu()
+        }
+      }
+    }
+  }
+  
+  private func loadLaunchView(){
+    launchView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
     let launchViewController = LaunchScreenController()
     self.addChildViewController(launchViewController)
-    launchView.addSubview(launchViewController.view)
-    self.view.addSubview(launchView)
+    launchView?.addSubview(launchViewController.view)
+    self.view.addSubview(launchView!)
   }
   
   //更新containerNavigationController的UI
   func updateNavigationControllerUI(){
-    let controller = storyBoard.instantiateViewControllerWithIdentifier(currentMenuItem!.controllerName)
-    containerNavigationController.viewControllers = [controller]
-    controller.view.addGestureRecognizer(panGesture!)
-    
-    let image = UIImage(named: "menu")
-    let button = UIButton(frame: CGRectMake(0, 0, (image?.size.width)!, (image?.size.height)!))
-    button.setBackgroundImage(image, forState: .Normal)
-    button.addTarget(self, action: "toggle:", forControlEvents: UIControlEvents.TouchUpInside)
-    controller.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
-    controller.title = currentMenuItem!.menuName
+    if let controller = storyBoard.instantiateViewControllerWithIdentifier(currentMenuItem!.controllerName) as? BasicViewController{
+      containerNavigationController.viewControllers = [controller]
+      controller.view.addGestureRecognizer(panGesture!)
+      
+      controller.menuItem = currentMenuItem
+      let image = UIImage(named: "menu")
+      let button = UIButton(frame: CGRectMake(0, 0, (image?.size.width)!, (image?.size.height)!))
+      button.setBackgroundImage(image, forState: .Normal)
+      button.addTarget(self, action: "toggle:", forControlEvents: UIControlEvents.TouchUpInside)
+      controller.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+      controller.title = currentMenuItem!.menuName
+    }
   }
   
   func toggle(sender: UIButton){
@@ -151,12 +168,11 @@ extension ContainerViewController: UIGestureRecognizerDelegate{
   }
   
   private func animateController(origin_x: CGFloat, origin_ratio: CGFloat, size: CGFloat){
-    if abs(origin_x + size) > 10{
+    if abs(origin_x + size) > 20{
       if ((origin_x + size) < 0){
         containerNavigationController.view.frame.origin.x = 0
       } else if (origin_x + size > view.frame.size.width - CGFloat(Config.menu_width)){
         containerNavigationController.view.frame.origin.x = view.frame.size.width - CGFloat(Config.menu_width)
-  //      self.containerNavigationController.view.transform = CGAffineTransformMakeScale(1, 1)
       } else {
         containerNavigationController.view.frame.origin.x = origin_x + size
         let ratio = (size / (view.frame.width - Config.menu_width)) * 0.2
@@ -178,7 +194,7 @@ extension ContainerViewController: ChangeControllerDelegate{
     toggleMenu()
   }
   func changeToUserCenterController(index: Int) {
-    changeController(MenuItem(controllerName: "UserViewController", menuName: "用户中心", imageName: "cat"))
+    changeController(MenuItem.userCenterItem)
     if let controller = containerNavigationController.viewControllers.first as? UserCenterViewController{
       controller.index = index
     }

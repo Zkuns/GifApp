@@ -21,11 +21,10 @@ class GridView: UICollectionView {
     let width: CGFloat = 700
     if let images = images{
       let num = images.count
-      height = getRows(num)*(itemSize.height) + 5
+      if (num != 0 ){ height = getRows(num)*(itemSize.height) + 5 }
       if (num == 1){ height = 300 }
     }
     return CGSize(width: width, height: height)
-//    return CGSize(width: 0, height: 0)
   }
   
   private func getRows(num: Int) -> CGFloat{

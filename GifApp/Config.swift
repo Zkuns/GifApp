@@ -36,6 +36,7 @@ struct OmniauthConfig {
 }
 
 struct NotificationName{
+  static let userSeted: String = "notification_user_seted"
   static let userRegisted: String = "notification_user_registed"
   static let userChanged: String = "notification_user_changed"
   static let userLogout: String = "notification_user_logout"
@@ -70,6 +71,7 @@ struct TrafficItem {
 
 struct Default {
   static let avatar = "default_avator"
+  static let menu_avatar = "menu_default_avator"
   static let image = "logo"
 }
 

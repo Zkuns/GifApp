@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GuestViewController: UIViewController{
+class GuestViewController: BasicViewController{
   @IBOutlet weak var guestTable: UITableView!
   
   var orderGuests = [(String, [Guest])](){
@@ -27,6 +27,8 @@ class GuestViewController: UIViewController{
       }
     }
   }
+  
+  
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let indentifier = segue.identifier{

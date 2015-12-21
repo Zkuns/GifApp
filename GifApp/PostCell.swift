@@ -15,6 +15,10 @@ class PostCell: UITableViewCell {
   @IBOutlet weak var publish_at: UILabel!
   @IBOutlet weak var images: GridView!
   @IBOutlet weak var body: UILabel!
+  @IBOutlet weak var avator: UIImageView!
+  @IBOutlet weak var commentCount: UILabel!
+  @IBOutlet weak var likeCount: UILabel!
+  @IBOutlet weak var commentArea: defaultButton!
   var post: Post?{
     didSet{
       updateUI()
@@ -22,6 +26,8 @@ class PostCell: UITableViewCell {
   }
   
   func updateUI(){
+    ImageUtil.convertImageToCircle(avator)
+    avator.kf_setImageWithURL(NSURL(string: post?.avator ?? "")!, placeholderImage: UIImage(named: Default.avatar))
     title.text = post?.title ?? " "
     body.text = post?.body ?? " "
     publish_at.text = TimeUtil.fomatTime(post?.publish_at, form: "HH:mm")
@@ -40,8 +46,8 @@ class PostCell: UITableViewCell {
   
   func getRowHeight() -> CGFloat{
     let constraint_height: CGFloat = 40
-    let body_height = post?.body?.boundingRectWithSize(CGSize(width:320, height: CGFloat(DBL_MAX)), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: body.font!, NSForegroundColorAttributeName: UIColor.redColor()], context: nil).height
-    return constraint_height + title.frame.height + publish_at.frame.height + body_height! + images.frame.height
+    let body_height = post?.body?.boundingRectWithSize(CGSize(width:UIScreen.mainScreen().bounds.width-20, height: CGFloat(DBL_MAX)), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: body.font!, NSForegroundColorAttributeName: UIColor.redColor()], context: nil).height
+    return constraint_height + title.frame.height + publish_at.frame.height + body_height! + images.frame.height + commentArea.frame.height
   }
   
 }
@@ -64,7 +70,7 @@ extension PostCell: UICollectionViewDataSource{
 
 extension PostCell: UICollectionViewDelegate{
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    detailImageDelegate?.openDetail(post?.images)
+    detailImageDelegate?.openDetail(post?.images, index: indexPath.row)
   }
 }
 

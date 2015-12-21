@@ -11,6 +11,7 @@ import UIKit
 class ImagePageViewController: UIViewController {
   var pageViewController: UIPageViewController?
   var images: [String]?
+  var currentPage: Int?
   @IBOutlet weak var pageControl: UIPageControl!
   
   override func viewDidLoad() {
@@ -51,7 +52,7 @@ extension ImagePageViewController: UIPageViewControllerDataSource {
   }
   
   func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-    return 0
+    return currentPage ?? 0
   }
 
   func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {

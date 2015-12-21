@@ -9,10 +9,10 @@
 import UIKit
 
 protocol DetailImageDelegate{
-  func openDetail(urls: [String]?)
+  func openDetail(urls: [String]?, index: Int)
 }
 
-class GeekTalkViewController: UIViewController {
+class GeekTalkViewController: BasicViewController {
   @IBOutlet weak var postTable: UITableView!
   var refreshControl: UIRefreshControl?
   var page = 1
@@ -101,9 +101,10 @@ extension GeekTalkViewController: UITableViewDelegate{
 }
 
 extension GeekTalkViewController: DetailImageDelegate{
-  func openDetail(urls: [String]?){
+  func openDetail(urls: [String]?, index: Int){
     if let controller = storyboard?.instantiateViewControllerWithIdentifier("imageContainerViewController") as? ImagePageViewController{
       controller.images = urls
+      controller.currentPage = index
       self.presentViewController(controller, animated: true, completion: nil)
     }
   }

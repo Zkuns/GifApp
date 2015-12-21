@@ -21,7 +21,6 @@ class SpeechViewController: PageViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     setupTableView()
   }
   
@@ -29,7 +28,6 @@ class SpeechViewController: PageViewController {
     speechTable.delegate = self
     speechTable.dataSource = self
     speechTable.separatorStyle = UITableViewCellSeparatorStyle.None
-    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -38,7 +36,6 @@ class SpeechViewController: PageViewController {
       isSuccess,speeches in
       self.speeches = speeches
     }
-    updateUI()
   }
   
   func updateUI(){
@@ -85,6 +82,7 @@ extension SpeechViewController: UITableViewDataSource{
       cell.setData(speech)
       cell.collectedButton.tag = indexPath.row
     }
+    if currentSpeechType == Speech.SpeechType.User{ cell.parentController = self }
     return cell
   }
   

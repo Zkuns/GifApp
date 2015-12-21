@@ -10,7 +10,6 @@ import UIKit
 
 class TicketCell: UITableViewCell {
   
-  
   @IBOutlet weak var qrCodeImage: UIImageView!
   @IBOutlet weak var titleLable: UILabel!
   @IBOutlet weak var descLable: UILabel!

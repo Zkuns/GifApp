@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: ApplicationViewController {
   
   @IBOutlet weak var loginArea: UIView!
   @IBOutlet weak var avator: UIImageView!
@@ -17,6 +17,7 @@ class MenuViewController: UIViewController {
   @IBOutlet weak var post: UILabel!
   @IBOutlet weak var collectionArea: UIView!
   @IBOutlet weak var postArea: UIView!
+  @IBOutlet weak var avatorPosition: NSLayoutConstraint!
   
   var user: User?{
     didSet{
@@ -56,7 +57,7 @@ class MenuViewController: UIViewController {
   
   private func updateUserArea(){
     username.text = user?.username ?? "登录"
-    avator.kf_setImageWithURL( NSURL(string: user?.avator ?? "")!, placeholderImage: UIImage(named:Default.avatar))
+    avator.kf_setImageWithURL( NSURL(string: user?.avator ?? "")!, placeholderImage: UIImage(named:Default.menu_avatar))
     collection.text = "\(user?.collections?.count ?? 0)"
     post.text = "\(user?.posts?.count ?? 0)"
     
@@ -67,6 +68,7 @@ class MenuViewController: UIViewController {
     moveToUserCenterPost = UITapGestureRecognizer(target: self, action: "moveToUserCenter:")
     postArea.addGestureRecognizer(moveToUserCenterPost!)
     collectionArea.addGestureRecognizer(moveToUserCenterCol!)
+    avatorPosition.constant = (UIScreen.mainScreen().bounds.width - Config.menu_width - loginArea.bounds.width) / CGFloat(2)
   }
   
 }
@@ -77,9 +79,7 @@ extension MenuViewController: UIGestureRecognizerDelegate{
       let view = recogizer.view
       delegate?.changeToUserCenterController(view!.tag)
     }else{
-      if let loginController = storyboard?.instantiateViewControllerWithIdentifier("login") as? LoginViewController{
-        presentViewController(loginController, animated: true, completion: nil)
-      }
+      needLoginTo(nil)
     }
   }
 }

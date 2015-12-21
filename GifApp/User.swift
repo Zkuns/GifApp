@@ -21,7 +21,12 @@ class User{
   let posts: [Post]?
   let collections: [String]?
   static let database = NSUserDefaults.standardUserDefaults()
-  static var user: User?
+  static var user: User?{
+    didSet{
+      NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: NotificationName.userSeted, object: nil))
+    }
+  }
+  
   static var access_token: String?{
     set{
       LocalStorage.setString(UserConfig.userTokenKey, value: newValue)
@@ -33,10 +38,12 @@ class User{
   }
   
   static func getCurrentUser(callback: (User?)->() ){
-    if access_token != nil {
+    if user != nil{
+     callback(user)
+    } else if access_token != nil {
       getUserInfo(access_token!){ user in
-        callback(user)
         self.user = user
+        callback(user)
       }
     }else{
       callback(nil)
@@ -53,20 +60,17 @@ class User{
   }
   
   static func login(let email: String, let passwd: String,callback: (Bool,resultMsg: String)->() ){
-    Alamofire.request(.POST, userAccessTokenAPI, parameters: ["email": email, "password": passwd, "grant_type": "password", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
+    Alamofire.request(.POST, userAccessTokenAPI, parameters: ["email": email.lowercaseString, "password": passwd, "grant_type": "password", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
       let data = JSON(data: data!)
-      print("email is \(email) password is \(passwd) data \(data["error"]) response is \(response)")
       if HttpUtils.isSuccess(response) {
-        if data["error"] {
+        access_token = data["access_token"].string!
+        callback(true, resultMsg: "登录成功")
+      }else{
+        if data["error"] != nil {
           callback(false, resultMsg: "账号或密码错误")
-        } else if data["access_token"].string != nil {
-          access_token = data["access_token"].string!
-          callback(true, resultMsg: "登录成功")
         } else {
           callback(false, resultMsg: "网络错误")
         }
-      }else{
-        callback(false, resultMsg: "网络连接错误")
       }
     }
   }

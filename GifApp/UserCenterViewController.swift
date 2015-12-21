@@ -8,14 +8,13 @@
 
 import UIKit
 
-class UserCenterViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class UserCenterViewController: BasicViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   var index: Int?
   
   @IBOutlet weak var segmentControl: GSegmentControl!
   var items = [SlidePageItem]()
   var controllers: [PageViewController] = []
   private var pageViewController: PageViewController?
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,11 +29,11 @@ class UserCenterViewController: UIViewController, UIPageViewControllerDataSource
     
   }
   
-  
   func logout(){
     User.logout()
     NSNotificationCenter.defaultCenter().postNotificationName(NotificationName.userLogout, object: nil)
   }
+  
   private func initSegmentControl(){
     segmentControl.items = items.map{ item -> String in
       return item.title
@@ -68,7 +67,6 @@ class UserCenterViewController: UIViewController, UIPageViewControllerDataSource
     }
   }
   
-  
   private func viewControllerAtIndex(index: Int) -> PageViewController?{
     if index > controllers.count - 1 {
       controllers[0].itemIndex = 0
@@ -98,7 +96,6 @@ class UserCenterViewController: UIViewController, UIPageViewControllerDataSource
       pageViewController.didMoveToParentViewController(self)
     }
   }
-  
   
   func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
     return controllers.count

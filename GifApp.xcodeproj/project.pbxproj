@@ -33,8 +33,10 @@
 		F755B23F1C070F4700A63143 /* SpeechCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B23E1C070F4700A63143 /* SpeechCell.swift */; };
 		F755B2411C07264D00A63143 /* SpeechHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B2401C07264D00A63143 /* SpeechHeader.swift */; };
 		F755B2431C07E52A00A63143 /* GuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B2421C07E52A00A63143 /* GuestCell.swift */; };
+		F76BEA051C2407C3003FEB50 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BEA041C2407C3003FEB50 /* BasicViewController.swift */; };
 		F774E1E31C0564BA00ED8C65 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774E1E21C0564BA00ED8C65 /* MenuCell.swift */; };
 		F7B48F971C0D64F900DC8A08 /* toggleDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B48F961C0D64F900DC8A08 /* toggleDayButton.swift */; };
+		F7BB15F51C25ADD500AFB423 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB15F41C25ADD500AFB423 /* ApplicationViewController.swift */; };
 		F7CBC2261C10175500CB98D8 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBC2251C10175500CB98D8 /* PostCell.swift */; };
 		F7CBC2281C11732B00CB98D8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBC2271C11732B00CB98D8 /* ImageCell.swift */; };
 		F7DD8B161C0E749400F20DC3 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DD8B151C0E749400F20DC3 /* ImageUtil.swift */; };
@@ -105,8 +107,10 @@
 		F755B23E1C070F4700A63143 /* SpeechCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechCell.swift; sourceTree = "<group>"; };
 		F755B2401C07264D00A63143 /* SpeechHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechHeader.swift; sourceTree = "<group>"; };
 		F755B2421C07E52A00A63143 /* GuestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestCell.swift; sourceTree = "<group>"; };
+		F76BEA041C2407C3003FEB50 /* BasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		F774E1E21C0564BA00ED8C65 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		F7B48F961C0D64F900DC8A08 /* toggleDayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toggleDayButton.swift; sourceTree = "<group>"; };
+		F7BB15F41C25ADD500AFB423 /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		F7CBC2251C10175500CB98D8 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F7CBC2271C11732B00CB98D8 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		F7DD8B151C0E749400F20DC3 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 				8EE362C81C1A80640053FC48 /* RegisteController.swift */,
 				F73872AB1C1FC52C008B3F5B /* ImagePageViewController.swift */,
 				F71A60AC1C16CE6400C5C905 /* ImageDetailController.swift */,
+				F76BEA041C2407C3003FEB50 /* BasicViewController.swift */,
+				F7BB15F41C25ADD500AFB423 /* ApplicationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7E1AE891C042827001E5FE0 /* MenuItem.swift in Sources */,
+				F76BEA051C2407C3003FEB50 /* BasicViewController.swift in Sources */,
 				8E6656B81C17371400935712 /* TrafficCell.swift in Sources */,
 				8E90BEFB1C19400A00540AFE /* SpeechesViewController.swift in Sources */,
 				8E8675E41C102CBB0001D41B /* UserTicketsViewController.swift in Sources */,
@@ -513,6 +520,7 @@
 				8E8675E01C1027270001D41B /* GSegmentControl.swift in Sources */,
 				8E794AAC1C10723E004ACFEE /* TicketCell.swift in Sources */,
 				F73872AC1C1FC52C008B3F5B /* ImagePageViewController.swift in Sources */,
+				F7BB15F51C25ADD500AFB423 /* ApplicationViewController.swift in Sources */,
 				F7DFD9471C06D32C00465F40 /* AboutViewController.swift in Sources */,
 				F7F21B751C0ECC0F0099EB13 /* loginInputView.swift in Sources */,
 				F7B48F971C0D64F900DC8A08 /* toggleDayButton.swift in Sources */,
@@ -605,7 +613,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 坤 朱 (M36U6XM64T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 坤 朱 (M36U6XM64T)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -650,8 +658,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 坤 朱 (M36U6XM64T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 坤 朱 (M36U6XM64T)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: GEEKPARK Co., Ltd. (KBEAWBS8N5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: GEEKPARK Co., Ltd. (KBEAWBS8N5)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -732,7 +740,7 @@
 		F7E1AE861C03EA27001E5FE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: GEEKPARK Co., Ltd. (KBEAWBS8N5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 坤 朱 (M36U6XM64T)";
 				INFOPLIST_FILE = GifAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zk.GifAppUITests;
@@ -745,7 +753,7 @@
 		F7E1AE871C03EA27001E5FE0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: GEEKPARK Co., Ltd. (KBEAWBS8N5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 坤 朱 (M36U6XM64T)";
 				INFOPLIST_FILE = GifAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zk.GifAppUITests;

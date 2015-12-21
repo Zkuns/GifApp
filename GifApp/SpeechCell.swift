@@ -16,6 +16,8 @@ class SpeechCell: UITableViewCell {
   @IBOutlet weak var duration: UILabel!
   @IBOutlet weak var avator: UIImageView!
   @IBOutlet weak var collectedButton: UIButton!
+  //在用户中心点击取消时消失
+  var parentController: SpeechViewController?
   
   var speech: Speech? {
     didSet{
@@ -38,6 +40,13 @@ class SpeechCell: UITableViewCell {
   @IBAction func collectSpeech(sender: AnyObject) {
     speech?.isCollected = !(speech?.isCollected ?? false)
     updateUI()
+    if parentController?.currentSpeechType == Speech.SpeechType.User{
+      Speech.getSpeeches(Speech.SpeechType.User, index: 0){
+        isSuccess,speeches in
+        self.parentController?.speeches = speeches
+      }
+    }
+    
   }
   
   func setData(speech: Speech){

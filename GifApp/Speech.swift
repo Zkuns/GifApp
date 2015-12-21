@@ -93,6 +93,7 @@ class Speech{
     }
     Alamofire.request(.GET, speechAPI).response{ request, response, data, error in
       if HttpUtils.isSuccess(response) {
+//        LocalStorage.setString("local_speeches", value: "data")
         let speechData = JSON(data: data!)["speeches"].array
         let speeches = speechData!.map{ speech-> Speech in
           return getSpeech(speech)

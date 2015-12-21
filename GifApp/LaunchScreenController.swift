@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LaunchScreenController: UIViewController {
-
+class LaunchScreenController: ApplicationViewController {
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     startAnimation()
@@ -22,6 +22,9 @@ class LaunchScreenController: UIViewController {
     imgView.backgroundColor = UIColor.blackColor()
     imgView.contentMode = UIViewContentMode.ScaleAspectFit
     imgView.image = UIImage(named: LaunchConfig.screenImgName)
+    
+    let tapGesture = UITapGestureRecognizer(target: self, action: "closeLaunchScreen:")
+    self.view.addGestureRecognizer(tapGesture)
     
     view?.addSubview(imgView)
     
@@ -43,5 +46,12 @@ class LaunchScreenController: UIViewController {
         }
     })
   }
+  
 
+}
+
+extension LaunchScreenController: UIGestureRecognizerDelegate{
+  func closeLaunchScreen(recognizer: UITapGestureRecognizer){
+    self.view.superview?.removeFromSuperview()
+  }
 }

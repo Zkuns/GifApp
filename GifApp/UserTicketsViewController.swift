@@ -12,7 +12,7 @@ class UserTicketsViewController: PageViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  private var tickets = [Ticket](){
+  var tickets = [Ticket]() {
     didSet{
      tableView.reloadData()
     }
@@ -22,6 +22,10 @@ class UserTicketsViewController: PageViewController {
     super.viewDidLoad()
     setupTableView()
     tickets = User.user?.tickets ?? []
+    NSNotificationCenter.defaultCenter().addObserverForName(NotificationName.userSeted, object: nil ,queue: NSOperationQueue.mainQueue()){
+      notification in
+      self.tickets = User.user?.tickets ?? []
+    }
   }
   
   private func setupTableView(){

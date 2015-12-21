@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpeechesViewController: UIViewController,UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class SpeechesViewController: BasicViewController,UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
   @IBOutlet weak var segmentControl: GSegmentControl!
   var items = [SlidePageItem]()
@@ -18,10 +18,14 @@ class SpeechesViewController: UIViewController,UIPageViewControllerDataSource, U
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    items=SpeechesItems.items
+    items = SpeechesItems.items
     initSegmentControl()
     createControllers()
     setPageViewControllerPage(0)
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
   }
   
   private func initSegmentControl(){

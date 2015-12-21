@@ -36,11 +36,14 @@ class SpeechDetailViewController: UIViewController{
     showtimeLable.text = speech?.start_at_after_fomat("HH:mm")
     showdateLable.text = speech?.start_at_after_fomat("YYYY.MM.dd")
     speakerNameLable.text = guest?.name
-    companyAndPositionLable.text = guest?.company
+    companyAndPositionLable.text = (guest?.company ?? "") + " " + (guest?.title ?? "")
     descriptionLable.text = speech?.description
     backgroundView.backgroundColor = ColorConfig.greenColor
-    avatorImageView.kf_setImageWithURL(NSURL(string: (guest?.avator ?? ""))!)
+    avatorImageView.kf_setImageWithURL(NSURL(string: (guest?.avator ?? ""))!, placeholderImage: UIImage(named: Default.avatar))
     ImageUtil.convertImageToCircle(self.avatorImageView)
+    
+    navigationItem.title = "详情"
+    self.navigationController?.navigationBar.topItem?.title = "返回"
     
     let image = UIImage(named: "collect_white")
     let button = UIButton(frame: CGRectMake(0, 0, (image?.size.width)!, (image?.size.height)!))
@@ -48,14 +51,7 @@ class SpeechDetailViewController: UIViewController{
     button.setBackgroundImage(UIImage(named: "collect_selected"), forState: .Selected)
     button.addTarget(self, action: "selectedClick", forControlEvents: UIControlEvents.TouchUpInside)
     button.selected = speech?.isCollected ?? false
-//    button.addTarget(self, action: "", forControlEvents: UIControlEvents.TouchUpInside)
     navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-    
-    //给description添加背景框
-//    let bgConer = UIImage(named: "chat_coner")
-//    let bgImage = UIImageView(image: bgConer)
-//    bgImage.frame.origin = CGPoint(x: backgroundView.frame.origin.x - bgImage.frame.width/2-4, y: backgroundView.frame.origin.y - bgImage.frame.height)
-//    view.addSubview(bgImage)
   }
   
   func selectedClick(){
