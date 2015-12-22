@@ -91,19 +91,27 @@ class Speech{
       callback(true,currentSpeeches!)
       return
     }
+    if let data = LocalStorage.getNSdata(LocalStorageKey.speechStoryKey){
+      let speeches = parseData(data)
+      currentSpeeches = speeches
+      callback(true, speeches)
+    }
     Alamofire.request(.GET, speechAPI).response{ request, response, data, error in
       if HttpUtils.isSuccess(response) {
-//        LocalStorage.setString("local_speeches", value: "data")
-        let speechData = JSON(data: data!)["speeches"].array
-        let speeches = speechData!.map{ speech-> Speech in
-          return getSpeech(speech)
-        }
+        let speeches = parseData(data!)
         currentSpeeches = speeches
-        callback(true,speeches)
-      } else {
-        callback(false,[])
+        LocalStorage.setNSData(LocalStorageKey.speechStoryKey, value: data!)
+        callback(true, speeches)
       }
     }
+  }
+  
+  private static func parseData(data: NSData) -> [Speech]{
+    let speechData = JSON(data: data)["speeches"].array
+    let speeches = speechData!.map{ speech-> Speech in
+      return getSpeech(speech)
+    }
+    return speeches
   }
   
   static private func getAllSpeech(index: Int, callback: (Bool,[(String,[Speech])])->() ){

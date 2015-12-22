@@ -15,14 +15,12 @@ let log = XCGLogger.defaultInstance()
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-  static var getInByShortCut = false
+  static var firstOpen = true
   
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
       handle(shortcutItem)
-//      let crl = ContainerViewController()
-//      window?.rootViewController?.addChildViewController(crl)
     }
     return true
   }
@@ -55,7 +53,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   private func handle(shortcutItem: UIApplicationShortcutItem){
     switch shortcutItem.type{
-    case "ticket": AppDelegate.getInByShortCut = true
+    case "ticket":
+      let crl = ContainerViewController()
+      window = UIWindow(frame: UIScreen.mainScreen().bounds)
+      window?.rootViewController = crl
+      window?.makeKeyAndVisible()
+      crl.currentMenuItem = MenuItem.userCenterItem
     default: break
     }
   }

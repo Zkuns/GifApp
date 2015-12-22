@@ -10,6 +10,11 @@ import UIKit
 import JLToast
 import SwiftSpinner
 
+protocol AfterLogin{
+  func onSuccess()
+  func onFailed()
+}
+
 class LoginViewController: UIViewController {
   @IBOutlet weak var email: UITextField!
   @IBOutlet weak var password: UITextField!
@@ -19,6 +24,7 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var container: UIView!
   var isShow: Bool = false
+  var loginDelegate: AfterLogin?
   
   var callback: (()->())?
   
@@ -74,13 +80,13 @@ class LoginViewController: UIViewController {
       if !self.isShow { JLToast.makeText(resultMsg,duration: JLToastDelay.ShortDelay).show() }
       if isSuccess {
         self.isShow = true
-        self.callback?()
         self.disappear()
       }
     }
   }
 
   @IBAction func close() {
+    loginDelegate?.onFailed()
     disappear()
   }
   

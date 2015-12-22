@@ -43,7 +43,7 @@ class MenuViewController: ApplicationViewController {
   }
   
   func updateCurrentUser(){
-    User.getCurrentUser(){
+    User.CurrentUser(){
       user in
       self.user = user
     }
@@ -75,11 +75,11 @@ class MenuViewController: ApplicationViewController {
 
 extension MenuViewController: UIGestureRecognizerDelegate{
   func moveToUserCenter(recogizer: UIPanGestureRecognizer){
-    if User.user != nil{
+    if User.access_token != nil{
       let view = recogizer.view
       delegate?.changeToUserCenterController(view!.tag)
     }else{
-      needLoginTo(nil)
+      login(nil)
     }
   }
 }

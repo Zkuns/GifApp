@@ -63,29 +63,14 @@ class ContainerViewController: ApplicationViewController{
     containerNavigationController.navigationBar.barTintColor = ColorConfig.greenColor
     containerNavigationController.navigationBar.translucent = false;
     currentMenuItem = MenuItem.menuItems.first
-    checkFrom3DTouch()
-    loadLaunchView()
+    if AppDelegate.firstOpen{
+      loadLaunchView()
+    }
     
     NSNotificationCenter.defaultCenter().addObserverForName(NotificationName.userLogout, object: nil, queue: NSOperationQueue.mainQueue()){ notification in
       self.changeController(MenuItem.menuItems.first!)
     }
     
-    NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidBecomeActiveNotification, object: nil, queue: NSOperationQueue.mainQueue()){ notification in
-      self.checkFrom3DTouch()
-    }
-  }
-  
-  private func checkFrom3DTouch(){
-    if (AppDelegate.getInByShortCut){
-      AppDelegate.getInByShortCut = false
-      launchView?.removeFromSuperview()
-      self.needLoginTo(){
-        self.currentMenuItem = MenuItem.userCenterItem
-        if self.currentState == .Open{
-          self.toggleMenu()
-        }
-      }
-    }
   }
   
   private func loadLaunchView(){
@@ -94,6 +79,7 @@ class ContainerViewController: ApplicationViewController{
     self.addChildViewController(launchViewController)
     launchView?.addSubview(launchViewController.view)
     self.view.addSubview(launchView!)
+    AppDelegate.firstOpen = false
   }
   
   //更新containerNavigationController的UI
@@ -101,6 +87,7 @@ class ContainerViewController: ApplicationViewController{
     if let controller = storyBoard.instantiateViewControllerWithIdentifier(currentMenuItem!.controllerName) as? BasicViewController{
       containerNavigationController.viewControllers = [controller]
       controller.view.addGestureRecognizer(panGesture!)
+      controller.changeControllerDelegate = self
       
       controller.menuItem = currentMenuItem
       let image = UIImage(named: "menu")

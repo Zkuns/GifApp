@@ -39,5 +39,13 @@ class LocalStorage {
     }
   }
   
+  static func setNSData(key: String, value: NSData?) {
+    userDefaults.setObject(value, forKey: key)
+  }
+  
+  static func getNSdata(key: String) -> NSData?{
+    return userDefaults.dataForKey(key)
+  }
+  
 }
   

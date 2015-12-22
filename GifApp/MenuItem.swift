@@ -13,6 +13,7 @@ class MenuItem{
   var menuName: String
   var imageName: String
   static let userCenterItem = MenuItem(controllerName: "UserViewController", menuName: "用户中心", imageName: "cat")
+  static let speechItem = MenuItem(controllerName: "SpeechesViewController", menuName: "大会日程", imageName: "speech")
   static var menuItems: [MenuItem] = {
     var items: [MenuItem] = []
     items.append(MenuItem(controllerName: "SpeechesViewController", menuName: "大会日程", imageName: "speech"))

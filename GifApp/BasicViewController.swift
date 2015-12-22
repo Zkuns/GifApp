@@ -10,6 +10,10 @@ import UIKit
 
 class BasicViewController: ApplicationViewController {
 
+  var changeControllerDelegate: ChangeControllerDelegate?
+  
+  var afterLogin: AfterLogin?
+  
   var menuItem: MenuItem?
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -18,6 +22,10 @@ class BasicViewController: ApplicationViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     self.navigationItem.title = menuItem?.menuName
+  }
+  
+  func changeControllerTo(menuItem: MenuItem){
+    changeControllerDelegate?.changeController(menuItem)
   }
   
 }

@@ -18,10 +18,13 @@ class SpeechViewController: PageViewController {
     didSet{ updateUI() }
   }
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupTableView()
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillAppear(animated)
   }
   
   private func setupTableView() {

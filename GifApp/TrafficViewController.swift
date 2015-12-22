@@ -54,7 +54,7 @@ class TrafficViewController: BasicViewController{
     trafficItems = [
       TrafficItem(tagText: "地址",titleText: "751北京时尚设计广场79罐", descriptionText: "北京市朝阳区酒仙桥路4号（北京中关村电子城高新技术产业园区北京正东创意产业园内）", iconImage: UIImage(named: "traffic_addr_icon")!),
       TrafficItem(tagText: "地址",titleText: "751北京时尚设计广场79罐", descriptionText: "北京市朝阳区酒仙桥路4号（北京中关村电子城高新技术产业园区北京正东创意产业园内）", iconImage: UIImage(named: "traffic_addr_icon")!),
-      TrafficItem(tagText: "交通",titleText: "自驾亦可 园区内有免费停车位", descriptionText: "京电机总厂站（公交403、629路)彩虹路站（公交909、688、955、418、946、402路 ；下车后步行300米）", iconImage: UIImage(named: "traffic_routes_icon")!),
+      TrafficItem(tagText: "交通",titleText: "自驾亦可 园区内有免费停车位", descriptionText: "北京电机总厂站（公交403、629路)彩虹路站（公交909、688、955、418、946、402路 ；下车后步行300米）", iconImage: UIImage(named: "traffic_routes_icon")!),
       TrafficItem(tagText: "餐饮",titleText: "价格适中 有多样选择", descriptionText: "751D·PARK北京时尚设计广场、798艺术区之中和周边有诸多中西餐厅、酒吧、茶餐厅等", iconImage: UIImage(named: "traffic_eat_icon")!)
     ]
   }

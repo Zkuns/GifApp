@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-//let userInfoAPI = Config.baseUrl + "/api/v1/users/app_user_info.json?access_token="
 let userInfoAPI = OmniauthConfig.resoureUrl + "/api/v1/activities/\(Config.currentActivityId)/users/app_user_info.json?access_token="
 let userAccessTokenAPI = OmniauthConfig.authenticateUrl + "/oauth/token"
 class User{
@@ -21,6 +20,16 @@ class User{
   let posts: [Post]?
   let collections: [String]?
   static let database = NSUserDefaults.standardUserDefaults()
+  
+  private static var refresh_token: String?{
+    set{
+      LocalStorage.setString(UserConfig.userRefreshKey, value: newValue)
+    }
+    get{
+      return LocalStorage.getString(UserConfig.userRefreshKey)
+    }
+  }
+  
   static var user: User?{
     didSet{
       NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: NotificationName.userSeted, object: nil))
@@ -37,19 +46,6 @@ class User{
     }
   }
   
-  static func getCurrentUser(callback: (User?)->() ){
-    if user != nil{
-     callback(user)
-    } else if access_token != nil {
-      getUserInfo(access_token!){ user in
-        self.user = user
-        callback(user)
-      }
-    }else{
-      callback(nil)
-    }
-  }
-  
   init(id: String?, username: String?, avator: String?, tickets: [Ticket]?, posts: [Post]?, collections: [String]?){
     self.id = id
     self.username = username
@@ -63,7 +59,8 @@ class User{
     Alamofire.request(.POST, userAccessTokenAPI, parameters: ["email": email.lowercaseString, "password": passwd, "grant_type": "password", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
       let data = JSON(data: data!)
       if HttpUtils.isSuccess(response) {
-        access_token = data["access_token"].string!
+        refresh_token = data["refresh_token"].string!
+        access_token = data["access_token"].string! + "a"
         callback(true, resultMsg: "登录成功")
       }else{
         if data["error"] != nil {
@@ -78,23 +75,51 @@ class User{
   static func logout(){
     user = nil
     access_token = nil
+    refresh_token = nil
   }
   
+  static func CurrentUser(callback: (User?)->() ){
+    if user != nil{
+      callback(user)
+    } else if access_token != nil {
+      getUserInfo(access_token!){ user in
+        self.user = user
+        callback(user)
+      }
+    }else{
+      callback(nil)
+    }
+  }
   
   static func getUserInfo(accessToken: String, callback: (User?)->()){
     Alamofire.request(.GET, userInfoAPI + accessToken).response{ request, response, data, error in
-      let statusCode = response?.statusCode ?? -1
-      if statusCode < 200 || statusCode >= 300 {
-        callback(nil)
-      } else {
+      if HttpUtils.isSuccess(response) {
         let data = JSON(data: data!)
-//        let posts = data["posts"].array
-//        let collection = data["comments"].array
         let tickets = data["ticket"].array!.map{ data -> Ticket in
           return Ticket(id: data["id"].string!, title: data["title"].string!)
         }
         user = User(id: data["id"].string, username: data["username"].string, avator: data["avator"].string, tickets: tickets, posts: [], collections: [])
         callback(user)
+      } else {
+        guard let token = self.refresh_token else {
+          callback(nil)
+          return
+        }
+        refreshToken(token)
+        getUserInfo(self.access_token ?? "", callback: callback)
+      }
+    }
+  }
+  
+  private static func refreshToken(refresh_token: String){
+    Alamofire.request(.POST, userAccessTokenAPI, parameters: ["refresh_token": refresh_token, "grant_type": "refresh_token", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
+      let data = JSON(data: data!)
+      if HttpUtils.isSuccess(response) {
+        self.refresh_token = data["refresh_token"].string!
+        self.access_token = data["access_token"].string!
+      }else{
+        self.access_token = nil
+        self.refresh_token = nil
       }
     }
   }

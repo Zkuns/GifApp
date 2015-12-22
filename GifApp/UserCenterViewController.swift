@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserCenterViewController: BasicViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class UserCenterViewController: BasicViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, AfterLogin{
   var index: Int?
   
   @IBOutlet weak var segmentControl: GSegmentControl!
@@ -21,6 +21,10 @@ class UserCenterViewController: BasicViewController, UIPageViewControllerDataSou
     
     let rightButton = UIBarButtonItem(title: "登出", style: UIBarButtonItemStyle.Done, target: self , action: "logout")
     navigationItem.rightBarButtonItem = rightButton
+    
+    if User.access_token == nil{
+      login(self)
+    }
     
     items=UserCenterItems.items
     initSegmentControl()
@@ -107,6 +111,13 @@ class UserCenterViewController: BasicViewController, UIPageViewControllerDataSou
   
   @IBAction func selectPageView(sender: AnyObject) {
     setPageViewControllerPage(segmentControl.selectedIndex)
+  }
+  
+  func onSuccess() {
+  }
+  
+  func onFailed() {
+    changeControllerDelegate?.changeController(MenuItem.speechItem)
   }
 }
 

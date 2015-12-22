@@ -35,17 +35,24 @@ class Guest{
   }
   
   static func getData(callback: (success: Bool, guests: [(String,[Guest])]?)->()){
+    if let data = LocalStorage.getNSdata(LocalStorageKey.guestStoryKey) {
+      let result = parseData(data)
+      callback(success: true, guests: splitByFirstChar(result))
+    }
     Alamofire.request(.GET, guestAPI).response{ request, response, data, error in
       if HttpUtils.isSuccess(response) {
-        let guests = JSON(data: data!)["guests"].array
-        let result = guests!.map{ guest -> Guest in
-          return getGuest(guest)
-        }
+        let result = parseData(data!)
         callback(success: true, guests: splitByFirstChar(result))
-      } else {
-        callback(success: false, guests: nil)
       }
     }
+  }
+  static private func parseData(data: NSData) -> [Guest]{
+    let guests = JSON(data: data)["guests"].array
+    LocalStorage.setNSData(LocalStorageKey.guestStoryKey, value: data)
+    let result = guests!.map{ guest -> Guest in
+      return getGuest(guest)
+    }
+    return result
   }
   
   private func getFirstChar() -> String{

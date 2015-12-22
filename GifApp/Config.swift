@@ -18,6 +18,11 @@ struct Config {
   static let currentActivityId: String = "20574418-948a-4f47-9c96-9247a5712a05"
 }
 
+struct LocalStorageKey {
+  static let speechStoryKey = "localStorySpeechKey"
+  static let guestStoryKey = "localStoryGuestKey"
+}
+
 struct LaunchConfig {
   static let screenImgName = "LauncheScreen"
 }
@@ -26,6 +31,7 @@ struct UserConfig {
   static let userTokenKey = "UserToken"
   static let userNotLoginAvator = "cat"
   static let userLoginDefaultAvator = "cat"
+  static let userRefreshKey = "UserRefreshToken"
 }
 
 struct OmniauthConfig {
