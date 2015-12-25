@@ -23,6 +23,7 @@ class TicketCell: UITableViewCell {
   private func updateUI(){
     titleLable.text = ticket?.title
     descLable.text = ticket?.description
+    print(ticket?.id)
     qrCodeImage.image = ticket?.qrCode(qrCodeImage.bounds.size)
   }
 

@@ -60,7 +60,7 @@ class User{
       let data = JSON(data: data!)
       if HttpUtils.isSuccess(response) {
         refresh_token = data["refresh_token"].string!
-        access_token = data["access_token"].string! + "a"
+        access_token = data["access_token"].string!
         callback(true, resultMsg: "登录成功")
       }else{
         if data["error"] != nil {

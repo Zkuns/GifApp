@@ -9,15 +9,19 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
+import JLToast
 
 let postAPI = Config.baseUrl + "/api/v1/posts?page="
+//let postAPI = "http://localhost:3000/api/v1/posts?page="
+let likeAPI = Config.baseUrl + "/api/v1/posts/"
+//let likeAPI = "http://localhost:3000/api/v1/posts/"
 class Post{
   let id: String?
   let title: String?
   let username: String?
   let body: String?
   let avator: String?
-  let like_count: Int?
+  var like_count: Int?
   let user_id: String?
   let publish_at: String
   let images: [String]?
@@ -62,4 +66,24 @@ class Post{
     }
   }
   
+  static func islike(id: String) -> Bool{
+    return LocalStorage.arrayContains(PostConfig.postLikeKey, value: id)
+  }
+  
+  static func like(like: Bool, id: String){
+    sendLikeRequest(like, id: id)
+    if like {
+      LocalStorage.removeFromArray(PostConfig.postLikeKey, value: id)
+    } else {
+      LocalStorage.arrayAppend(PostConfig.postLikeKey, value: id)
+    }
+  }
+  
+  private static func sendLikeRequest(like: Bool, id: String){
+    Alamofire.request(.PATCH, postLikeAPI(id), parameters: ["type": !like])
+  }
+  
+  private static func postLikeAPI(id: String) -> String{
+    return likeAPI + id + "/like.json"
+  }
 }

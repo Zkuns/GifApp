@@ -34,9 +34,9 @@ class LoginViewController: UIViewController {
     password.delegate = self
     self.view.frame.origin.y -= 100
     NSNotificationCenter.defaultCenter().addObserver(self,
-      selector: "keyboardShown:", name: UIKeyboardDidShowNotification, object: nil)
+      selector: "keyboardShown:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self,
-      selector: "keyboardHide:", name: UIKeyboardDidHideNotification, object: nil)
+      selector: "keyboardHide:", name: UIKeyboardWillHideNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserverForName(NotificationName.userRegisted, object: nil ,queue: NSOperationQueue.mainQueue()){
       notification in
       if let info = notification.userInfo as? Dictionary<String,String> {

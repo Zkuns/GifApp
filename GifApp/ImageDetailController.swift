@@ -11,6 +11,7 @@ import UIKit
 class ImageDetailController: UIViewController, UIScrollViewDelegate{
   
   @IBOutlet weak var scrollView: UIScrollView!
+  var delegate: pageIndexDelegate?
   
   var index: Int?
   var imageView = UIImageView()
@@ -21,12 +22,17 @@ class ImageDetailController: UIViewController, UIScrollViewDelegate{
     initView()
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    delegate?.setPageIndexView((index ?? 1) + 1)
+  }
+  
   func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?{
     return imageView
   }
   
   func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
-    scrollView.contentInset = UIEdgeInsetsMake(0, 0, 300, 0);
+//    scrollView.contentInset = UIEdgeInsetsMake(0, 0, 300, 0);
   }
   
   private func initView(){

@@ -35,6 +35,7 @@ class GeekTalkViewController: BasicViewController {
     refreshControl = UIRefreshControl()
     refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
     postTable.addSubview(refreshControl!)
+    postTable.separatorStyle = UITableViewCellSeparatorStyle.None
   }
   
   func refresh(sender: AnyObject){
@@ -63,6 +64,7 @@ class GeekTalkViewController: BasicViewController {
       self.page += 1
     }
   }
+  
 }
 
 extension GeekTalkViewController: UITableViewDataSource{
@@ -96,8 +98,11 @@ extension GeekTalkViewController: UITableViewDataSource{
 extension GeekTalkViewController: UITableViewDelegate{
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    let postDetailViewController = storyboard?.instantiateViewControllerWithIdentifier("postDetailViewController") as! PostDetailViewController
+    postDetailViewController.post = posts?[indexPath.row]
+    postDetailViewController.detailImageDelegate = self
+    self.navigationController?.pushViewController(postDetailViewController, animated: true)
   }
-  
 }
 
 extension GeekTalkViewController: DetailImageDelegate{
@@ -109,25 +114,3 @@ extension GeekTalkViewController: DetailImageDelegate{
     }
   }
 }
-
-//extension GeekTalkViewController: DetailImageDelegate{
-//  func openDetail(images_url: [String]){
-//    if let controller = storyboard?.instantiateViewControllerWithIdentifier("imageDetail") as? ImageDetailController{
-//      dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-//        let imagesData = images_url.map{ url in
-//          NSData(contentsOfURL: NSURL(string: url)!)
-//        }
-//        dispatch_async(dispatch_get_main_queue()){
-//          let images = imagesData.map{ imageData -> UIImage in
-//            if let data = imageData{
-//              return UIImage(data: data)!
-//            }
-//            return UIImage()
-//          }
-//          controller.pageImages = images
-//          self.presentViewController(controller, animated: true, completion: nil)
-//        }
-//      }
-//    }
-//  }
-//}
