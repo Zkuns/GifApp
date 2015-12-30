@@ -33,7 +33,7 @@ class PostDetailCell: UITableViewCell {
     avator.kf_setImageWithURL(NSURL(string: post?.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
     name.text = post?.username
     body.text = post?.body
-    publish_at.text = TimeUtil.fomatTime(post?.publish_at, form: "HH:mm")
+    publish_at.text = TimeUtil.timeAgo(post?.publish_at)
     images.reloadData()
     images.sizeToFit()
   }

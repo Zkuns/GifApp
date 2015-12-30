@@ -40,7 +40,7 @@ class PostCell: UITableViewCell {
     commentCount.text = "\(post?.comments_count ?? 0)"
     name.text = post?.username ?? " "
     body.text = post?.body ?? " "
-    publish_at.text = TimeUtil.fomatTime(post?.publish_at, form: "HH:mm")
+    publish_at.text = TimeUtil.timeAgo(post?.publish_at)
     images.sizeToFit()
     images.reloadData()
   }
