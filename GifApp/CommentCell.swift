@@ -18,7 +18,7 @@ class CommentCell: UITableViewCell {
   func setDate(comment: Comment?){
     ImageUtil.convertImageToCircle(avator)
     name.text! = comment?.name ?? ""
-    publish_at.text! = TimeUtil.fomatTime(comment?.publish_at, form: "HH:mm")
+    publish_at.text! = TimeUtil.timeAgo(comment?.publish_at)
     body.text! = comment?.body ?? ""
     avator.kf_setImageWithURL(NSURL(string: comment?.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
     self.comment = comment
