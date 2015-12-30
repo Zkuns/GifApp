@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import JLToast
+import Toast
 import SwiftSpinner
 
 protocol AfterLogin{
@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
   var keyboardHeight: CGFloat?
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var container: UIView!
+  var message: String?
   var isShow: Bool = false
   var loginDelegate: AfterLogin?
   
@@ -59,6 +60,9 @@ class LoginViewController: UIViewController {
   func updateUI(){
     let tap = UITapGestureRecognizer(target: self, action: "disappearKeyBoard:")
     self.view.addGestureRecognizer(tap)
+    if let message = message{
+      self.view.makeToast(message, duration: 1, position: CSToastPositionCenter, style: nil)
+    }
   }
 
   func disappear(){
@@ -77,7 +81,7 @@ class LoginViewController: UIViewController {
     User.login(email, passwd: password){
       isSuccess,resultMsg in
       SwiftSpinner.hide()
-      if !self.isShow { JLToast.makeText(resultMsg,duration: JLToastDelay.ShortDelay).show() }
+      if !self.isShow { self.view.makeToast(resultMsg, duration: 1, position: CSToastPositionCenter, style: nil) }
       if isSuccess {
         self.isShow = true
         self.disappear()

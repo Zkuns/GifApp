@@ -12,6 +12,10 @@ protocol DetailImageDelegate{
   func openDetail(urls: [String]?, index: Int)
 }
 
+protocol OpenPostDetailControllerDelegate{
+  func openDetail(post: Post)
+}
+
 class GeekTalkViewController: BasicViewController {
   @IBOutlet weak var postTable: UITableView!
   var refreshControl: UIRefreshControl?
@@ -83,6 +87,7 @@ extension GeekTalkViewController: UITableViewDataSource{
     let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostCell
     let post = posts?[indexPath.row]
     cell.detailImageDelegate = self
+    cell.openPostDetailDelegate = self
     cell.setData(post)
     return cell
   }
@@ -112,5 +117,15 @@ extension GeekTalkViewController: DetailImageDelegate{
       controller.currentPage = index
       self.presentViewController(controller, animated: true, completion: nil)
     }
+  }
+}
+
+extension GeekTalkViewController: OpenPostDetailControllerDelegate{
+  func openDetail(post: Post){
+    let postDetailViewController = storyboard?.instantiateViewControllerWithIdentifier("postDetailViewController") as! PostDetailViewController
+    postDetailViewController.post = post
+    postDetailViewController.detailImageDelegate = self
+    postDetailViewController.openFromCommentButton = true
+    self.navigationController?.pushViewController(postDetailViewController, animated: true)
   }
 }

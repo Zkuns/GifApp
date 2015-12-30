@@ -50,6 +50,7 @@ class MenuViewController: ApplicationViewController {
   }
   
   func updateUI(){
+    username.text = "登陆"
     ImageUtil.convertImageToCircle(avator)
     menuTable.separatorStyle = UITableViewCellSeparatorStyle.None
     updateCurrentUser()

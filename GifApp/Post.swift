@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
-import JLToast
+import Toast
 
 let postAPI = Config.baseUrl + "/api/v1/posts?page="
 //let postAPI = "http://localhost:3000/api/v1/posts?page="

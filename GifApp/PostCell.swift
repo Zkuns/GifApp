@@ -11,6 +11,7 @@ import UIKit
 class PostCell: UITableViewCell {
   
   var detailImageDelegate: DetailImageDelegate?
+  var openPostDetailDelegate: OpenPostDetailControllerDelegate?
   @IBOutlet weak var name: UILabel!
   @IBOutlet weak var publish_at: UILabel!
   @IBOutlet weak var images: GridView!
@@ -36,6 +37,7 @@ class PostCell: UITableViewCell {
     like = Post.islike(post?.id ?? "")
     updateLikeArea(0)
     likeCount.text = "\(post?.like_count ?? 0)"
+    commentCount.text = "\(post?.comments_count ?? 0)"
     name.text = post?.username ?? " "
     body.text = post?.body ?? " "
     publish_at.text = TimeUtil.fomatTime(post?.publish_at, form: "HH:mm")
@@ -63,7 +65,7 @@ class PostCell: UITableViewCell {
   }
   
   @IBAction func clickComment(sender: AnyObject) {
-    
+    openPostDetailDelegate?.openDetail(post!)
   }
   
   @IBAction func clickLike(sender: AnyObject) {

@@ -44,6 +44,7 @@
 		F7C9DE321C2B99E4007E5355 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C9DE311C2B99E4007E5355 /* BaseModel.swift */; };
 		F7CBC2261C10175500CB98D8 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBC2251C10175500CB98D8 /* PostCell.swift */; };
 		F7CBC2281C11732B00CB98D8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBC2271C11732B00CB98D8 /* ImageCell.swift */; };
+		F7D87A681C312843006A504E /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D87A671C312843006A504E /* Circle.swift */; };
 		F7DD8B161C0E749400F20DC3 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DD8B151C0E749400F20DC3 /* ImageUtil.swift */; };
 		F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */; };
 		F7DFD9411C06D30300465F40 /* GeekTalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */; };
@@ -123,6 +124,7 @@
 		F7C9DE311C2B99E4007E5355 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		F7CBC2251C10175500CB98D8 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F7CBC2271C11732B00CB98D8 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		F7D87A671C312843006A504E /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		F7DD8B151C0E749400F20DC3 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		F7DFD93E1C06D2E700465F40 /* GuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
 		F7DFD9401C06D30300465F40 /* GeekTalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeekTalkViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				F70CA9381C2BA8F8008915BC /* CommentCell.swift */,
 				F70CA93A1C2BC440008915BC /* PostDetailCell.swift */,
 				F70CA93C1C2BDFEB008915BC /* postDetailHeader.swift */,
+				F7D87A671C312843006A504E /* Circle.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				F70CA9391C2BA8F8008915BC /* CommentCell.swift in Sources */,
 				F7C9DE321C2B99E4007E5355 /* BaseModel.swift in Sources */,
 				F70CA93B1C2BC440008915BC /* PostDetailCell.swift in Sources */,
+				F7D87A681C312843006A504E /* Circle.swift in Sources */,
 				F71A60AB1C16ABD800C5C905 /* TimeUtil.swift in Sources */,
 				F73931E41C158BEE000C66B4 /* GridView.swift in Sources */,
 				F774E1E31C0564BA00ED8C65 /* MenuCell.swift in Sources */,

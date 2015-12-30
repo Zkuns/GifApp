@@ -11,6 +11,7 @@ import UIKit
 protocol pageIndexDelegate{
   func setPageIndexView(page: Int)
 }
+
 class ImagePageViewController: UIViewController {
   @IBOutlet weak var pageIndex: UILabel!
   

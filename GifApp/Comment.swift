@@ -10,8 +10,8 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-//let commentsAPI = Config.baseUrl + "/api/v1/posts/"
-let commentsAPI = "http://localhost:3000" + "/api/v1/posts/"
+let commentsAPI = Config.baseUrl + "/api/v1/posts/"
+//let commentsAPI = "http://localhost:3000" + "/api/v1/posts/"
 class Comment {
   var body: String?
   var id: String?
@@ -30,8 +30,18 @@ class Comment {
     self.post_id = post_id
   }
   
+  static func checkText(text: String) -> String?{
+    let fomate = text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    if fomate.characters.count <= 0{
+      return "评论不能为空"
+    } else if fomate.characters.count >= 140{
+      return "评论不能大于140个字"
+    }
+    return nil
+  }
+  
   static func getComments(post_id: String, callback: (Bool,[Comment]?)->()){
-    Alamofire.request(.GET, postCommentAPI(post_id)).response{ request, response, data, error in
+    Alamofire.request(.GET,getCommentAPI(post_id)).response{ request, response, data, error in
       if HttpUtils.isSuccess(response){
         let comments = JSON(data: data!)["comments"].array
         let result = comments!.map{ comment -> Comment in
@@ -49,7 +59,26 @@ class Comment {
     return com
   }
   
-  static func postCommentAPI(post_id: String) -> String{
+  static func getCommentAPI(post_id: String) -> String{
     return commentsAPI + post_id + "/comments/comments.json"
+  }
+  
+  static func postCommentAPI(post_id: String) -> String{
+    return commentsAPI + post_id + "/post_comments/post_comments.json"
+  }
+  
+  static func postComment(text: String, post_id: String, firstTime: Bool = true, callback: (Bool)->()){
+    Alamofire.request(.POST, postCommentAPI(post_id), parameters: ["post_body": text, "access_token": User.access_token ?? ""]).response{ request, response, data, error in
+      if HttpUtils.isSuccess(response){
+        callback(true)
+      } else {
+        if HttpUtils.isAccesstokenError(response) && firstTime{
+          User.refreshToken()
+          postComment(text, post_id: post_id, firstTime: false, callback: callback)
+        } else {
+          callback(false)
+        }
+      }
+    }
   }
 }

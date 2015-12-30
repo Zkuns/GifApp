@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import RainbowSwift
+import Toast
 
 class PostDetailViewController: ApplicationViewController{
   @IBOutlet weak var commentTable: UITableView!
   var detailImageDelegate: DetailImageDelegate?
-  @IBOutlet weak var commentText: UITextField!
-  @IBOutlet weak var commentButton: UIButton!
   @IBOutlet weak var commentArea: UIView!
+  @IBOutlet weak var commentText: UITextView!
+  @IBOutlet weak var commentHeight: NSLayoutConstraint!
   var post: Post?
   var tap: UITapGestureRecognizer?
+  var openFromCommentButton: Bool = false
+  var keyBoardHeight: CGFloat?
+  var viewIsUp: Bool = false
   var comments: [Comment]? {
     didSet{
       commentTable.reloadData()
@@ -38,6 +43,10 @@ class PostDetailViewController: ApplicationViewController{
   }
   
   private func updateUI(){
+    commentText.delegate = self
+    commentText.text = "字数不能大于140字"
+    commentText.textColor = UIColor.lightGrayColor()
+    if openFromCommentButton { commentText.becomeFirstResponder() }
     if let post = post {
       Comment.getComments(post.id ?? ""){ success, comments in
         if success {
@@ -47,26 +56,60 @@ class PostDetailViewController: ApplicationViewController{
     }
   }
   
+  @IBAction func clickComment(sender: AnyObject) {
+    let text = commentText.text
+    if let message = Comment.checkText(text){
+      self.view.makeToast(message, duration: 1, position: CSToastPositionCenter, style: nil)
+      return
+    }
+    Comment.postComment(text, post_id: post?.id ?? ""){ success in
+      if success {
+        self.commentText.text = ""
+        self.commentText.resignFirstResponder()
+        self.view.makeToast("评论成功", duration: 1, position: CSToastPositionCenter, style: nil)
+        Comment.getComments(self.post?.id ?? ""){ success, comments in
+          if success {
+            self.comments = comments
+            let height = self.commentTable.contentSize.height - self.commentTable.bounds.size.height;
+            self.commentTable.contentOffset = CGPoint(x: 0, y: height)
+          }
+        }
+      } else {
+        self.view.makeToast("网络连接失败请重新提交", duration: 1, position: CSToastPositionCenter, style: nil)
+      }
+    }
+  }
+  
   func keyboardShown(notification: NSNotification){
-//    let info = notification.userInfo!
-//    let value: AnyObject = info[UIKeyboardFrameEndUserInfoKey]!
-//    let rawFrame = value.CGRectValue
-//    let keyboardFrame = view.convertRect(rawFrame, fromView: nil)
-//    print(keyboardFrame.height)
-//    print(commentArea.frame.origin.y)
-//    commentArea.frame.origin.y = commentArea.frame.origin.y - keyboardFrame.height - 200
-//    print(commentArea.frame.origin.y)
-    commentArea.frame.origin.y = 100
-    print(commentArea.frame.origin)
+    let info = notification.userInfo!
+    let value: AnyObject = info[UIKeyboardFrameEndUserInfoKey]!
+    let rawFrame = value.CGRectValue
+    let keyboardFrame = view.convertRect(rawFrame, fromView: nil)
+    keyBoardHeight = keyboardFrame.height
     tap = UITapGestureRecognizer(target: self, action: "disappearKeyBoard:")
     self.view.addGestureRecognizer(tap!)
+    if let height = keyBoardHeight {
+      if self.commentTable.contentSize.height >= UIScreen.mainScreen().bounds.height && !self.viewIsUp{
+        self.viewIsUp = true
+        commentTable.contentOffset.y += height
+      }
+      UIView.animateWithDuration(1, animations: {
+        self.commentHeight.constant = -height
+        self.view.layoutIfNeeded()
+      })
+      self.commentTable.contentSize.height += height
+    }
   }
   
   func keyboardHide(notification: NSNotification){
-//    commentArea.frame.origin.y = UIScreen.mainScreen().bounds.height - commentArea.frame.height
-//    commentArea.frame.origin.y = 200
-    guard tap != nil else { return }
-    self.view.removeGestureRecognizer(tap!)
+    self.commentHeight.constant = 0
+    if let height = keyBoardHeight {
+      if self.viewIsUp { self.commentTable.contentOffset.y -= height }
+      commentTable.contentSize.height -= height
+    }
+    if let tap = self.tap {
+      self.view.removeGestureRecognizer(tap)
+    }
   }
   
 }
@@ -124,8 +167,37 @@ extension PostDetailViewController: UITableViewDataSource{
   
 }
 
+extension PostDetailViewController: UITextViewDelegate{
+  func textViewDidBeginEditing(_: UITextView) {
+    if User.access_token == nil{
+      login(self, message: "请先登陆")
+    }
+    if commentText.text == "字数不能大于140字" {
+      commentText.text = ""
+      commentText.textColor = UIColor.blackColor()
+    }
+  }
+  
+  func textViewDidEndEditing(textView: UITextView) {
+    if commentText.text == "" {
+      commentText.text = "字数不能大于140字"
+      commentText.textColor = UIColor.lightGrayColor()
+    }
+  }
+}
+
 extension PostDetailViewController: UIGestureRecognizerDelegate{
   func disappearKeyBoard(recognizer: UITapGestureRecognizer){
+    commentText.resignFirstResponder()
+  }
+}
+
+extension PostDetailViewController: AfterLogin{
+  func onSuccess() {
+    
+  }
+  
+  func onFailed() {
     commentText.resignFirstResponder()
   }
 }
