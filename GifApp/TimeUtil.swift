@@ -18,7 +18,6 @@ class TimeUtil{
   
   static func timeAgo(time: String?) -> String{
     let date = NSDate(timeIntervalSince1970: Double(time ?? "0")!)
-    log.info("\(date)")
     return date.timeAgo
   }
 }

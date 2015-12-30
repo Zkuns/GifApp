@@ -40,6 +40,7 @@ class GeekTalkViewController: BasicViewController {
     refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
     postTable.addSubview(refreshControl!)
     postTable.separatorStyle = UITableViewCellSeparatorStyle.None
+    postTable.tableFooterView = postTable.dequeueReusableCellWithIdentifier("noMore")!
   }
   
   func refresh(sender: AnyObject){
@@ -58,7 +59,7 @@ class GeekTalkViewController: BasicViewController {
   
   func reloadData(page: Int){
     Post.getData(page){ refresh, data in
-      if (data?.count ?? 0 < 3){ self.hasMore = false }
+      if (data?.count ?? 0 < 6){ self.hasMore = false }
       if refresh {
         self.posts = data
         self.page = 1
@@ -77,14 +78,10 @@ extension GeekTalkViewController: UITableViewDataSource{
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return posts?.count == nil ? 0 : ((posts?.count)! + 1)
+    return posts?.count ?? 0
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-    if (indexPath.row == posts?.count ?? 0){
-      let cell = tableView.dequeueReusableCellWithIdentifier("noMore")!
-      return cell
-    }
     if indexPath.row == ((posts?.count ?? 0 ) - 1) && (hasMore) {
       reloadData(page)
     }

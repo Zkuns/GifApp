@@ -13,6 +13,7 @@ class ImageCell: UICollectionViewCell {
   @IBOutlet weak var imageView: UIImageView!
   
   func setImage(imageUrl: String){
+    let imageUrl = imageUrl + "?imageMogr2/thumbnail/300x/crop/x300"
     imageView.kf_setImageWithURL(NSURL(string: imageUrl)!)
   }
 }
