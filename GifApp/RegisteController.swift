@@ -46,7 +46,6 @@ class RegisteController: UIViewController, UIWebViewDelegate {
   }
   
   private func handleCurrentUrl(url: NSURL){
-    print("handleCurrentUrl \(url.absoluteString)")
     if url.absoluteString.containsString("/loginsuccess?"){
       if let query = url.query {
         var email = ""
@@ -54,7 +53,6 @@ class RegisteController: UIViewController, UIWebViewDelegate {
         for keyValueString in query.componentsSeparatedByString("&") {
           var parts = keyValueString.componentsSeparatedByString("=")
           if parts.count < 2 { continue; }
-          print(parts)
           if parts[0].stringByRemovingPercentEncoding! == "email"{
             email = parts[1].stringByRemovingPercentEncoding!
           }
@@ -68,7 +66,6 @@ class RegisteController: UIViewController, UIWebViewDelegate {
   }
   
   private func loginSuccess(email: String,password: String){
-    print("email = \(email) , password = \(password)")
     let data = ["email":email,"password":password]
     NSNotificationCenter.defaultCenter().postNotificationName(NotificationName.userRegisted, object: nil, userInfo: data)
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

@@ -75,6 +75,10 @@ struct TrafficItem {
   let iconImage: UIImage
 }
 
+struct PostConfig{
+  static let postLikeKey = "liked_post"
+}
+
 struct Default {
   static let avatar = "default_avator"
   static let menu_avatar = "menu_default_avator"

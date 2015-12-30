@@ -60,7 +60,7 @@ class User{
       let data = JSON(data: data!)
       if HttpUtils.isSuccess(response) {
         refresh_token = data["refresh_token"].string!
-        access_token = data["access_token"].string! + "a"
+        access_token = data["access_token"].string!
         callback(true, resultMsg: "登录成功")
       }else{
         if data["error"] != nil {
@@ -91,7 +91,7 @@ class User{
     }
   }
   
-  static func getUserInfo(accessToken: String, callback: (User?)->()){
+  static func getUserInfo(accessToken: String, firstTime: Bool = true,callback: (User?)->()){
     Alamofire.request(.GET, userInfoAPI + accessToken).response{ request, response, data, error in
       if HttpUtils.isSuccess(response) {
         let data = JSON(data: data!)
@@ -101,18 +101,18 @@ class User{
         user = User(id: data["id"].string, username: data["username"].string, avator: data["avator"].string, tickets: tickets, posts: [], collections: [])
         callback(user)
       } else {
-        guard let token = self.refresh_token else {
+        if HttpUtils.isAccesstokenError(response) && firstTime{
+          refreshToken()
+          getUserInfo(self.access_token ?? "", firstTime: false, callback: callback)
+        } else {
           callback(nil)
-          return
         }
-        refreshToken(token)
-        getUserInfo(self.access_token ?? "", callback: callback)
       }
     }
   }
   
-  private static func refreshToken(refresh_token: String){
-    Alamofire.request(.POST, userAccessTokenAPI, parameters: ["refresh_token": refresh_token, "grant_type": "refresh_token", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
+  static func refreshToken(){
+    Alamofire.request(.POST, userAccessTokenAPI, parameters: ["refresh_token": User.refresh_token ?? "", "grant_type": "refresh_token", "client_id": OmniauthConfig.client_id, "client_secret": OmniauthConfig.client_secret]).response{ request, response, data, error in
       let data = JSON(data: data!)
       if HttpUtils.isSuccess(response) {
         self.refresh_token = data["refresh_token"].string!

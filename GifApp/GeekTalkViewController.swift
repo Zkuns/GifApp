@@ -12,6 +12,10 @@ protocol DetailImageDelegate{
   func openDetail(urls: [String]?, index: Int)
 }
 
+protocol OpenPostDetailControllerDelegate{
+  func openDetail(post: Post)
+}
+
 class GeekTalkViewController: BasicViewController {
   @IBOutlet weak var postTable: UITableView!
   var refreshControl: UIRefreshControl?
@@ -35,6 +39,7 @@ class GeekTalkViewController: BasicViewController {
     refreshControl = UIRefreshControl()
     refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
     postTable.addSubview(refreshControl!)
+    postTable.separatorStyle = UITableViewCellSeparatorStyle.None
   }
   
   func refresh(sender: AnyObject){
@@ -63,6 +68,7 @@ class GeekTalkViewController: BasicViewController {
       self.page += 1
     }
   }
+  
 }
 
 extension GeekTalkViewController: UITableViewDataSource{
@@ -81,6 +87,7 @@ extension GeekTalkViewController: UITableViewDataSource{
     let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostCell
     let post = posts?[indexPath.row]
     cell.detailImageDelegate = self
+    cell.openPostDetailDelegate = self
     cell.setData(post)
     return cell
   }
@@ -96,8 +103,11 @@ extension GeekTalkViewController: UITableViewDataSource{
 extension GeekTalkViewController: UITableViewDelegate{
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    let postDetailViewController = storyboard?.instantiateViewControllerWithIdentifier("postDetailViewController") as! PostDetailViewController
+    postDetailViewController.post = posts?[indexPath.row]
+    postDetailViewController.detailImageDelegate = self
+    self.navigationController?.pushViewController(postDetailViewController, animated: true)
   }
-  
 }
 
 extension GeekTalkViewController: DetailImageDelegate{
@@ -110,24 +120,12 @@ extension GeekTalkViewController: DetailImageDelegate{
   }
 }
 
-//extension GeekTalkViewController: DetailImageDelegate{
-//  func openDetail(images_url: [String]){
-//    if let controller = storyboard?.instantiateViewControllerWithIdentifier("imageDetail") as? ImageDetailController{
-//      dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)){
-//        let imagesData = images_url.map{ url in
-//          NSData(contentsOfURL: NSURL(string: url)!)
-//        }
-//        dispatch_async(dispatch_get_main_queue()){
-//          let images = imagesData.map{ imageData -> UIImage in
-//            if let data = imageData{
-//              return UIImage(data: data)!
-//            }
-//            return UIImage()
-//          }
-//          controller.pageImages = images
-//          self.presentViewController(controller, animated: true, completion: nil)
-//        }
-//      }
-//    }
-//  }
-//}
+extension GeekTalkViewController: OpenPostDetailControllerDelegate{
+  func openDetail(post: Post){
+    let postDetailViewController = storyboard?.instantiateViewControllerWithIdentifier("postDetailViewController") as! PostDetailViewController
+    postDetailViewController.post = post
+    postDetailViewController.detailImageDelegate = self
+    postDetailViewController.openFromCommentButton = true
+    self.navigationController?.pushViewController(postDetailViewController, animated: true)
+  }
+}

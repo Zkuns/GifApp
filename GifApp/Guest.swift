@@ -67,7 +67,7 @@ class Guest{
     let azchar = Array("abcedfghijklmnopqrstuvwxyz".characters)
     let azstr = azchar.map{ return String($0).uppercaseString }
     var result = [String: [Guest]]()
-    azstr.map{ str in
+    for str in azstr {
       result[str] = []
     }
     for guest in guests{

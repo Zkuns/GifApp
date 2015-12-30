@@ -30,7 +30,6 @@ class SpeechViewController: PageViewController {
   private func setupTableView() {
     speechTable.delegate = self
     speechTable.dataSource = self
-    speechTable.separatorStyle = UITableViewCellSeparatorStyle.None
   }
   
   override func viewWillAppear(animated: Bool) {
