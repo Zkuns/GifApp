@@ -12,7 +12,7 @@ import Alamofire
 
 let commentsAPI = Config.baseUrl + "/api/v1/posts/"
 //let commentsAPI = "http://localhost:3000" + "/api/v1/posts/"
-class Comment {
+class Comment: CustomStringConvertible{
   var body: String?
   var id: String?
   var name: String?
@@ -20,6 +20,26 @@ class Comment {
   var publish_at: String?
   var user_id: String?
   var post_id: String?
+  
+  var description: String {
+    get {
+      return "id: \(id), name: \(name), body: \(body)";
+    }
+  }
+  
+  var reported: Bool{
+    get{
+      return LocalStorage.arrayContains(PostConfig.reportCommentKey, value: id ?? "")
+    }
+    set{
+      if newValue{
+        LocalStorage.arrayAppend(PostConfig.reportCommentKey, value: id ?? "")
+      }else{
+        LocalStorage.removeFromArray(PostConfig.reportCommentKey, value: id ?? "")
+      }
+    }
+    
+  }
   init(name: String?, avator: String?, publish_at: String?, body: String?, id: String?, user_id: String?, post_id: String?){
     self.name = name
     self.avator = avator
@@ -31,7 +51,7 @@ class Comment {
   }
   
   static func checkText(text: String) -> String?{
-    let fomate = text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    let fomate = text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     if fomate.characters.count <= 0{
       return "评论不能为空"
     } else if fomate.characters.count >= 140{
@@ -55,7 +75,7 @@ class Comment {
   }
   
   static func getComment(comment: JSON) -> Comment{
-    let com = Comment(name: comment["name"].string, avator: comment["avator"].string, publish_at: comment["publish_at"].string, body: comment["body"].string, id: comment["id"].string, user_id: comment["user_id"].string, post_id: comment["post_id"].string)
+    let com = Comment(name: comment["name"].string, avator: comment["avator"].string, publish_at: comment["publish_at"].string, body: comment["body"].string, id: "\(comment["id"].int)", user_id: comment["user_id"].string, post_id: comment["post_id"].string)
     return com
   }
   
@@ -67,8 +87,13 @@ class Comment {
     return commentsAPI + post_id + "/post_comments/post_comments.json"
   }
   
+  static func reportCommentAPI(comment_id: String) -> String{
+    return commentsAPI + comment_id + "/report_comment.json"
+  }
+  
   static func postComment(text: String, post_id: String, firstTime: Bool = true, callback: (Bool)->()){
-    Alamofire.request(.POST, postCommentAPI(post_id), parameters: ["post_body": text, "access_token": User.access_token ?? ""]).response{ request, response, data, error in
+    let fomat_text = text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    Alamofire.request(.POST, postCommentAPI(post_id), parameters: ["post_body": fomat_text, "access_token": User.access_token ?? ""]).response{ request, response, data, error in
       if HttpUtils.isSuccess(response){
         callback(true)
       } else {
@@ -81,4 +106,13 @@ class Comment {
       }
     }
   }
+  
+  func uploadReportComment(callback: ()->()){
+    reported = !reported
+    Alamofire.request(.POST, Comment.reportCommentAPI(self.id ?? ""), parameters: ["report_before": !reported]).response{
+      request, response, data, error in
+      callback()
+    }
+  }
+  
 }

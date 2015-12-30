@@ -17,7 +17,7 @@ class ApplicationViewController: UIViewController{
   func login(afterLoginDelegate: AfterLogin?, message: String? = nil){
     let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     
-    if let loginController = storyboard.instantiateViewControllerWithIdentifier("login") as? LoginViewController{
+    if let loginController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController{
       loginController.loginDelegate = afterLoginDelegate
       loginController.message = message
       self.presentViewController(loginController, animated: true, completion: nil)

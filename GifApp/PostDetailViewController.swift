@@ -70,8 +70,6 @@ class PostDetailViewController: ApplicationViewController{
         Comment.getComments(self.post?.id ?? ""){ success, comments in
           if success {
             self.comments = comments
-            let height = self.commentTable.contentSize.height - self.commentTable.bounds.size.height;
-            self.commentTable.contentOffset = CGPoint(x: 0, y: height)
           }
         }
       } else {
@@ -89,7 +87,7 @@ class PostDetailViewController: ApplicationViewController{
     tap = UITapGestureRecognizer(target: self, action: "disappearKeyBoard:")
     self.view.addGestureRecognizer(tap!)
     if let height = keyBoardHeight {
-      if self.commentTable.contentSize.height >= UIScreen.mainScreen().bounds.height && !self.viewIsUp{
+      if (self.commentTable.contentSize.height >= UIScreen.mainScreen().bounds.height && !self.viewIsUp){
         self.viewIsUp = true
         commentTable.contentOffset.y += height
       }
@@ -104,7 +102,10 @@ class PostDetailViewController: ApplicationViewController{
   func keyboardHide(notification: NSNotification){
     self.commentHeight.constant = 0
     if let height = keyBoardHeight {
-      if self.viewIsUp { self.commentTable.contentOffset.y -= height }
+      if self.viewIsUp {
+        self.commentTable.contentOffset.y -= height
+        self.viewIsUp = false
+      }
       commentTable.contentSize.height -= height
     }
     if let tap = self.tap {

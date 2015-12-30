@@ -77,10 +77,14 @@ extension GeekTalkViewController: UITableViewDataSource{
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return posts?.count ?? 0
+    return posts?.count == nil ? 0 : ((posts?.count)! + 1)
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+    if (indexPath.row == posts?.count ?? 0){
+      let cell = tableView.dequeueReusableCellWithIdentifier("noMore")!
+      return cell
+    }
     if indexPath.row == ((posts?.count ?? 0 ) - 1) && (hasMore) {
       reloadData(page)
     }
@@ -93,6 +97,9 @@ extension GeekTalkViewController: UITableViewDataSource{
   }
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    if (indexPath.row == posts?.count ?? 0){
+      return 40
+    }
     let cell = tableView.dequeueReusableCellWithIdentifier("postCell") as! PostCell
     cell.setData(posts?[indexPath.row])
     return cell.getRowHeight()

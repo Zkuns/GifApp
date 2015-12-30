@@ -77,6 +77,7 @@ struct TrafficItem {
 
 struct PostConfig{
   static let postLikeKey = "liked_post"
+  static let reportCommentKey = "report_comment"
 }
 
 struct Default {
