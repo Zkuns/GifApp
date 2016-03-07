@@ -92,3 +92,7 @@ struct ColorConfig{
   static let yellowColor = UIColor(red: 253.0/255.0, green: 220.0/255.0, blue: 0, alpha: 1)
 //  static let greenColor = UIColor(colorLiteralRed: 0, green: 170/255.0, blue: 173/255.0, alpha: 1)
 }
+
+struct AboutConfig{
+  static let aboutHtmlKey = "aboutHtmlKey"
+}

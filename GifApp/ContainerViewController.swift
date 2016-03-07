@@ -61,7 +61,7 @@ class ContainerViewController: ApplicationViewController{
     containerNavigationController.navigationBar.tintColor = UIColor.whiteColor()
     containerNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     containerNavigationController.navigationBar.barTintColor = ColorConfig.greenColor
-    containerNavigationController.navigationBar.translucent = false;
+    containerNavigationController.navigationBar.translucent = false
     currentMenuItem = MenuItem.menuItems.first
     if AppDelegate.firstOpen{
       loadLaunchView()

@@ -24,6 +24,8 @@
 		F70CA9391C2BA8F8008915BC /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70CA9381C2BA8F8008915BC /* CommentCell.swift */; };
 		F70CA93B1C2BC440008915BC /* PostDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70CA93A1C2BC440008915BC /* PostDetailCell.swift */; };
 		F70CA93D1C2BDFEB008915BC /* postDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70CA93C1C2BDFEB008915BC /* postDetailHeader.swift */; };
+		F714EF631C3663BE0065CC99 /* AboutWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F714EF621C3663BE0065CC99 /* AboutWebViewController.swift */; };
+		F714EF651C366A620065CC99 /* Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = F714EF641C366A620065CC99 /* Html.swift */; };
 		F71A60AB1C16ABD800C5C905 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A60AA1C16ABD800C5C905 /* TimeUtil.swift */; };
 		F71A60AD1C16CE6400C5C905 /* ImageDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A60AC1C16CE6400C5C905 /* ImageDetailController.swift */; };
 		F7236E577D0960A4F3FDF070 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7917F83BB9CFF58352FA1162 /* Pods.framework */; };
@@ -105,6 +107,8 @@
 		F70CA9381C2BA8F8008915BC /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		F70CA93A1C2BC440008915BC /* PostDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailCell.swift; sourceTree = "<group>"; };
 		F70CA93C1C2BDFEB008915BC /* postDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postDetailHeader.swift; sourceTree = "<group>"; };
+		F714EF621C3663BE0065CC99 /* AboutWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWebViewController.swift; sourceTree = "<group>"; };
+		F714EF641C366A620065CC99 /* Html.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Html.swift; sourceTree = "<group>"; };
 		F71A60AA1C16ABD800C5C905 /* TimeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUtil.swift; sourceTree = "<group>"; };
 		F71A60AC1C16CE6400C5C905 /* ImageDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailController.swift; sourceTree = "<group>"; };
 		F7323E011C093445002CDDC4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 				F76BEA041C2407C3003FEB50 /* BasicViewController.swift */,
 				F7BB15F41C25ADD500AFB423 /* ApplicationViewController.swift */,
 				F7C9DE2F1C2AA58A007E5355 /* PostDetailViewController.swift */,
+				F714EF621C3663BE0065CC99 /* AboutWebViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				F7323E051C093766002CDDC4 /* Post.swift */,
 				8E327B811C156B350063E985 /* Ticket.swift */,
 				F7C9DE311C2B99E4007E5355 /* BaseModel.swift */,
+				F714EF641C366A620065CC99 /* Html.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 				8E8675E41C102CBB0001D41B /* UserTicketsViewController.swift in Sources */,
 				F7323E061C093766002CDDC4 /* Post.swift in Sources */,
 				F70CA9391C2BA8F8008915BC /* CommentCell.swift in Sources */,
+				F714EF631C3663BE0065CC99 /* AboutWebViewController.swift in Sources */,
 				F7C9DE321C2B99E4007E5355 /* BaseModel.swift in Sources */,
 				F70CA93B1C2BC440008915BC /* PostDetailCell.swift in Sources */,
 				F7D87A681C312843006A504E /* Circle.swift in Sources */,
@@ -538,6 +545,7 @@
 				8E327B821C156B350063E985 /* Ticket.swift in Sources */,
 				F7DFD93F1C06D2E700465F40 /* GuestViewController.swift in Sources */,
 				F7323E021C093445002CDDC4 /* User.swift in Sources */,
+				F714EF651C366A620065CC99 /* Html.swift in Sources */,
 				8EE362C91C1A80640053FC48 /* RegisteController.swift in Sources */,
 				8E8675E01C1027270001D41B /* GSegmentControl.swift in Sources */,
 				8E794AAC1C10723E004ACFEE /* TicketCell.swift in Sources */,

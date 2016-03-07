@@ -39,7 +39,7 @@ class PostDetailCell: UITableViewCell {
   }
   
   func getHeight() -> CGFloat{
-    let constraint_height: CGFloat = 60
+    let constraint_height: CGFloat = 70
     let body_height = post?.body?.boundingRectWithSize(CGSize(width:UIScreen.mainScreen().bounds.width-20, height: CGFloat(DBL_MAX)), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: body.font!, NSForegroundColorAttributeName: UIColor.redColor()], context: nil).height
     return constraint_height + name.frame.height + publish_at.frame.height + body_height! + images.frame.height
   }
@@ -63,7 +63,6 @@ extension PostDetailCell: UICollectionViewDataSource{
 
 extension PostDetailCell: UICollectionViewDelegate{
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    log.info("running")
     detailImageDelegate?.openDetail(post?.images, index: indexPath.row)
   }
 }

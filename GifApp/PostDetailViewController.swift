@@ -10,6 +10,11 @@ import UIKit
 import RainbowSwift
 import Toast
 
+protocol ReportDelegate{
+  func alertSure(callback: ()->())
+  func showToast(message: String)
+}
+
 class PostDetailViewController: ApplicationViewController{
   @IBOutlet weak var commentTable: UITableView!
   var detailImageDelegate: DetailImageDelegate?
@@ -33,6 +38,25 @@ class PostDetailViewController: ApplicationViewController{
     commentTable.delegate = self
     updateUI()
     addNotification()
+    initMenuItem()
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    guard openFromCommentButton else { return }
+    let postDetailCell = commentTable.dequeueReusableCellWithIdentifier("postDetailCell") as! PostDetailCell
+    postDetailCell.setData(post)
+    let height = postDetailCell.getHeight()
+    if (commentTable.contentSize.height - height - UIScreen.mainScreen().bounds.height + 88 < 0) && (comments?.count > 0) {
+      self.commentTable.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1), atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+    } else if comments?.count == 0 {
+    } else {
+      UIView.animateWithDuration(0.3, animations: { self.commentTable.contentOffset.y = height })
+    }
+  }
+  
+  private func initMenuItem(){
+    let menuItem = UIMenuItem(title: "举报", action: "report:")
+    UIMenuController.sharedMenuController().menuItems = [menuItem]
   }
   
   private func addNotification(){
@@ -46,7 +70,6 @@ class PostDetailViewController: ApplicationViewController{
     commentText.delegate = self
     commentText.text = "字数不能大于140字"
     commentText.textColor = UIColor.lightGrayColor()
-    if openFromCommentButton { commentText.becomeFirstResponder() }
     if let post = post {
       Comment.getComments(post.id ?? ""){ success, comments in
         if success {
@@ -149,6 +172,7 @@ extension PostDetailViewController: UITableViewDataSource{
     } else {
       let commentCell = tableView.dequeueReusableCellWithIdentifier("commentCell") as! CommentCell
       commentCell.setDate(comments?[indexPath.row])
+      commentCell.reportDelegate = self
       return commentCell
     }
   }
@@ -166,6 +190,19 @@ extension PostDetailViewController: UITableViewDataSource{
     }
   }
   
+  func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    return indexPath.section == 1
+  }
+  
+  func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+    if action.description == "report:"{
+      return true
+    }
+    return false
+  }
+  
+  func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+  }
 }
 
 extension PostDetailViewController: UITextViewDelegate{
@@ -200,5 +237,23 @@ extension PostDetailViewController: AfterLogin{
   
   func onFailed() {
     commentText.resignFirstResponder()
+  }
+}
+
+extension PostDetailViewController: ReportDelegate{
+  func alertSure(callback: () -> ()) {
+    let alertController = UIAlertController(title: "确定举报？", message: nil, preferredStyle: .Alert)
+    
+    let cancelAction = UIAlertAction(title: "取消", style: .Cancel) { _ in }
+    alertController.addAction(cancelAction)
+    
+    let OKAction = UIAlertAction(title: "确定", style: .Default) { _ in callback() }
+    alertController.addAction(OKAction)
+    
+    self.presentViewController(alertController, animated: true) {}
+  }
+  
+  func showToast(message: String) {
+    self.view.makeToast(message, duration: 1.5, position: CSToastPositionCenter, style: nil)
   }
 }

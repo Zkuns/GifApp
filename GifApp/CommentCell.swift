@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Toast
 
 class CommentCell: UITableViewCell {
   @IBOutlet weak var avator: UIImageView!
   @IBOutlet weak var name: UILabel!
   @IBOutlet weak var publish_at: UILabel!
   @IBOutlet weak var body: UILabel!
-  @IBOutlet weak var report_button: UIButton!
+  var reportDelegate: ReportDelegate?
   
   var comment: Comment?
   
@@ -23,16 +24,17 @@ class CommentCell: UITableViewCell {
     publish_at.text! = TimeUtil.timeAgo(comment?.publish_at)
     body.text! = comment?.body ?? ""
     avator.kf_setImageWithURL(NSURL(string: comment?.avator ?? "")!, placeholderImage: UIImage(named: "default_avator"))
-    let title = comment!.reported ? "取消举报" : "举报"
-    report_button.setTitle(title, forState: UIControlState.Normal)
     self.comment = comment
   }
   
-  @IBAction func reportComment(sender: UIButton) {
-    report_button.userInteractionEnabled = false
-    comment?.uploadReportComment(){
-      self.report_button.userInteractionEnabled = true
-      self.report_button.setTitle(self.comment!.reported ? "取消举报":"举报", forState: .Normal)
+  func report(sender: AnyObject?){
+    if comment!.reported {
+      reportDelegate?.showToast("已举报过")
+    } else {
+      reportDelegate?.alertSure(){
+        self.comment?.uploadReportComment(){}
+        self.makeToast("举报成功, 感谢为净化公园环境做出贡献", duration: 2, position: CSToastPositionCenter, style: nil)
+      }
     }
   }
   

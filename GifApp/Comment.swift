@@ -109,7 +109,7 @@ class Comment: CustomStringConvertible{
   
   func uploadReportComment(callback: ()->()){
     reported = !reported
-    Alamofire.request(.POST, Comment.reportCommentAPI(self.id ?? ""), parameters: ["report_before": !reported]).response{
+    Alamofire.request(.POST, Comment.reportCommentAPI(self.id ?? "")).response{
       request, response, data, error in
       callback()
     }
